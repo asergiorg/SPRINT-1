@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="This is an HTML5 example">
+  <meta name="keywords" content="HTML5, CSS3, JavaScript">
+  <title>This text is the title of the document</title>
+  <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background: #f5f5f5;
+        align-items: center;
+        color: #333;
+        line-height: 1.6;
+    }
+
+
+	h1 {
+	  font: bold 20px verdana, sans-serif;
+	}
+	h2 {
+	  font: bold 14px verdana, sans-serif;
+	}
+
+	header, section, footer, aside, nav, article, figure, figcaption, hgroup{
+	  display: block;
+	}
+
+	#wrapper {
+        width: 1100px;
+        margin: 40px auto;
+        display: flex;
+        gap: 40px;
+    }
+
+	#main_footer {
+	  clear: both;
+	  text-align: center;
+	  padding: 20px;
+	  border-top: 2px solid #999999;
+	}
+
+    .gallery {
+        width: 95%;
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .gallery img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+    }
+
+
+
+    #main_section section:nth-of-type(2) {
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        margin-bottom: 30px;
+    }
+
+    #main_section h1 {
+        font-size: 20px;
+        margin-bottom: 8px;
+        color: #222;
+    }
+
+    #main_section p {
+        margin-bottom: 20px;
+    }
+
+    .reservation-panel {
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 12px;
+        width: 300px;
+        text-align: center;
+        background: #fafafa;
+        align-items: center;
+    }
+
+    .reservation-form {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .form-group label {
+        font-weight: bold;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    .time-selector,
+    .people-selector {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .time-btn,
+    .people-btn {
+        width: 32px;
+        height: 32px;
+        border: none;
+        background: #ddd;
+        border-radius: 6px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .time-btn:hover,
+    .people-btn:hover {
+        background: #ccc;
+    }
+
+    .reserve-btn {
+        background-color: #007bff;
+        color: white;
+        padding: 12px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .reserve-btn:hover {
+        background-color: #0056b3;
+    }
+
+    .calendar {
+        width: 280px;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        background: #fff;
+        font-family: sans-serif;
+    }
+
+    .calendar-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .calendar-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 5px;
+    }
+
+    .day-name {
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .day {
+        text-align: center;
+        padding: 8px;
+        border-radius: 6px;
+        cursor: pointer;
+        background: #f5f5f5;
+    }
+
+    .day:hover {
+        background: #e0e0e0;
+    }
+
+    #main_section {
+        flex: 1;
+    }
+
+    .reservation-panel {
+        width: 320px;
+        flex-shrink: 0;
+    }
+
+    .activity-details {
+        width: 800px;
+    }
+    
+  </style>
+</head>
+<body>
+    <!-- Galería -->
+    <section class="gallery">
+        <img src="bosques-gallegos.jpg" width="400">
+        <img src="bosques-gallegos.jpg" width="400">
+        <img src="bosques-gallegos.jpg" width="400">
+    </section>
+
+<div id="wrapper">
+    <main id="main_section">
+        <!-- Detalles -->
+        <section class="activity-details">
+            <h1>Description</h1>
+            <p>Lorem ipsum...</p>
+
+            <h1>Duration</h1>
+            <p>Lorem h.</p>
+
+            <h1>Language</h1>
+            <p>Ipsum</p>
+
+            <h1>Accessibility</h1>
+            <p>Dolor</p>
+
+            <h1>Price</h1>
+            <p>Sit</p>
+        </section>
+
+    </main>
+    <section class="reservation-panel">
+        <h2>Reservation</h2>
+        <form class="reservation-form">
+
+            <!-- Calendar -->
+            <div class="calendar">
+                <div class="calendar-header">
+                    <button class="prev-month">◀</button>
+                    <h3 class="month-year">February 2026</h3>
+                    <button class="next-month">▶</button>
+                </div>
+
+                <div class="calendar-grid">
+                    <div class="day-name">M</div>
+                    <div class="day-name">T</div>
+                    <div class="day-name">W</div>
+                    <div class="day-name">T</div>
+                    <div class="day-name">F</div>
+                    <div class="day-name">S</div>
+                    <div class="day-name">S</div>
+
+                </div>
+            </div>
+
+            <!-- Hour selector -->
+            <div class="form-group">
+                <label for="time">Hour</label>
+                <div class="time-selector">
+                    <button type="button" class="time-btn" data-action="minus">−</button>
+                    <input type="time" id="time" name="time" value="10:00" required>
+                    <button type="button" class="time-btn" data-action="plus">+</button>
+                </div>
+            </div>
+
+            <!-- Participants selector -->
+            <div class="form-group">
+                <label for="people">Participants</label>
+                <div class="people-selector">
+                    <button type="button" class="people-btn" data-action="minus">−</button>
+                    <input type="number" id="people" name="people" value="1" min="1" max="20" required>
+                    <button type="button" class="people-btn" data-action="plus">+</button>
+                </div>
+            </div>
+
+            <button type="submit" class="reserve-btn">Make reservation</button>
+
+        </form>
+        </section>
+  <footer id="main_footer"></footer>
+</div>
+</body>
+</html>
