@@ -6,330 +6,460 @@
   <meta name="keywords" content="HTML5, CSS3, JavaScript">
   <title>This text is the title of the document</title>
   <style>
-    * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box
     }
 
-    body {
-        font-family: Arial, sans-serif;
-        background: #f5f5f5;
-        align-items: center;
-        color: #333;
-        line-height: 1.6;
+    body{
+        font-family:Arial,Helvetica,sans-serif;
+        background:#f5f5f5;
+        color:#333;
+        line-height:1.6
     }
 
-
-	h1 {
-	  font: bold 20px verdana, sans-serif;
-	}
-	h2 {
-	  font: bold 14px verdana, sans-serif;
-	}
-
-	header, section, footer, aside, nav, article, figure, figcaption, hgroup{
-	  display: block;
-	}
-
-	#wrapper {
-        width: 1100px;
-        margin: 40px auto;
-        display: flex;
-        gap: 40px;
+    h1{
+        font:bold 22px verdana, sans-serif
     }
 
-	#main_footer {
-	  clear: both;
-	  text-align: center;
-	  padding: 20px;
-	  border-top: 2px solid #999999;
-	}
-
-    .gallery {
-        width: 95%;
-        display: grid;
-        gap: 20px;
-        grid-template-columns: repeat(3, 1fr);
+    h2{
+        font:bold 16px verdana, sans-serif
     }
 
-    .gallery img {
-        width: 100%;
-        height: 300px;
-        object-fit: cover;
+    header,section,footer,aside,nav,article,figure,figcaption{display:block}
+
+    /* Layout */
+    .page-header{
+        max-width:1100px;
+        margin:24px auto 12px;
+        padding:0 12px
     }
 
-
-
-    #main_section section:nth-of-type(2) {
-        background: white;
-        padding: 20px;
-        border-radius: 12px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        margin-bottom: 30px;
+    .breadcrumb{
+        font-size:13px;
+        color:#666;
+        margin-bottom:8px
     }
 
-    #main_section h1 {
-        font-size: 20px;
-        margin-bottom: 8px;
-        color: #222;
+    .activity-title{
+        font-size:24px;
+        font-weight:700;
+        text-align:left;
+        margin:12px 0 16px;
+        padding-bottom:10px;
+        border-bottom:1px solid #eef2f6;
     }
 
-    #main_section p {
-        margin-bottom: 20px;
+    .gallery{
+        width:100%;
+        display:grid;
+        grid-template-columns:repeat(3,1fr);
+        gap:14px;
+        margin-top:16px
     }
 
-    .reservation-panel {
-        border: 1px solid #ddd;
-        padding: 20px;
-        border-radius: 12px;
-        width: 300px;
-        text-align: center;
-        background: #fafafa;
-        align-items: center;
+    .gallery img{
+        width:100%;
+        height:300px;
+        object-fit:cover
     }
 
-    .reservation-form {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        flex-direction: column;
-        gap: 20px;
+    #wrapper{
+        max-width:1100px;
+        margin:20px auto;
+        display:flex;
+        gap:32px;
+        align-items:flex-start;
+        padding:0 12px
     }
 
-    .form-group label {
-        font-weight: bold;
-        margin-bottom: 5px;
-        display: block;
+    #main_section{flex:1}
+
+    /* Activity details */
+    .activity-details{
+        background:#fff;
+        padding:22px;
+        border-radius:12px;
+        box-shadow:0 6px 18px rgba(16,24,40,0.06);
+        margin-bottom:20px
     }
 
-    .time-selector,
-    .people-selector {
-        display: flex;
-        align-items: center;
-        gap: 10px;
+    .activity-details p{
+        color:#444;
+        line-height:1.6;
+        margin-bottom:12px
     }
 
-    .time-btn,
-    .people-btn {
-        width: 32px;
-        height: 32px;
-        border: none;
-        background: #ddd;
-        border-radius: 6px;
-        font-size: 20px;
-        cursor: pointer;
+    /* Apiladas full-width */
+    .activity-grid{
+        display:block;
+        gap:12px;
+        margin-bottom:16px
     }
 
-    .time-btn:hover,
-    .people-btn:hover {
-        background: #ccc;
+    .activity-grid .activity-meta-box{
+        background:#fafafa;
+        padding:12px;
+        border-radius:8px;
+        margin-bottom:12px;
+        width:100%
     }
 
-    .reserve-btn {
-        background-color: #007bff;
-        color: white;
-        padding: 12px;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 16px;
+    .review{
+        background:transparent;
+        padding:0;
+        margin-bottom:12px
     }
 
-    .reserve-btn:hover {
-        background-color: #0056b3;
+    .review-item{
+        display:flex;
+        gap:12px;
+        align-items:flex-start;
+        padding:12px;
+        background:#f0f0f1;
+        border:1px solid #e6e9ef;
+        border-radius:8px;
+        box-shadow:0 2px 6px rgba(16,24,40,0.04);
+        margin-bottom:12px
     }
 
-    .calendar {
-        width: 280px;
-        padding: 15px;
-        border: 1px solid #ddd;
-        border-radius: 12px;
-        background: #fff;
-        font-family: sans-serif;
+    .review-header{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:8px}
+
+    /* Reservation panel */
+    .reservation-panel{
+        width:360px;
+        flex-shrink:0
     }
 
-    .calendar-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 10px;
+    .panel-card{
+        background:#fff;
+        padding:20px;
+        border-radius:12px;
+        box-shadow:0 6px 18px rgba(16,24,40,0.06)
     }
 
-    .calendar-grid {
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        gap: 5px;
-    }
-
-    .day-name {
-        font-weight: bold;
-        text-align: center;
-    }
-
-    .day {
-        text-align: center;
-        padding: 8px;
-        border-radius: 6px;
-        cursor: pointer;
-        background: #f5f5f5;
-    }
-
-    .day:hover {
-        background: #e0e0e0;
-    }
-
-    #main_section {
-        flex: 1;
-    }
-
-    .reservation-panel {
-        width: 320px;
-        flex-shrink: 0;
-    }
-
-    .activity-details {
-        width: 800px;
-    }
-
-    .review {
-        background: white;
-        padding: 20px;
-        border-radius: 12px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        margin-bottom: 20px;
-    }
-
-    .rating { 
-        display:flex; 
-        gap:8px; 
-        align-items:center; 
-        user-select:none; 
-    }
-
-    .star { 
-        position:relative; 
-        width:40px; 
-        height:40px; 
-        cursor:pointer; 
-    }
-
-    .star svg { 
-        width:100%; 
-        height:100%; 
-        display:block; 
-    }
-
-    .star .star-fill { 
-        position:absolute; 
-        top:0; 
-        left:0; 
-        height:100%; 
-        width:0%; 
-        overflow:hidden; 
-        pointer-events:none; 
-    }
-
-    .star .star-back svg { 
-        fill:#ddd; 
-    }
-    .star .star-fill svg { 
-        fill:#ffb400; 
-    }
-
-    .star:focus { 
-        outline:2px solid #90caf9; 
-        outline-offset:4px; 
-        border-radius:4px; 
+    .reservation-form{
+        display:flex;
+        flex-direction:column;
+        gap:12px;
+        align-items:center
     }
     
+    .form-group{
+        width:100%
+    }
+
+    .form-group label{
+        display:block;
+        margin-bottom:6px
+    }
+
+    /* Calendar */
+    .calendar{
+        width:100%;
+        padding:20px;
+        border:1px solid #e6e9ef;
+        border-radius:12px;
+        background:#fff;
+        margin-bottom:16px;
+        display:flex;
+        flex-direction:column;
+        align-items:center
+    }
+    
+    .calendar-header{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        margin-bottom:14px;
+        gap:12px
+    }
+
+    .calendar-header .month-year{
+        font-weight:700
+    }
+
+    .calendar-grid{
+        display:grid;
+        grid-template-columns:repeat(7,1fr);
+        gap:10px;width:100%;
+        max-width:320px
+    }
+
+    .day-name{
+        font-weight:700;
+        text-align:center;
+        color:#444
+    }
+
+    .day{
+        padding:12px;
+        border-radius:8px;
+        text-align:center;
+        background:#f8fafc
+    }
+
+    /* Time control vertical arrows */
+    .time-vertical{
+        display:flex;
+        gap:16px;
+        align-items:center;
+        justify-content:center
+    }
+
+    .time-single{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:8px;
+        width:92px
+    }
+
+    .time-arrow{
+        width:92px;
+        height:36px;
+        border-radius:6px;
+        border:1px solid #ddd;
+        background:#fff;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        cursor:pointer
+    }
+
+    .time-single input[type=number]{
+        width:92px;
+        padding:8px;
+        border:1px solid #e6e9ef;
+        border-radius:6px;
+        text-align:center;
+        font-size:16px
+    }
+
+    /* Time controls */
+    .time-controls{
+        display:flex;
+        gap:8px;
+        align-items:center;
+        flex-wrap:wrap
+    }
+    .time-btn{
+        padding:6px 8px;
+        border-radius:6px;
+        border:1px solid #ddd;
+        background:#fff;
+        cursor:pointer
+    }
+
+    .preset{
+        padding:6px 8px;
+        border-radius:6px;
+        border:1px solid #eef;
+        background:#f8fbff;
+        cursor:pointer
+    }
+
+    .people-selector{
+        display:flex;
+        gap:8px;
+        align-items:center;
+        justify-content:center
+    }
+
+    .people-btn{
+        width:32px;
+        height:32px;
+        border-radius:6px;
+        border:1px solid #ddd;
+        background:#fff;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        cursor:pointer;
+        font-size:16px
+    }
+
+    .people-selector input[type=number]{
+        width:56px;
+        height:32px;
+        padding:6px;
+        border:1px solid #e6e9ef;
+        border-radius:6px;
+        text-align:center
+    }
+
+    input[type=time],input[type=number]{
+        padding:8px;
+        border:1px solid #e6e9ef;
+        border-radius:6px
+    }
+
+    .reserve-btn{
+        width:100%;
+        padding:12px;
+        border-radius:8px;
+        background:#007bff;
+        color:#fff;
+        border:none;
+        font-weight:600;
+        cursor:pointer
+    }
+
+
+    #main_footer{
+        max-width:1100px;
+        margin:18px auto;
+        color:#666;
+        text-align:center;
+        padding:18px 0
+    }
+
+    /* Static star styles for reviews */
+    .rating{
+        display:flex;
+        gap:6px;
+        align-items:center
+    }
+
+    .star{
+        width:18px;
+        height:18px;
+        display:inline-block
+    }
+
+    .star svg{
+        width:100%;
+        height:100%;
+        display:block
+    }
+
+    .star svg path{
+        fill:#ddd
+    }
+
+    .star.filled svg path{
+        fill:#ffb400
+    }
+
+    /* Espacio extra bajo el título de reseñas */
+    .review > h2{
+        margin-bottom:14px
+    }
+
   </style>
-</head>
-<body>
-    <!-- Galería -->
-    <section class="gallery">
-        <img src="bosques-gallegos.jpg" width="400">
-        <img src="bosques-gallegos.jpg" width="400">
-        <img src="bosques-gallegos.jpg" width="400">
-    </section>
-
-<div id="wrapper">
-    <main id="main_section">
-        <!-- Detalles -->
-        <section class="activity-details">
-            <h1>Description</h1>
-            <p>Lorem ipsum...</p>
-
-            <h1>Duration</h1>
-            <p>Lorem h.</p>
-
-            <h1>Language</h1>
-            <p>Ipsum</p>
-
-            <h1>Accessibility</h1>
-            <p>Dolor</p>
-
-            <h1>Price</h1>
-            <p>Sit</p>
-        </section>
-        <h1>Reviews</h1>
-        <article class="review">
-            <img src="bosques-gallegos.jpg" width="20" height="20">
-            <h3>John Doe</h3>
-            <div id="rating" class="rating" role="radiogroup" aria-label="Calificación"></div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien eget nunc.</p>
-        </article>
-    </main>
-    <section class="reservation-panel">
-        <h2>Reservation</h2>
-        <form class="reservation-form">
-
-            <!-- Calendar -->
-            <div class="calendar">
-                <div class="calendar-header">
-                    <button class="prev-month">◀</button>
-                    <h3 class="month-year">February 2026</h3>
-                    <button class="next-month">▶</button>
-                </div>
-
-                <div class="calendar-grid">
-                    <div class="day-name">M</div>
-                    <div class="day-name">T</div>
-                    <div class="day-name">W</div>
-                    <div class="day-name">T</div>
-                    <div class="day-name">F</div>
-                    <div class="day-name">S</div>
-                    <div class="day-name">S</div>
-
-                </div>
+    </head>
+    <body>
+        <header class="page-header">
+            <nav class="breadcrumb" aria-label="breadcrumb">Home › Activities › Activity</nav>
+            <h1 class="activity-title">Bosques Gallegos</h1>
+            <div class="gallery">
+                <img src="bosques-gallegos.jpg">
+                <img src="bosques-gallegos.jpg">
+                <img src="bosques-gallegos.jpg">
             </div>
+        </header>
 
-            <!-- Hour selector -->
-            <div class="form-group">
-                <label for="time">Hour</label>
-                <div class="time-selector">
-                    <button type="button" class="time-btn" data-action="minus">−</button>
-                    <input type="time" id="time" name="time" value="10:00" required>
-                    <button type="button" class="time-btn" data-action="plus">+</button>
+        <div id="wrapper">
+
+            <main id="main_section">
+                <article class="activity-details">
+                    <h2>Activity Description</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Esta sección contiene la descripción completa de la actividad.</p>
+
+                    <div class="activity-grid">
+                        <div class="activity-meta-box"> <strong>Duration</strong><div>3 horas</div></div>
+                        <div class="activity-meta-box"> <strong>Language</strong><div>Español / Inglés</div></div>
+                        <div class="activity-meta-box"> <strong>Accessibility</strong><div>Media</div></div>
+                        <div class="activity-meta-box"> <strong>Price</strong><div>€30 / persona</div></div>
+                    </div>
+
+                    <section class="review" aria-labelledby="reviews-heading">
+                        <h2 id="reviews-heading">Reviews</h2>
+                        <article class="review-item">
+                            <img src="bosques-gallegos.jpg" width="30" height="30">
+                                <div>
+                                    <div class="review-header">
+                                        <h3 style="margin:0">John Doe</h3>
+                                        <div id="rating" class="rating" role="img" aria-label="Calificación: 4 de 5 estrellas">
+                                            <span class="star filled" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.786 1.402 8.166L12 18.897 4.664 23.162l1.402-8.166L0.132 9.21l8.2-1.192L12 .587z"/></svg></span>
+                                            <span class="star filled" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.786 1.402 8.166L12 18.897 4.664 23.162l1.402-8.166L0.132 9.21l8.2-1.192L12 .587z"/></svg></span>
+                                            <span class="star filled" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.786 1.402 8.166L12 18.897 4.664 23.162l1.402-8.166L0.132 9.21l8.2-1.192L12 .587z"/></svg></span>
+                                            <span class="star filled" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.786 1.402 8.166L12 18.897 4.664 23.162l1.402-8.166L0.132 9.21l8.2-1.192L12 .587z"/></svg></span>
+                                            <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.786 1.402 8.166L12 18.897 4.664 23.162l1.402-8.166L0.132 9.21l8.2-1.192L12 .587z"/></svg></span>
+                                        </div>
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien eget nunc.</p>
+                                </div>
+                        </article>
+                    </section>
+                </article>
+            </main>
+
+            <aside class="reservation-panel">
+                <div class="panel-card">
+                    <h2>Reservation</h2>
+                    <form class="reservation-form" aria-label="Formulario de reserva">
+
+                        <div class="calendar">
+                            <div class="calendar-header">
+                                <button type="button" class="small-btn" aria-hidden="true">◀</button>
+                                <h3 class="month-year">February 2026</h3>
+                                <button type="button" class="small-btn" aria-hidden="true">▶</button>
+                            </div>
+                            <div class="calendar-grid">
+                                <div class="day-name">M</div>
+                                <div class="day-name">T</div>
+                                <div class="day-name">W</div>
+                                <div class="day-name">T</div>
+                                <div class="day-name">F</div>
+                                <div class="day-name">S</div>
+                                <div class="day-name">S</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="time">Hour</label>
+                            <div class="time-vertical">
+                                <div class="time-single" aria-label="Horas">
+                                    <button type="button" class="time-arrow" aria-label="Incrementar horas">▲</button>
+                                    <input type="number" id="time-hour" name="time-hour" value="10" min="0" max="23" required>
+                                    <button type="button" class="time-arrow" aria-label="Decrementar horas">▼</button>
+                                </div>
+                                <div class="time-single" aria-label="Minutos">
+                                    <button type="button" class="time-arrow" aria-label="Incrementar minutos">▲</button>
+                                    <input type="number" id="time-minute" name="time-minute" value="00" min="0" max="59" required>
+                                    <button type="button" class="time-arrow" aria-label="Decrementar minutos">▼</button>
+                                </div>
+                            </div>
+                            <div class="preset-times">
+                                <button type="button" class="preset">08:00</button>
+                                <button type="button" class="preset">09:30</button>
+                                <button type="button" class="preset">11:00</button>
+                                <button type="button" class="preset">14:00</button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="people">Participants</label>
+                            <div class="people-selector">
+                                <button type="button" class="people-btn">−</button>
+                                <input type="number" id="people" name="people" value="1" min="1" max="20" required>
+                                <button type="button" class="people-btn">+</button>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="reserve-btn">Make Reservation</button>
+                    </form>
                 </div>
-            </div>
+            </aside>
 
-            <!-- Participants selector -->
-            <div class="form-group">
-                <label for="people">Participants</label>
-                <div class="people-selector">
-                    <button type="button" class="people-btn" data-action="minus">−</button>
-                    <input type="number" id="people" name="people" value="1" min="1" max="20" required>
-                    <button type="button" class="people-btn" data-action="plus">+</button>
-                </div>
-            </div>
+        </div>
 
-            <button type="submit" class="reserve-btn">Make reservation</button>
-
-        </form>
-        </section>
-
-  <footer id="main_footer"></footer>
-</div>
-</body>
+        <footer id="main_footer">© 2026 Actividades Demo</footer>
+    </body>
 </html>
