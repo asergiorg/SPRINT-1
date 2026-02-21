@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Información de la reserva</title>
+  <style>
+    body{
+        font-family:Arial,Helvetica,sans-serif;
+        background:#f5f6fa;
+        color:#222;
+        padding:24px
+    }
+
+    .container{
+        max-width:900px;
+        margin:0 auto
+    }
+
+    .card{background:#fff;
+        padding:20px;
+        border-radius:10px;
+        box-shadow:0 2px 8px rgba(0,0,0,0.06)
+    }
+
+    .row{display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:8px 0;
+        border-bottom:1px solid #f0f0f0
+    }
+
+    .row:last-child{
+        border-bottom:0
+    }
+
+    .title{
+        font-size:18px;
+        margin-bottom:12px
+    }
+    .actions{
+        margin-top:16px;
+        display:flex;
+        gap:10px
+    }
+
+    button{
+        padding:8px 12px;
+        border-radius:6px;
+        border:1px solid #ccc;
+        background:#fff;
+        cursor:pointer
+    }
+
+    #empty{padding:30px;text-align:center;color:#666}
+    /* estilo para pares definición */
+    .row dt{font-weight:600}
+    .row dd{margin:0}
+    article footer.actions{margin-top:16px}
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Reservation Information</h1>
+    </header>
+    <section id="content">
+      <article id="reservation-card" class="card" aria-labelledby="res-id">
+        <h2 class="title">Reservation <strong id="res-id">res-12345</strong></h2>
+        <div class="row"><dt>Reservation Holder</dt><dd id="row-name">Juan Pérez</dd></div>
+        <div class="row"><dt>Activity</dt><dd id="row-activity">Hiking</dd></div>
+        <div class="row"><dt>Date</dt><dd id="row-date">2026-02-25</dd></div>
+        <div class="row"><dt>Time</dt><dd id="row-time">10:00</dd></div>
+        <div class="row"><dt>Participants</dt><dd id="row-people">2</dd></div>
+        <div class="row"><dt>Price</dt><dd id="row-price">€60.00</dd></div>
+        <div class="row"><dt>Status</dt><dd id="row-status">Pending</dd></div>
+
+        <footer class="actions" role="group" aria-label="Acciones de reserva">
+          <button id="edit">Edit</button>
+          <button id="cancel">Cancel</button>
+        </footer>
+
+        <section id="payment-section" aria-label="Métodos de pago" style="margin-top:14px">
+          <h3>Select payment method</h3>
+          <div style="display:flex;gap:12px;align-items:center;margin:8px 0;flex-wrap:wrap">
+            <button class="pm-btn" data-method="google">Google Pay</button>
+            <button class="pm-btn" data-method="apple">Apple Pay</button>
+            <button class="pm-btn" data-method="card">Master Card</button>
+            <button class="pm-btn" data-method="card" >Visa Card</button>
+            <button class="pm-btn" data-method="paypal">PayPal</button>
+          </div>
+          <p id="pm-info" style="margin-top:8px;color:#555">You will be redirected to the selected payment gateway.</p>
+        </section>
+      </article>
+      <aside id="empty" style="display:none" role="note">There is no reservation data. Return to the activity and make a reservation.</aside>
+    </section>
+  </main>
+
+  
+</body>
+</html>
