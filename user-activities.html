@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>My activities</title>
+  <style>
+    :root{
+        --card-bg:#fff;
+        --muted:#6b7280;
+        --accent:#0f62fe
+    }
+
+    body{
+        font-family:Inter,Arial,Helvetica,sans-serif;
+        background:#f4f6fb;
+        color:#111;
+        margin:0;
+        padding:28px
+    }
+
+    .container{
+        max-width:1100px;
+        margin:0 auto
+    }
+
+    header.page-header{
+        margin-bottom:20px
+    }
+
+    header.page-header h1{
+        font-size:24px;
+        margin:0
+    }
+
+    .section-card{
+        background:var(--card-bg);
+        padding:18px;
+        border-radius:12px;
+        box-shadow:0 6px 18px rgba(16,24,40,0.06);
+        margin-bottom:20px
+    }
+
+    .section-card h2{
+        font-size:18px;
+        margin:0 0 12px 0
+    }
+
+    .activities-list{
+        display:grid;
+        grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+        gap:12px
+    }
+
+    .activity-card{
+        border:1px solid #e6e9ef;
+        padding:12px;
+        border-radius:10px;
+        background:#fff
+    }
+
+    .activity-card h3{
+        font-size:14px;
+        margin:0 0 6px
+    }
+
+    .activity-meta{
+        font-size:13px;
+        color:var(--muted)
+    }
+
+    .view-more{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        border-top:1px solid #eef2ff;
+        padding:12px;
+        margin-top:12px;
+        border-radius:0 0 12px 12px;
+        background:linear-gradient(0deg,#fff,transparent)
+    }
+
+    .view-more span{
+        color:var(--accent);
+        font-weight:600
+    }
+
+    /* Placeholder note for templates */
+    .placeholder{
+        display:block;
+        padding:12px;
+        border:1px dashed #dbeafe;
+        border-radius:8px;
+        color:#374151;
+        background:#fbfdff
+    }
+    
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header class="page-header">
+      <h1>User activities</h1>
+    </header>
+
+    <!-- Reservadas -->
+    <section class="section-card" aria-labelledby="reserved-title">
+      <h2 id="reserved-title">Reserved activities</h2>
+      <div class="activities-list">
+        <!-- Ejemplo de item estático: -->
+        <article class="activity-card">
+          <h3>Senderismo en los bosques</h3>
+          <div class="activity-meta">Fecha: 2026-03-01 · Participantes: 2</div>
+        </article>
+        <!-- INCLUDE: activities-template.html (reservadas) -->
+        <div class="placeholder">Plantilla de actividad (reservadas) — inserta tu fragmento aquí</div>
+      </div>
+      <div class="view-more" role="link" aria-label="Ver más actividades reservadas"><span>View more</span></div>
+    </section>
+
+    <!-- Participadas -->
+    <section class="section-card" aria-labelledby="attended-title">
+      <h2 id="attended-title">Attended activities</h2>
+      <div class="activities-list">
+        <article class="activity-card">
+          <h3>Excursión al mirador</h3>
+          <div class="activity-meta">Fecha: 2026-01-15 · Valoración: ★★★★☆</div>
+        </article>
+        <!-- INCLUDE: activities-template.html (participadas) -->
+        <div class="placeholder">Plantilla de actividad (participadas) — inserta tu fragmento aquí</div>
+      </div>
+      <div class="view-more" role="link" aria-label="Ver más actividades participadas"><span>View more</span></div>
+    </section>
+
+    <!-- Recomendadas -->
+    <section class="section-card" aria-labelledby="recommended-title">
+      <h2 id="recommended-title">Recommended activities</h2>
+      <div class="activities-list">
+        <article class="activity-card">
+          <h3>Ruta gastronómica local</h3>
+          <div class="activity-meta">Duración: 3h · Idioma: Español</div>
+        </article>
+        <!-- INCLUDE: activities-template.html (recomendadas) -->
+        <div class="placeholder">Plantilla de actividad (recomendadas) — inserta tu fragmento aquí</div>
+      </div>
+      <div class="view-more" role="link" aria-label="Ver más actividades recomendadas"><span>View more</span></div>
+    </section>
+  </main>
+</body>
+</html>
