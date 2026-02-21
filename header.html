@@ -1,14 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Header con Navegación</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      background: #fff;
+      padding: 16px 24px;
+      box-shadow: 0 2px 8px rgba(16, 24, 40, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 100%;
+      gap: 24px;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    header img {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #1a202c;
+    }
+
+    nav {
+      flex: 1;
+    }
+
+    #main_menu {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      list-style: none;
+    }
+
+    #main_menu li {
+      display: inline-block;
+    }
+
+    #main_menu a {
+      padding: 8px 12px;
+      color: #333;
+      text-decoration: none;
+      font-size: 14px;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+
+    #main_menu a:hover {
+      background: #f0f0f0;
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .btn-secondary {
+      padding: 8px 16px;
+      border: 1px solid #ddd;
+      background: #fff;
+      color: #333;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background: #f8f9fa;
+      border-color: #bbb;
+    }
+
+    .btn-primary {
+      padding: 8px 16px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: #0056b3;
+    }
+
+    .btn-danger {
+      padding: 8px 16px;
+      background: #dc3545;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    .btn-danger:hover {
+      background: #c82333;
+    }
+  </style>
+</head>
+<body>
+
 <header>
-    <img src="bosques-gallegos.jpg" width="400">
-    <h1>Project Name</h1>
+    <div class="header-left">
+      <img src="bosques-gallegos.jpg" length="60" width="60">
+      <h1>Project Name</h1>
+    </div>
     <nav id="main_menu">
-      <ul>
-        <li>Home</li>
-        <li>Activities</li>
-        <li>My Activities</li>
-        <li>Log In</li>
-        <li>Sign Up</li>
-        <li>Log Out</li>
+      <ul style="display: flex; gap: 12px; list-style: none;">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="activities.html">Activities</a></li>
+        <li><a href="user-activities.html">My Activities</a></li>
       </ul>
     </nav>
+    <div class="auth-buttons">
+      <button class="btn-secondary" onclick="window.location.href='login.html'">Log In</button>
+      <button class="btn-primary" onclick="window.location.href='signup.html'">Sign Up</button>
+      <button class="btn-danger" onclick="handleLogout()">Log Out</button>
+    </div>
 </header>
+
+<script>
+  function handleLogout() {
+    // Aquí puedes limpiar sesión o hacer logout
+    alert('Sesión cerrada');
+    localStorage.clear();
+    window.location.href = 'index.html';
+  }
+</script>
+
+</body>
+</html>
