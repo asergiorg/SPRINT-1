@@ -1,161 +1,152 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+  <title>Home</title>
   <meta charset="utf-8">
   <meta name="description" content="This is an HTML5 example">
   <meta name="keywords" content="HTML5, CSS3, JavaScript">
-  <title>This text is the title of the document</title>
-  <style>
-  
-	* {
-	  margin: 0px;
-	  padding: 0px;
-	}
 
-	h1 {
-	  font: bold 20px verdana, sans-serif;
-	}
-	h2 {
-	  font: bold 14px verdana, sans-serif;
-	}
-
-	header, section, footer, aside, nav, article, figure, figcaption, hgroup{
-	  display: block;
-	}
-
-	body {
-	  text-align: center;
-	}
-
-	#wrapper {
-	  width: 960px;
-	  margin: 15px auto;
-	  text-align: left;
-	}
-
-	#main_header {
-	  background: #FFFBB9;
-	  border: 1px solid #999999;
-	  padding: 20px;
-	}
-
-	#main_menu {
-	  background: #CCCCCC;
-	  padding: 5px 15px;
-	}
-	#main_menu li {
-	  display: inline-block;
-	  list-style: none;
-	  padding: 5px;
-	  font: bold 14px verdana, sans-serif;
-	}
-
-	#main_section {
-	  float: left;
-	  width: 660px;
-	  margin: 20px;
-	}
-	#main_aside {
-	  float: left;
-	  width: 220px;
-	  margin: 20px 0px;
-	  padding: 20px;
-	  background: #CCCCCC;
-	}
-
-	#main_footer {
-	  clear: both;
-	  text-align: center;
-	  padding: 20px;
-	  border-top: 2px solid #999999;
-	}
-
-	article {
-	  background: #FFFBCC;
-	  border: 1px solid #999999;
-	  padding: 20px;
-	  margin-bottom: 10px;
-	}
-	article footer {
-	  text-align: right;
-	}
-	time {
-	  color: #999999;
-	}
-	figcaption {
-	  font: italic 14px verdana, sans-serif;
-	}
-
-	div {
-	  width: 100px;
-	  margin: 20px;
-	  padding: 10px;
-	  border: 1px solid #000000;
-  
-	  -moz-box-sizing: border-box;
-	  -webkit-box-sizing: border-box;
-	  box-sizing: border-box;
-	}
-
-  </style>
 </head>
+<style>
+
+	* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+	#container1 {
+		width: 100%;
+		height: 400px;
+		background-image: url("fondo_main.jpg");
+		background-size: cover;
+		background-position: center;
+		position: relative;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	#search_container form {
+		display: flex;
+		background: white;
+		padding: 8px 12px;
+		border-radius: 25px;
+		box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+	}
+
+	#search_container input {
+		border: none;
+		outline: none;
+		font-size: 16px;
+		width: 400px;
+	}
+
+	#search_container button {
+		background: none;
+		border: none;
+		cursor: pointer;
+	}
+
+	/* Carrusel */
+	#container2 {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 20px;
+		margin-top: 30px;
+		height: 400px;
+	}
+
+	#left_arrow,
+	#right_arrow {
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 10px;
+		justify-content: end;
+	}
+
+	#activity_container {
+		display: flex;
+		gap: 30px;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		padding: 20px;
+		width: 50%;
+		justify-content: center;
+	}
+
+	#activity_container::-webkit-scrollbar {
+		display: none;
+	}
+
+	.activity_carrusel {
+		min-width: 300px; 
+		height: 220px; 
+		background: #ffffffcc;
+		border-radius: 20px;
+		padding: 20px;
+		display: flex;
+		box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+		scroll-snap-align: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 15px;
+	}
+
+	.activity_image {
+		width: 100%;
+		height: 120px;
+		object-fit: cover;
+		border-radius: 15px;
+		margin-bottom: 10px;
+	}
+
+	.activity_inf {
+		text-align: center;
+	}
+</style>
 <body>
-<div id="wrapper">
-  <header id="main_header">
-    <img src="bosques-gallegos.jpg" width="400">
-    <h1>Project Name</h1>
-    <nav id="main_menu">
-      <ul>
-        <li>Home</li>
-        <li>Activities</li>
-        <li>My Activities</li>
-        <li>Log In</li>
-        <li>Sign Up</li>
-        <li>Log Out</li>
-      </ul>
-    </nav>
-  </header>
-  <section id="main_section">
-    <article>
-      <header>
-        <hgroup>
-          <h1>Title of post One</h1>
-          <h2>subtitle of the post One</h2>
-        </hgroup>
-        <time datetime="2014-12-10" pubdate>posted 12-10-2014</time>
-      </header>
-      This is the text of my first post
-      <figure>
-        <img src="bosques-gallegos.jpg" width="400">
-        <figcaption>
-          this is the image of the first post
-        </figcaption>
-      </figure>
-      <footer>
-        <p>comments (0)</p>
-      </footer>
-    </article>
-    <article>
-      <header>
-        <hgroup>
-          <h1>Title of post Two</h1>
-          <h2>subtitle of the post Two</h2>
-        </hgroup>
-        <time datetime="2014-12-15" pubdate>posted 12-15-2014</time>
-      </header>
-      This is the text of my second post
-      <footer>
-        <p>comments (0)</p>
-      </footer>
-    </article>
-  </section>
-  <aside id="main_aside">
-    <blockquote>Quotation from article number one</blockquote>
-    <blockquote>Quotation from article number two</blockquote>
-  </aside>
+<div id="container">
+	<div id="header_container"></div>
+
+	<div id="main_container">
+		<div id="container1">
+			<div id="search_container">
+				<form >
+					<input type="text" placeholder="Search activity..." name="activity">
+					<button type="submit">
+						<img src="lupa.png" width="15">
+					</button>
+				</form>
+			</div>
+		</div>
+
+		<div id="container2">
+			<button id="left_arrow">
+        		<img src="anterior.png" width="15">
+    		</button>
+
+			<div id="activity_container">
+				
+			</div>
+
+			<button id="right_arrow">
+        		<img src="proximo.png" width="15">
+    		</button>
+		</div>
+	</div>
 
 	<div id="footer_container"></div>
-
 </div>
 </body>
 </html>
