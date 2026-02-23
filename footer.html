@@ -1,14 +1,105 @@
-<footer id="main_footer">
+<style>
 
-    <div>
+    .footer-wrapper {
+        width: 100%;
+        background: #fff;
+        color: #000;
+        padding: 50px 40px 20px;
+        font-family: "Poppins", sans-serif;
+        box-sizing: border-box;
+    }
 
-        <div>
-            <img src="logo.png" alt="Logo" width="150">
+    .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+
+    .footer-col {
+        flex: 1;
+        min-width: 220px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-logo {
+        width: 150px;
+        max-width: 100%;
+    }
+
+    .footer-col h3 {
+        font-size: 18px;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .contact-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .contact-list li {
+        font-size: 14.5px;
+        margin-bottom: 8px;
+        color: #333;
+    }
+
+    .contact-list li::before {
+        content: "· ";
+        font-weight: bold;
+    }
+
+    .icon-row {
+        display: flex;
+        justify-content: flex-start;
+        gap: 10px;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+        width: 190px;
+    }
+
+    .icon-row img {
+        border-radius: 4px;
+        background-color: #f5f5f5;
+        display: block;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+    }
+
+    .icon-row img:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .footer-copyright {
+        text-align: center;
+        font-size: 14px;
+        font-weight: 600;
+        margin-top: 50px;
+        color: #000;
+    }
+
+</style>
+
+<footer id="footer" class="footer-wrapper">
+
+    <div class="footer-container">
+
+        <div class="footer-col">
+            <img src="logo.png" alt="Logo" class="footer-logo">
         </div>
 
-        <div>
+        <div class="footer-col">
             <h3>Contact information</h3>
-            <ul>
+            <ul class="contact-list">
                 <li>grandaventures@example.com</li>
                 <li>+34 928 653 496</li>
                 <li>+34 974 456 395</li>
@@ -16,30 +107,31 @@
             </ul>
         </div>
 
-        <div>
+        <div class="footer-col">
             <h3>Pay methods</h3>
-            <div>
+            <div class="icon-row">
                 <img src="pay1.png" alt="pay1" width="40">
                 <img src="pay2.png" alt="pay2" width="40">
                 <img src="pay3.png" alt="pay3" width="40">
                 <img src="pay4.png" alt="pay4" width="40">
             </div>
-            <div>
+            <div class="icon-row">
                 <img src="pay5.png" alt="pay5" width="40">
                 <img src="pay6.png" alt="pay6" width="40">
                 <img src="pay7.png" alt="pay7" width="40">
+                <img src="pay8.png" alt="pay8" width="40">
             </div>
         </div>
 
-        <div>
+        <div class="footer-col">
             <h3>Follow us</h3>
-            <div>
+            <div class="icon-row">
                 <img src="social1.png" alt="social1" width="40">
                 <img src="social2.png" alt="social2" width="40">
                 <img src="social3.png" alt="social3" width="40">
                 <img src="social4.png" alt="social4" width="40">
             </div>
-            <div>
+            <div class="icon-row">
                 <img src="social5.png" alt="social5" width="40">
                 <img src="social6.png" alt="social6" width="40">
             </div>
@@ -47,6 +139,6 @@
 
     </div>
 
-    <p>Copyright &copy; 2026 Project name. All rights reserved.</p>
+    <p class="footer-copyright"> Copyright &copy; 2026 Project name. All rights reserved. </p>
     
 </footer>
