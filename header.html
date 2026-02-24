@@ -1,143 +1,151 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Header con Navegación</title>
+<style>
+  #header-container {
+      width: 100%;
+      display: block;
+      all: revert;
+  }
 
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  #header-container,
+  #header-container * {
+      box-sizing: border-box;
+  }
 
-  <style>
+  /* Header styles */
+  #header-container header{
+      background:#fff;
+      padding:16px 24px;
+      box-shadow:0 2px 8px rgba(16,24,40,0.06);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      width:100%;
+      gap:24px;
+      margin:0 !important;
+      box-sizing:border-box;
+  }
 
-    * {
+  #header-container .header-left{
+      display:flex;
+      align-items:center;
+      gap:16px;
+  }
+
+  #header-container header img{
+      width:60px;
+      height:60px;
+      border-radius:8px;
+      object-fit:cover;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
+  }
 
-    body {
+  #header-container header h1{
+      font-size:22px;
+      font-weight:700;
+      color:#1a202c;
+      margin:0;
       font-family: Arial, Helvetica, sans-serif;
-      background: #f5f5f5;
-      color: #333;
-    }
-
-    header {
-      background: #fff;
-      padding: 16px 24px;
-      box-shadow: 0 2px 8px rgba(16, 24, 40, 0.06);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 100%;
-      gap: 24px;
-    }
-
-    .header-left {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    header img {
-      width: 60px;
-      height: 60px;
-      border-radius: 8px;
-      object-fit: cover;
-    }
-
-    header h1 {
-      font-size: 22px;
-      font-weight: 700;
-      color: #1a202c;
-    }
-
-    nav {
-      flex: 1;
-    }
-
-    #main_menu {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      list-style: none;
-    }
-
-    #main_menu li {
-      display: inline-block;
-    }
-
-    #main_menu a {
-      padding: 8px 12px;
-      color: #333;
+      letter-spacing: normal;
       text-decoration: none;
-      font-size: 14px;
-      border-radius: 6px;
-      transition: background-color 0.2s;
-    }
+  }
 
-    #main_menu a:hover {
-      background: #f0f0f0;
-    }
+  #header-container nav{
+      flex:1;
+  }
 
-    .auth-buttons {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
+  #header-container #main_menu{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      list-style:none;
+      margin:0 !important;
+      padding:0 !important;
+  }
 
-    .btn-secondary {
-      padding: 8px 16px;
-      border: 1px solid #ddd;
-      background: #fff;
-      color: #333;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 500;
-      transition: all 0.2s;
-    }
+  #header-container #main_menu ul{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      list-style:none !important;
+      margin:0 !important;
+      padding:0 !important;
+  }
 
-    .btn-secondary:hover {
-      background: #f8f9fa;
-      border-color: #bbb;
-    }
+  #header-container #main_menu li{
+      display:inline-block;
+      margin: 0;
+      padding: 0;
+  }
 
-    .btn-primary {
-      padding: 8px 16px;
-      background: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 500;
-      transition: background-color 0.2s;
-    }
+  #header-container #main_menu a{
+      padding:8px 12px;
+      color:#333;
+      text-decoration:none;
+      font-size:14px;
+      border-radius:6px;
+      transition:background-color 0.2s;
+      display: inline-block;
+  }
 
-    .btn-primary:hover {
-      background: #0056b3;
-    }
+  #header-container #main_menu a:hover{
+      background:#f0f0f0;
+  }
 
-    .btn-danger {
-      padding: 8px 16px;
-      background: #dc3545;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 500;
-      transition: background-color 0.2s;
-    }
+  #header-container .auth-buttons{
+      display:flex;
+      gap:8px;
+      align-items:center;
+  }
 
-    .btn-danger:hover {
-      background: #c82333;
-    }
+  #header-container .btn-secondary{
+      padding:8px 16px;
+      border:1px solid #ddd;
+      background:#fff;
+      color:#333;
+      border-radius:6px;
+      cursor:pointer;
+      font-size:14px;
+      font-weight:500;
+      transition:all 0.2s;
+  }
 
-  </style>
-</head>
-<body>
+  #header-container .btn-secondary:hover{
+      background:#f8f9fa;
+      border-color:#bbb;
+  }
+
+  #header-container .btn-primary{
+      padding:8px 16px;
+      background:#007bff;
+      color:#fff;
+      border:none;
+      border-radius:6px;
+      cursor:pointer;
+      font-size:14px;
+      font-weight:500;
+      transition:background-color 0.2s;
+  }
+
+  #header-container .btn-primary:hover{
+      background:#0056b3;
+  }
+
+  #header-container .btn-danger{
+      padding:8px 16px;
+      background:#dc3545;
+      color:#fff;
+      border:none;
+      border-radius:6px;
+      cursor:pointer;
+      font-size:14px;
+      font-weight:500;
+      transition:background-color 0.2s;
+  }
+
+  #header-container .btn-danger:hover{
+      background:#c82333;
+  }
+</style>
 
 <header>
     <div class="header-left">
@@ -145,7 +153,7 @@
       <h1>Project Name</h1>
     </div>
     <nav id="main_menu">
-      <ul style="display: flex; gap: 12px; list-style: none;">
+      <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="activities.html">Activities</a></li>
         <li><a href="user-activities.html">My Activities</a></li>
@@ -157,54 +165,3 @@
       <button class="btn-danger" onclick="handleLogout()">Log Out</button>
     </div>
 </header>
-
-<script>
-
-  async function loadAndOpenLogin() {
-    let modal = document.getElementById("loginModal");
-
-    if (!modal) {
-      try {
-        const response = await fetch("login-modal.html");
-
-        if (!response.ok) throw new Error("No se pudo cargar login-modal.html");
-
-        const htmlSnippet = await response.text();
-
-        document.body.insertAdjacentHTML("beforeend", htmlSnippet);
-        modal = document.getElementById("loginModal");
-
-        modal.style.display = "flex";
-
-        window.onclick = function(event) {
-          if (event.target === modal) {
-            closeLoginModal();
-          }
-        }
-
-      } catch (error) {
-        console.error("Error al cargar el modal de login:", error);
-      }
-    } else {
-      modal.style.display = "flex";
-    }
-  }
-
-  function closeLoginModal() {
-    const modal = document.getElementById("loginModal");
-    if (modal) {
-      modal.style.display = "none";
-    }
-  }
-
-  function handleLogout() {
-    // Aquí puedes limpiar sesión o hacer logout
-    alert('Sesión cerrada');
-    localStorage.clear();
-    window.location.href = 'index.html';
-  }
-
-</script>
-
-</body>
-</html>

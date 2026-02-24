@@ -16,12 +16,13 @@
         background:#f4f6fb;
         color:#111;
         margin:0;
-        padding:28px
+        padding:0
     }
 
     .container{
         max-width:1100px;
-        margin:0 auto
+        margin:0 auto;
+        padding:0 28px;
     }
 
     header.page-header{
@@ -98,11 +99,12 @@
   </style>
 </head>
 <body>
+  <div id="header-container" xlu-include-file="header.html"></div>
   <main class="container">
-    <header class="page-header">
+    
+    <section class="page-header">
       <h1>User activities</h1>
-    </header>
-
+    </section>
     <!-- Reservadas -->
     <section class="section-card" aria-labelledby="reserved-title">
       <h2 id="reserved-title">Reserved activities</h2>
@@ -146,5 +148,15 @@
       <div class="view-more" role="link" aria-label="Ver más actividades recomendadas"><span>View more</span></div>
     </section>
   </main>
+
+  <div id="footer-container" xlu-include-file="footer.html"></div>
+
+  <script src="scripts/xlu-include-file.js"></script>
+  <script src="scripts/header.js"></script>
+  <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          xLuIncludeFile();
+      });
+  </script>
 </body>
 </html>

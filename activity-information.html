@@ -23,11 +23,30 @@
         font:bold 22px verdana, sans-serif
     }
 
+    #header-container h1 {
+        font-family: inherit;
+    }
+
     h2{
         font:bold 16px verdana, sans-serif
     }
 
     header,section,footer,aside,nav,article,figure,figcaption{display:block}
+
+    .container{
+        max-width:1100px;
+        margin:0 auto;
+        padding:0 28px;
+    }
+
+    header.page-header{
+        margin-bottom:20px
+    }
+
+    header.page-header h1{
+        font-size:24px;
+        margin:0
+    }
 
     /* Layout */
     .page-header{
@@ -358,7 +377,9 @@
   </style>
     </head>
     <body>
-        <header class="page-header">
+        <div id="header-container" xlu-include-file="header.html"></div>
+        
+        <section class="page-header">
             <nav class="breadcrumb" aria-label="breadcrumb">Home › Activities › Activity</nav>
             <h1 class="activity-title">Bosques Gallegos</h1>
             <div class="gallery">
@@ -366,7 +387,7 @@
                 <img src="bosques-gallegos.jpg">
                 <img src="bosques-gallegos.jpg">
             </div>
-        </header>
+        </section>
 
         <div id="wrapper">
 
@@ -464,6 +485,14 @@
 
         </div>
 
-        <footer id="main_footer">© 2026 Actividades Demo</footer>
+        <div id="footer-container" xlu-include-file="footer.html"></div>
+        
+        <script src="scripts/xlu-include-file.js"></script>
+        <script src="scripts/header.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                xLuIncludeFile();
+            });
+        </script>
     </body>
 </html>
