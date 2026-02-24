@@ -117,7 +117,7 @@
 </style>
 <body>
 <div id="container">
-	<div id="header_container"></div>
+	<div id="header_container" xlu-include-file="header.html"></div>
 
 	<div id="main_container">
 		<div id="container1">
@@ -136,7 +136,7 @@
         		<img src="anterior.png" width="15">
     		</button>
 
-			<div id="activity_container">
+			<div id="activity_container" xlu-include-file="activity1.html">
 				
 			</div>
 
@@ -146,7 +146,13 @@
 		</div>
 	</div>
 
-	<div id="footer_container"></div>
+	<div id="footer_container" xlu-include-file="footer.html"></div>
 </div>
+
+<script src="scripts/xlu-include-file.js"></script>
+<script>
+    xLuIncludeFile();
+</script>
+
 </body>
 </html>
