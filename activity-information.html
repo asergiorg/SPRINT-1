@@ -50,7 +50,7 @@
 
     /* Layout */
     .page-header{
-        max-width:1100px;
+        max-width:80%;
         margin:24px auto 12px;
         padding:0 12px
     }
@@ -70,6 +70,7 @@
         border-bottom:1px solid #eef2f6;
     }
 
+    /* Images in the header*/
     .gallery{
         width:100%;
         display:grid;
@@ -85,7 +86,7 @@
     }
 
     #wrapper{
-        max-width:1100px;
+        max-width:80%;
         margin:20px auto;
         display:flex;
         gap:32px;
@@ -110,7 +111,6 @@
         margin-bottom:12px
     }
 
-    /* Apiladas full-width */
     .activity-grid{
         display:block;
         gap:12px;
@@ -125,6 +125,7 @@
         width:100%
     }
 
+    /* Reviwes */
     .review{
         background:transparent;
         padding:0;
@@ -142,13 +143,18 @@
         box-shadow:0 2px 6px rgba(16,24,40,0.04);
         margin-bottom:12px
     }
-
+    
     .review-header{
         display:flex;
         align-items:center;
         justify-content:space-between;
-        gap:8px}
+        gap:8px
+    }
 
+    .review > h2{
+        margin-bottom:14px
+    }
+        
     /* Reservation panel */
     .reservation-panel{
         width:360px;
@@ -232,6 +238,7 @@
         cursor:pointer
     }
 
+    /* Pariticipants controls */
     .people-selector{
         display:flex;
         gap:8px;
@@ -282,15 +289,6 @@
         box-sizing:border-box
     }
 
-
-    #main_footer{
-        max-width:1100px;
-        margin:18px auto;
-        color:#666;
-        text-align:center;
-        padding:18px 0
-    }
-
     /* Static star styles for reviews */
     .rating{
         display:flex;
@@ -317,11 +315,7 @@
     .star.filled svg path{
         fill:#ffb400
     }
-
-    /* Espacio extra bajo el título de reseñas */
-    .review > h2{
-        margin-bottom:14px
-    }
+    
 
   </style>
     </head>
