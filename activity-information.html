@@ -160,6 +160,11 @@
         flex-shrink:0
     }
 
+    .reservation-panel h2{
+        text-align: center;
+        margin-bottom:12px
+    }
+
     .panel-card{
         background:#fff;
         padding:20px;
@@ -198,14 +203,46 @@
     
     .calendar-header{
         display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:10px;
+        margin-bottom:14px;
+        width: 100%;
+    }
+    
+    .calendar-controllers{
+        display:flex;
         justify-content:center;
         align-items:center;
-        margin-bottom:14px;
         gap:12px
     }
 
-    .calendar-header .month-year{
+    .calendar-header .title {
+        font-size:18px;
+        font-weight:700;
+        color:#fff;
+        background-color: #007bff;
+        width: 100%;
+        text-align: center;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+    }
+
+    .calendar-controllers .month-year{
         font-weight:700
+    }
+
+    .calendar-controllers .small-btn{
+        width:32px;
+        height:32px;
+        border-radius:6px;
+        border:0px solid #ddd;
+        background:#fff;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        cursor:pointer;
+        font-size:16px
     }
 
     .calendar-grid{
@@ -236,6 +273,13 @@
         border:1px solid #eef;
         background:#f8fbff;
         cursor:pointer
+    }
+
+    .preset-times{
+        display:flex;
+        gap:8px;
+        flex-wrap:wrap;
+        justify-content:center;
     }
 
     /* Pariticipants controls */
@@ -276,7 +320,7 @@
 
     .reserve-btn{
         display:block;
-        width:100%;
+        width:80%;
         padding:12px;
         border-radius:8px;
         background:#007bff;
@@ -371,12 +415,14 @@
                 <div class="panel-card">
                     <h2>Reservation</h2>
                     <form class="reservation-form" aria-label="Formulario de reserva">
-
                         <div class="calendar">
                             <div class="calendar-header">
-                                <button type="button" class="small-btn" aria-hidden="true">◀</button>
-                                <h3 class="month-year">February 2026</h3>
-                                <button type="button" class="small-btn" aria-hidden="true">▶</button>
+                                <div class="title">Calendar</div>
+                                <div class="calendar-controllers">
+                                    <button type="button" class="small-btn" aria-hidden="true">◀</button>
+                                    <h3 class="month-year">February 2026</h3>
+                                    <button type="button" class="small-btn" aria-hidden="true">▶</button>
+                                </div>
                             </div>
                             <div class="calendar-grid">
                                 <div class="day-name">M</div>
