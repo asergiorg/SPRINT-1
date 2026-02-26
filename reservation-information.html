@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Información de la reserva</title>
+  <title>Reservation Information</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <style>
     body{
         font-family:Arial,Helvetica,sans-serif;
@@ -35,13 +36,30 @@
     }
 
     .title{
-        font-size:18px;
-        margin-bottom:12px
+        font-size:24px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #333;
     }
-    .actions{
-        margin-top:16px;
-        display:flex;
-        gap:10px
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .card-header{
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      margin-top:16px;
+      display:flex;
+    }
+
+    .actions {
+      justify-content: center;
+      margin-top:16px;
+      gap: 5px;
+      display:flex;
     }
 
     button{
@@ -52,7 +70,30 @@
         cursor:pointer
     }
 
-    #empty{padding:30px;text-align:center;color:#666}
+    .card-header i{
+      position: relative;
+      font-size: 26px;
+    }
+
+    #payment-section {
+      margin-top:14px;
+    }
+
+    #payment-methods {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+      margin: 0 auto;
+      max-width: 70%;
+    }
+
+  #pm-info {
+    margin-top:8px;
+    color:#555;
+    text-align: center;
+  }
+
     /* estilo para pares definición */
     .row dt{font-weight:600}
     .row dd{margin:0}
@@ -66,33 +107,32 @@
     </header>
     <section id="content">
       <article id="reservation-card" class="card" aria-labelledby="res-id">
-        <h2 class="title">Reservation <strong id="res-id">res-12345</strong></h2>
+        <header class="card-header">
+          <a href="activity-information.html"><div class="title">Hiking</div></a>
+          <i class='bx bxs-edit-alt' onclick="location.href='activity-information.html'"></i>
+        </header>
         <div class="row"><dt>Reservation Holder</dt><dd id="row-name">Juan Pérez</dd></div>
-        <div class="row"><dt>Activity</dt><dd id="row-activity">Hiking</dd></div>
         <div class="row"><dt>Date</dt><dd id="row-date">2026-02-25</dd></div>
         <div class="row"><dt>Time</dt><dd id="row-time">10:00</dd></div>
         <div class="row"><dt>Participants</dt><dd id="row-people">2</dd></div>
         <div class="row"><dt>Price</dt><dd id="row-price">€60.00</dd></div>
         <div class="row"><dt>Status</dt><dd id="row-status">Pending</dd></div>
 
-        <footer class="actions" role="group" aria-label="Acciones de reserva">
-          <button id="edit">Edit</button>
-          <button id="cancel">Cancel</button>
-        </footer>
-
-        <section id="payment-section" aria-label="Métodos de pago" style="margin-top:14px">
+        <section id="payment-section" aria-label="Métodos de pago">
           <h3>Select payment method</h3>
-          <div style="display:flex;gap:12px;align-items:center;margin:8px 0;flex-wrap:wrap">
+          <div id="payment-methods">
             <button class="pm-btn" data-method="google">Google Pay</button>
-            <button class="pm-btn" data-method="apple">Apple Pay</button>
-            <button class="pm-btn" data-method="card">Master Card</button>
-            <button class="pm-btn" data-method="card" >Visa Card</button>
+            <button class="pm-btn" data-method="card">MasterCard</button>
+            <button class="pm-btn" data-method="card" >Visa</button>
             <button class="pm-btn" data-method="paypal">PayPal</button>
           </div>
-          <p id="pm-info" style="margin-top:8px;color:#555">You will be redirected to the selected payment gateway.</p>
+          <p id="pm-info">You will be redirected to the selected payment gateway.</p>
         </section>
+        <footer class="actions">
+            <button id="confirm" onclick="location.href='user-activities.html'">Confirm</button>
+            <button id="cancel" onclick="location.href='activity-information.html'">Cancel</button>
+        </footer>
       </article>
-      <aside id="empty" style="display:none" role="note">There is no reservation data. Return to the activity and make a reservation.</aside>
     </section>
   </main>
 
