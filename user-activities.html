@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>My activities</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <style>
     :root{
         --card-bg:#fff;
@@ -52,6 +53,30 @@
         gap:12px
     }
 
+    .activity-card{
+        border:1px solid #e6e9ef;
+        padding:12px;
+        border-radius:10px;
+        display: block;
+        background:#fff
+    }
+
+    .activity-card h3{
+        font-size:14px;
+        margin:0 0 6px
+    }
+
+    .row{display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:8px 0;
+        border-bottom:1px solid #f0f0f0
+    }
+
+    .row:last-child{
+        border-bottom:0
+    }
+
     /* View more */
     .view-more{
         display:flex;
@@ -82,10 +107,11 @@
     <section class="section-card" aria-labelledby="reserved-title">
       <h2 id="reserved-title">Reserved activities</h2>
       <div class="activities-list">
-        <article xlu-include-file="activity2.html"></article>
-        <article xlu-include-file="activity2.html"></article>
-        <article xlu-include-file="activity2.html"></article>
-        <article xlu-include-file="activity2.html"></article>
+         <!-- Ejemplo de item estático: -->
+        <article class="activity-card" xlu-include-file="reservation-card.html" onclick="location.href='reservation-information.html'"></article>
+        <article class="activity-card" xlu-include-file="reservation-card.html" onclick="location.href='reservation-information.html'"></article>
+        <article class="activity-card" xlu-include-file="reservation-card.html" onclick="location.href='reservation-information.html'"></article>
+        <article class="activity-card" xlu-include-file="reservation-card.html" onclick="location.href='reservation-information.html'"></article>
       </div>
       <div class="view-more" role="link" aria-label="Ver más actividades reservadas"><span>View more</span></div>
     </section>
@@ -94,10 +120,10 @@
     <section class="section-card" aria-labelledby="attended-title">
       <h2 id="attended-title">Attended activities</h2>
       <div class="activities-list">
-        <article xlu-include-file="activity2.html"></article>
-        <article xlu-include-file="activity2.html"></article>
-        <article xlu-include-file="activity2.html"></article>
-        <article xlu-include-file="activity2.html"></article>
+        <div xlu-include-file="activity2.html"></div>
+        <div xlu-include-file="activity2.html"></div>
+        <div xlu-include-file="activity2.html"></div>
+        <div xlu-include-file="activity2.html"></div>
       </div>
       <div class="view-more" role="link" aria-label="Ver más actividades participadas"><span>View more</span></div>
     </section>
@@ -106,10 +132,10 @@
     <section class="section-card" aria-labelledby="recommended-title">
       <h2 id="recommended-title">Recommended activities</h2>
       <div class="activities-list">
-        <article xlu-include-file="activity2.html"></article>
-        <article xlu-include-file="activity2.html"></article>
-        <article xlu-include-file="activity2.html"></article>
-        <article xlu-include-file="activity2.html"></article>
+        <div xlu-include-file="activity2.html"></div>
+        <div xlu-include-file="activity2.html"></div>
+        <div xlu-include-file="activity2.html"></div>
+        <div xlu-include-file="activity2.html"></div>
       </div>
       <div class="view-more" role="link" aria-label="Ver más actividades recomendadas"><span>View more</span></div>
     </section>
