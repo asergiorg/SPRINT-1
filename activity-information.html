@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="description" content="This is an HTML5 example">
   <meta name="keywords" content="HTML5, CSS3, JavaScript">
-  <title>This text is the title of the document</title>
+  <title>Activity information</title>
   <style>
     *{
         margin:0;
@@ -105,10 +105,11 @@
         margin-bottom:20px
     }
 
-    .activity-details p{
+    .activity-description{
         color:#444;
         line-height:1.6;
-        margin-bottom:12px
+        text-align: justify;
+        margin-bottom:12px;
     }
 
     .activity-grid{
@@ -147,7 +148,12 @@
         display:flex;
         align-items:center;
         justify-content:space-between;
+        width: 100%;
         gap:8px
+    }
+
+    .review-content {
+        width: 100%;
     }
 
     .review > h2{
@@ -367,7 +373,7 @@
         <div id="header-container" xlu-include-file="header.html"></div>
         
         <section class="page-header">
-            <h1 class="activity-title">Bosques Gallegos</h1>
+            <h1 class="activity-title">Activity name</h1>
             <div class="gallery">
                 <img src="bosques-gallegos.jpg">
                 <img src="bosques-gallegos.jpg">
@@ -380,20 +386,20 @@
             <main id="main_section">
                 <article class="activity-details">
                     <h2>Activity Description</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Esta sección contiene la descripción completa de la actividad.</p>
+                    <p class="activity-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra risus a est varius, ac gravida massa faucibus. Nam elit quam, laoreet sit amet velit a, egestas faucibus libero. Suspendisse varius maximus magna nec cursus. Nulla in auctor neque, ut interdum enim. Sed in nisl sit amet nulla faucibus commodo at vitae turpis. Proin posuere tellus vel nunc sollicitudin, at eleifend libero interdum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lobortis dictum leo sed blandit. In dignissim rhoncus risus sed bibendum. Sed lectus ex, vulputate eu vulputate eu, ullamcorper ac dui. Vivamus vestibulum mollis diam, vitae varius justo molestie in. Aenean in nisl velit. Donec porttitor metus et condimentum hendrerit. Ut ac consequat eros. Etiam eleifend gravida lorem sed sagittis.</p>
 
                     <div class="activity-grid">
-                        <div class="activity-meta-box"> <strong>Duration</strong><div>3 horas</div></div>
-                        <div class="activity-meta-box"> <strong>Language</strong><div>Español / Inglés</div></div>
-                        <div class="activity-meta-box"> <strong>Accessibility</strong><div>Media</div></div>
-                        <div class="activity-meta-box"> <strong>Price</strong><div>€30 / persona</div></div>
+                        <div class="activity-meta-box"> <strong>Duration</strong><div>3 hours</div></div>
+                        <div class="activity-meta-box"> <strong>Language</strong><div>Spanish / English</div></div>
+                        <div class="activity-meta-box"> <strong>Accessibility</strong><div>Medium</div></div>
+                        <div class="activity-meta-box"> <strong>Price</strong><div>30€ / person</div></div>
                     </div>
 
                     <section class="review" aria-labelledby="reviews-heading">
                         <h2 id="reviews-heading">Reviews</h2>
                         <article class="review-item">
                             <img src="bosques-gallegos.jpg" width="30" height="30">
-                                <div>
+                                <div class="review-content">
                                     <div class="review-header">
                                         <h3 style="margin:0">John Doe</h3>
                                         <div id="rating" class="rating" role="img" aria-label="Calificación: 4 de 5 estrellas">
@@ -404,7 +410,7 @@
                                             <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.786 1.402 8.166L12 18.897 4.664 23.162l1.402-8.166L0.132 9.21l8.2-1.192L12 .587z"/></svg></span>
                                         </div>
                                     </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien eget nunc.</p>
+                                    <p>Curabitur eget vehicula eros. Proin maximus ac metus vel placerat. Curabitur ipsum justo, porttitor eu consectetur sed, lobortis in eros. Pellentesque ut venenatis velit. Quisque sit amet lobortis sapien, et pretium tellus. Sed sodales laoreet dolor, non feugiat neque lobortis nec. Nunc in metus ultrices, mattis elit eget, maximus neque.</p>
                                 </div>
                         </article>
                     </section>
