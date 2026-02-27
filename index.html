@@ -3,124 +3,18 @@
 <head>
   <title>Home</title>
   <meta charset="utf-8">
-  <meta name="description" content="This is an HTML5 example">
+  <meta name="description" content="This is the home page of the website">
   <meta name="keywords" content="HTML5, CSS3, JavaScript">
-
+  <link rel="stylesheet" href="css/header-footer.css">
+  <link rel="stylesheet" href="css/index.css">
 </head>
-<style>
 
-	* {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f5f5f5;
-      color: #333;
-    }
-
-	#container1 {
-		width: 100%;
-		height: 400px;
-		background-image: url("fondo_main.jpg");
-		background-size: cover;
-		background-position: center;
-		position: relative;
-
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-
-	#search_container form {
-		display: flex;
-		background: white;
-		padding: 8px 12px;
-		border-radius: 25px;
-		box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-	}
-
-	#search_container input {
-		border: none;
-		outline: none;
-		font-size: 16px;
-		width: 400px;
-	}
-
-	#search_container button {
-		background: none;
-		border: none;
-		cursor: pointer;
-	}
-
-	/* Carrusel */
-	#container2 {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 20px;
-		margin-top: 30px;
-		height: 400px;
-	}
-
-	#left_arrow,
-	#right_arrow {
-		background: none;
-		border: none;
-		cursor: pointer;
-		padding: 10px;
-		justify-content: end;
-	}
-
-	#activity_container {
-		display: flex;
-		gap: 30px;
-		overflow-x: auto;
-		scroll-snap-type: x mandatory;
-		padding: 20px;
-		width: 50%;
-		justify-content: center;
-	}
-
-	#activity_container::-webkit-scrollbar {
-		display: none;
-	}
-
-	.activity_carrusel {
-		min-width: 300px; 
-		height: 220px; 
-		background: #ffffffcc;
-		border-radius: 20px;
-		padding: 20px;
-		display: flex;
-		box-shadow: 0 6px 15px rgba(0,0,0,0.25);
-		scroll-snap-align: center;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		gap: 15px;
-	}
-
-	.activity_image {
-		width: 100%;
-		height: 120px;
-		object-fit: cover;
-		border-radius: 15px;
-		margin-bottom: 10px;
-	}
-
-	.activity_inf {
-		text-align: center;
-	}
-</style>
 <body>
-<div id="header-container" xlu-include-file="header.html"></div>
+<header id="header-container" xlu-include-file="header.html"></header>
 <div id="container">
 	<div id="main_container">
-		<div id="container1">
-			<div id="search_container">
+		<div id="search-container">
+			<div id="bar-search-container">
 				<form >
 					<input type="text" placeholder="Search activity..." name="activity">
 					<button type="submit">
@@ -129,19 +23,23 @@
 				</form>
 			</div>
 		</div>
-
+		
 		<div id="container2">
-			<button id="left_arrow">
-        		<img src="anterior.png" width="15">
-    		</button>
+			<div class="slider-wrapper">
+				<div class="slider">
+					<article id="art1" class="activity"  xlu-include-file="activity1.html"></article>
+					<article id="art2" class="activity" xlu-include-file="activity1.html"></article>
+					<article id="art3" class="activity" xlu-include-file="activity1.html"></article>
+					<article id="art4" class="activity" xlu-include-file="activity1.html"></article>
+				</div>
 
-			<div id="activity_container" xlu-include-file="activity1.html">
-				
+				<div class="slider-nav">
+					<a href="#art1"></a>
+					<a href="#art2"></a>
+					<a href="#art3"></a>
+					<a href="#art4"></a>
+				</div>
 			</div>
-
-			<button id="right_arrow">
-        		<img src="proximo.png" width="15">
-    		</button>
 		</div>
 	</div>
 
