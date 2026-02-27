@@ -1,4 +1,10 @@
-:root{
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box
+    }
+
+    :root{
         --card-bg:#fff;
         --muted:#6b7280;
         --accent:#0f62fe
@@ -17,13 +23,13 @@
         padding:0 28px;
     }
 
-    header.page-header{
+    .page-header{
         margin-bottom:20px
     }
 
-    header.page-header h1{
-        font-size:24px;
-        margin:0
+    .page-header h1{
+        font-size:32px;
+        margin:16px
     }
 
     .section-card{

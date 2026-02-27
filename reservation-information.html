@@ -1,49 +1,48 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="utf-8">
-  <meta name="description" content="This is a page with the information of a particular reservation">
-  <meta name="keywords" content="HTML5, CSS3, JavaScript">
-  <title>Reservation Information</title>
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <link rel="stylesheet" href="css/reservation-information.css">
-</head>
-<body>
-  <main class="container">
-    <header>
-      <h1>Reservation Information</h1>
-    </header>
-    <section id="content">
-      <article id="reservation-card" class="card" aria-labelledby="res-id">
-        <header class="card-header">
-          <a href="activity-information.html"><div class="title">Hiking</div></a>
-          <i class='bx bxs-edit-alt' onclick="location.href='activity-information.html'"></i>
-        </header>
-        <div class="row"><dt>Reservation Holder</dt><dd id="row-name">Juan Pérez</dd></div>
-        <div class="row"><dt>Date</dt><dd id="row-date">2026-02-25</dd></div>
-        <div class="row"><dt>Time</dt><dd id="row-time">10:00</dd></div>
-        <div class="row"><dt>Participants</dt><dd id="row-people">2</dd></div>
-        <div class="row"><dt>Price</dt><dd id="row-price">€60.00</dd></div>
-        <div class="row"><dt>Status</dt><dd id="row-status">Pending</dd></div>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="This is a page with the information of a particular reservation">
+        <meta name="keywords" content="HTML5, CSS3, JavaScript">
+        <title>Reservation Information</title>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet for edit icon'>
+        <link rel="stylesheet for the page" href="css/reservation-information.css">
+    </head>
+    <body>
+        <main class="container">
+            <header><h1>Reservation Information</h1></header>
+            <section id="content">
+                <article id="reservation-card" class="card" aria-labelledby="res-id">
 
-        <section id="payment-section" aria-label="Métodos de pago">
-          <h3>Select payment method</h3>
-          <div id="payment-methods">
-            <button class="pm-btn" data-method="google">Google Pay</button>
-            <button class="pm-btn" data-method="card">MasterCard</button>
-            <button class="pm-btn" data-method="card" >Visa</button>
-            <button class="pm-btn" data-method="paypal">PayPal</button>
-          </div>
-          <p id="pm-info">You will be redirected to the selected payment gateway.</p>
-        </section>
-        <footer class="actions">
-            <button id="confirm" onclick="location.href='user-activities.html'">Confirm</button>
-            <button id="cancel" onclick="location.href='activity-information.html'">Cancel</button>
-        </footer>
-      </article>
-    </section>
-  </main>
+                    <header class="card-header">
+                    <a href="activity-information.html"><div class="title">Hiking</div></a>
+                    <i class='bx bxs-edit-alt' onclick="location.href='activity-information.html'"></i>
+                    </header>
 
-  
-</body>
+                    <div class="row"><dt>Reservation Holder</dt><dd id="row-name">Juan Pérez</dd></div>
+                    <div class="row"><dt>Date</dt><dd id="row-date">2026-02-25</dd></div>
+                    <div class="row"><dt>Time</dt><dd id="row-time">10:00</dd></div>
+                    <div class="row"><dt>Participants</dt><dd id="row-people">2</dd></div>
+                    <div class="row"><dt>Price</dt><dd id="row-price">€60.00</dd></div>
+                    <div class="row"><dt>Status</dt><dd id="row-status">Pending</dd></div>
+
+                    <section id="payment-section" aria-label="Métodos de pago">
+                        <h3>Select payment method</h3>
+                        <div id="payment-methods">
+                            <button class="pm-btn" data-method="google">Google Pay</button>
+                            <button class="pm-btn" data-method="card">MasterCard</button>
+                            <button class="pm-btn" data-method="card" >Visa</button>
+                            <button class="pm-btn" data-method="paypal">PayPal</button>
+                        </div>
+                        <p id="pm-info">You will be redirected to the selected payment gateway.</p>
+                    </section>
+
+                    <footer class="actions">
+                        <button id="confirm" onclick="location.href='user-activities.html'">Confirm</button>
+                        <button id="cancel" onclick="location.href='activity-information.html'">Cancel</button>
+                    </footer>
+                </article>
+            </section>
+        </main>
+    </body>
 </html>

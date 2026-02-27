@@ -1,68 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="description" content="This is a page with the activities reserved and attended of a particular user and recomendations for him">
-  <meta name="keywords" content="HTML5, CSS3, JavaScript">
-  <title>My activities</title>
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/user-activities.css">
-  <link rel="stylesheet" href="css/header-footer.css">
-  <link rel="stylesheet" href="css/activity3.css">
-</head>
-<body>
-  <header id="header-container" xlu-include-file="header.html"></header>
-  <main class="container">
-    
-    <section class="page-header">
-      <h1>User activities</h1>
-    </section>
-    <!-- Reservadas -->
-    <section class="section-card" aria-labelledby="reserved-title">
-      <h2 id="reserved-title">Reserved activities</h2>
-      <div class="activities-list">
-        <article class="activity-card" xlu-include-file="reservation-card.html" onclick="location.href='reservation-information.html'"></article>
-        <article class="activity-card" xlu-include-file="reservation-card.html" onclick="location.href='reservation-information.html'"></article>
-        <article class="activity-card" xlu-include-file="reservation-card.html" onclick="location.href='reservation-information.html'"></article>
-        <article class="activity-card" xlu-include-file="reservation-card.html" onclick="location.href='reservation-information.html'"></article>
-      </div>
-      <div class="view-more" role="link" aria-label="Ver más actividades reservadas"><span>View more</span></div>
-    </section>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="This is a page with the activities reserved and attended of a particular user and recomendations for him">
+        <meta name="keywords" content="HTML5, CSS3, JavaScript">
+        <title>My activities</title>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet for icons'>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="font stylesheet">
+        <link rel="stylesheet for the page" href="css/user-activities.css">
+        <link rel="stylesheet for header and footer" href="css/header-footer.css">
+    </head>
+    <body>
+        <header id="header-container" xlu-include-file="header.html"></header>
+        <main class="container">
+            <section class="page-header">
+            <h1>User activities</h1>
+            </section>
+            <!-- Reservadas -->
+            <section class="section-card" aria-labelledby="reserved-title">
+                <h2 id="reserved-title">Reserved activities</h2>
+                <div class="activities-list">
+                    <article class="activity-card" xlu-include-file="reservation-card.html" onclick="location.href='reservation-information.html'"></article>
+                    <article class="activity-card" xlu-include-file="reservation-card.html" onclick="location.href='reservation-information.html'"></article>
+                    <article class="activity-card" xlu-include-file="reservation-card.html" onclick="location.href='reservation-information.html'"></article>
+                    <article class="activity-card" xlu-include-file="reservation-card.html" onclick="location.href='reservation-information.html'"></article>
+                </div>
+                <div class="view-more" role="link" aria-label="Ver más actividades reservadas"><span>View more</span></div>
+            </section>
 
-    <!-- Participadas -->
-    <section class="section-card" aria-labelledby="attended-title">
-      <h2 id="attended-title">Attended activities</h2>
-      <div class="activities-list">
+            <!-- Participadas -->
+            <section class="section-card" aria-labelledby="attended-title">
+                <h2 id="attended-title">Attended activities</h2>
+                <div class="activities-list">
         <article class="activity-card" xlu-include-file="activity3.html"></article>
         <article class="activity-card" xlu-include-file="activity3.html"></article>
         <article class="activity-card" xlu-include-file="activity3.html"></article>
         <article class="activity-card" xlu-include-file="activity3.html"></article>
-      </div>
-      <div class="view-more" role="link" aria-label="Ver más actividades participadas"><span>View more</span></div>
-    </section>
+                </div>
+                <div class="view-more" role="link" aria-label="Ver más actividades participadas"><span>View more</span></div>
+            </section>
 
-    <!-- Recomendadas -->
-    <section class="section-card" aria-labelledby="recommended-title">
-      <h2 id="recommended-title">Recommended activities</h2>
-      <div class="activities-list">
+            <!-- Recomendadas -->
+            <section class="section-card" aria-labelledby="recommended-title">
+                <h2 id="recommended-title">Recommended activities</h2>
+                <div class="activities-list">
         <article class="activity-card" xlu-include-file="activity3.html"></article>
         <article class="activity-card" xlu-include-file="activity3.html"></article>
         <article class="activity-card" xlu-include-file="activity3.html"></article>
         <article class="activity-card" xlu-include-file="activity3.html"></article>
-      </div>
-      <div class="view-more" role="link" aria-label="Ver más actividades recomendadas"><span>View more</span></div>
-    </section>
-  </main>
+                </div>
+                <div class="view-more" role="link" aria-label="Ver más actividades recomendadas"><span>View more</span></div>
+            </section>
+        </main>
 
-  <footer id="footer-container" xlu-include-file="footer.html"></footer>
+        <footer id="footer-container" xlu-include-file="footer.html"></footer>
 
-  <script src="scripts/xlu-include-file.js"></script>
-  <script src="scripts/header.js"></script>
-  <script>
-      document.addEventListener('DOMContentLoaded', function() {
-          xLuIncludeFile();
-      });
-  </script>
-</body>
+        <script src="scripts/xlu-include-file.js"></script>
+        <script src="scripts/header.js"></script>
+        <script>
+            xLuIncludeFile();
+        </script>
+    </body>
 </html>
