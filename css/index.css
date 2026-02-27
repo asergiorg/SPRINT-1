@@ -1,0 +1,120 @@
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+	#search-container {
+		width: 100%;
+		height: 400px;
+		background-image: url("#.jpg");
+		background-size: cover;
+		background-position: center;
+		position: relative;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	#bar-search-container form {
+		display: flex;
+		background: white;
+		padding: 8px 12px;
+		border-radius: 25px;
+		box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+	}
+
+	#bar-search-container input {
+		border: none;
+		outline: none;
+		font-size: 16px;
+		width: 400px;
+	}
+
+	#bar-search-container button {
+		background: none;
+		border: none;
+		cursor: pointer;
+	}
+
+	.slider-wrapper {
+		position: relative;
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 30px;
+	}
+	
+	.slider{
+		display: flex;
+		aspect-ratio: 16/9;
+		scroll-snap-type: x mandatory;
+		overflow-x: hidden;
+		scroll-behavior: smooth;
+		border-radius: .5rem;
+	}
+
+	.slider .activity{
+		flex: 1 0 100%;
+		scroll-snap-align: start;
+		display: flex;
+		align-items: center;
+		gap: 1.5rem;
+		padding: 1.5rem;
+		background: #fff;
+		border-radius: .5rem;
+	}
+
+	.slider-nav{
+		display: flex;
+		column-gap: 1.65rem;
+		position: absolute;
+		bottom: 1.25rem;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 1;
+		padding-top: 20px;
+	}
+
+	.slider-nav a {
+		width: .5rem;
+		height: .5rem;
+		border-radius: 50%;
+		background: #000;
+		opacity: .75;
+		transition: opacity ease 250ms;
+	}
+
+	.slider-nav:hover{
+		opacity: 1;
+	}
+
+    .activity img {
+		width: 90%;
+		height: 95%;
+		object-fit: cover;
+		border-radius: .5rem;
+	}
+
+	.activity .description {
+		width: 60%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.activity .description h3 {
+		margin: 0 0 .5rem 0;
+		font-size: 1.6rem;
+	}
+
+	.activity .description p {
+		margin: 0;
+		line-height: 1.4;
+	}
