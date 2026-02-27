@@ -1,27 +1,20 @@
-async function loadAndOpenLogin() {
-  let modal = document.getElementById("loginModal");
+async function loadAndOpenModal(fileUrl, modalId) {
+  let modal = document.getElementById(modalId);
 
   if (!modal) {
     try {
-      const response = await fetch("login-modal.html");
-
-      if (!response.ok) throw new Error("No se pudo cargar login-modal.html");
+      const response = await fetch(fileUrl);
+      if (!response.ok) throw new Error("No se pudo cargar el archivo: " + fileUrl);
 
       const htmlSnippet = await response.text();
 
       document.body.insertAdjacentHTML("beforeend", htmlSnippet);
-      modal = document.getElementById("loginModal");
 
+      modal = document.getElementById(modalId);
       modal.style.display = "flex";
 
-      window.onclick = function(event) {
-        if (event.target === modal) {
-          closeLoginModal();
-        }
-      }
-
     } catch (error) {
-      console.error("Error al cargar el modal de login:", error);
+      console.error("Error al cargar el modal " + modalId + ": ", error);
     }
   } else {
     modal.style.display = "flex";
