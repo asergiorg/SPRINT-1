@@ -21,10 +21,21 @@ async function loadAndOpenModal(fileUrl, modalId) {
   }
 }
 
-function closeLoginModal() {
-  const modal = document.getElementById("loginModal");
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
   if (modal) {
     modal.style.display = "none";
+  }
+}
+
+window.onclick = function(event) {
+  const loginModal = document.getElementById("loginModal");
+  const signupModal = document.getElementById("signupModal");
+
+  if (loginModal && event.target === loginModal) {
+    closeModal("loginModal");
+  } else if (signupModal && event.target === signupModal) {
+    closeModal("signupModal");
   }
 }
 
