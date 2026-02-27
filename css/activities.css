@@ -12,14 +12,12 @@
 
 	#main_container {
 		display: grid;
-		grid-template-columns: 300px 1fr ; 
-		grid-template-rows: auto 1fr;  
+		grid-template-columns: minmax(250px,calc(100%/4)) 1fr;
 		gap: 20px;
-		width: 70%;
+		width: 90%;
 		margin: 0 auto;
 		padding: 20px;
 	}
-
 	
 	#search_container {
 		grid-column: 1 / 3;
@@ -52,7 +50,6 @@
 		padding: 0 8px;
 	}
 
-	
 	#filterbar {
 		grid-column: 1;
 		background: #ffffffcc;
@@ -71,7 +68,7 @@
 	#filterbar form {
 		display: flex;
 		flex-direction: column;
-		gap: 10px;
+		gap: 1.5em;
 	}
 
 	.filter-row {
@@ -102,17 +99,21 @@
 		cursor: pointer;
 	}
 
+	input::-webkit-inner-spin-button {
+  		-webkit-appearance: none;
+  		margin: 0;
+	}
+
 	section {
 		grid-column: 2; 
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 		justify-content: center;
 		gap: 25px;
-		max-width: 900px;
 		justify-content: center;
 	}
 
-        .activity {
+	.activity {
         background: #ffffffcc;
         border-radius: 15px;
         padding: 15px;
