@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="This is a page with the activities reserved and attended of a particular user and recomendations for him">
+  <meta name="keywords" content="HTML5, CSS3, JavaScript">
   <title>My activities</title>
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/user-activities.css">
 </head>
 <body>
-  <div id="header-container" xlu-include-file="header.html"></div>
+  <header id="header-container" xlu-include-file="header.html"></header>
   <main class="container">
     
     <section class="page-header">
@@ -18,7 +20,6 @@
     <section class="section-card" aria-labelledby="reserved-title">
       <h2 id="reserved-title">Reserved activities</h2>
       <div class="activities-list">
-         <!-- Ejemplo de item estático: -->
         <article class="activity-card" xlu-include-file="reservation-card.html" onclick="location.href='reservation-information.html'"></article>
         <article class="activity-card" xlu-include-file="reservation-card.html" onclick="location.href='reservation-information.html'"></article>
         <article class="activity-card" xlu-include-file="reservation-card.html" onclick="location.href='reservation-information.html'"></article>
@@ -52,7 +53,7 @@
     </section>
   </main>
 
-  <div id="footer-container" xlu-include-file="footer.html"></div>
+  <footer id="footer-container" xlu-include-file="footer.html"></footer>
 
   <script src="scripts/xlu-include-file.js"></script>
   <script src="scripts/header.js"></script>
