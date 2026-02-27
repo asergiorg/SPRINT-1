@@ -1,0 +1,306 @@
+*{
+        margin:0;
+        padding:0;
+        box-sizing:border-box
+    }
+
+    body{
+        font-family:Arial,Helvetica,sans-serif;
+        background:#f5f5f5;
+        color:#333;
+        line-height:1.6
+    }
+
+    h1{
+        font:bold 22px verdana, sans-serif
+    }
+
+    #header-container h1 {
+        font-family: inherit;
+    }
+
+    h2{
+        font:bold 16px verdana, sans-serif
+    }
+
+    header,section,footer,aside,nav,article,figure,figcaption{display:block}
+
+    .container{
+        max-width:1100px;
+        margin:0 auto;
+        padding:0 28px;
+    }
+
+    header.page-header{
+        margin-bottom:20px
+    }
+
+    header.page-header h1{
+        font-size:24px;
+        margin:0
+    }
+
+    /* Layout */
+    .page-header{
+        max-width:80%;
+        margin:24px auto 12px;
+        padding:0 12px
+    }
+
+    .breadcrumb{
+        font-size:13px;
+        color:#666;
+        margin-bottom:8px
+    }
+
+    .activity-title{
+        font-size:24px;
+        font-weight:700;
+        text-align:left;
+        margin:12px 0 16px;
+        padding-bottom:10px;
+        border-bottom:1px solid #eef2f6;
+    }
+
+    /* Images in the header*/
+    .gallery{
+        width:100%;
+        display:grid;
+        grid-template-columns:repeat(3,1fr);
+        gap:14px;
+        margin-top:16px
+    }
+
+    .gallery img{
+        width:100%;
+        height:300px;
+        object-fit:cover
+    }
+
+    #wrapper{
+        max-width:80%;
+        margin:20px auto;
+        display:flex;
+        gap:32px;
+        align-items:flex-start;
+        padding:0 12px
+    }
+
+    #main_section{flex:1}
+
+    /* Activity details */
+    .activity-details{
+        background:#fff;
+        padding:22px;
+        border-radius:12px;
+        box-shadow:0 6px 18px rgba(16,24,40,0.06);
+        margin-bottom:20px
+    }
+
+    .activity-description{
+        color:#444;
+        line-height:1.6;
+        text-align: justify;
+        margin-bottom:12px;
+    }
+
+    .activity-grid{
+        display:block;
+        gap:12px;
+        margin-bottom:16px
+    }
+
+    .activity-grid .activity-meta-box{
+        background:#fafafa;
+        padding:12px;
+        border-radius:8px;
+        margin-bottom:12px;
+        width:100%
+    }
+        
+    /* Reservation panel */
+    .reservation-panel{
+        width:360px;
+        flex-shrink:0
+    }
+
+    .reservation-panel h2{
+        text-align: center;
+        margin-bottom:12px
+    }
+
+    .panel-card{
+        background:#fff;
+        padding:20px;
+        border-radius:12px;
+        box-shadow:0 6px 18px rgba(16,24,40,0.06)
+    }
+
+    .reservation-form{
+        display:flex;
+        flex-direction:column;
+        gap:12px;
+        align-items:center
+    }
+    
+    .form-group{
+        width:100%
+    }
+
+    .form-group label{
+        display:block;
+        margin-bottom:6px
+    }
+
+    /* Calendar */
+    .calendar{
+        width:100%;
+        padding:20px;
+        border:1px solid #e6e9ef;
+        border-radius:12px;
+        background:#fff;
+        margin-bottom:16px;
+        display:flex;
+        flex-direction:column;
+        align-items:center
+    }
+    
+    .calendar-header{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:10px;
+        margin-bottom:14px;
+        width: 100%;
+    }
+    
+    .calendar-controllers{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        gap:12px
+    }
+
+    .calendar-header .title {
+        font-size:18px;
+        font-weight:700;
+        color:#fff;
+        background-color: #007bff;
+        width: 100%;
+        text-align: center;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+    }
+
+    .calendar-controllers .month-year{
+        font-weight:700
+    }
+
+    .calendar-controllers .small-btn{
+        width:32px;
+        height:32px;
+        border-radius:6px;
+        border:0px solid #ddd;
+        background:#fff;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        cursor:pointer;
+        font-size:16px
+    }
+
+    .calendar-grid{
+        display:grid;
+        grid-template-columns:repeat(7,1fr);
+        gap:5px;
+        width:100%;
+        max-width:320px
+    }
+
+    .day-name{
+        font-weight:700;
+        text-align:center;
+        color:#444
+    }
+
+    .day{
+        padding:8px 0;
+        border-radius:8px;
+        text-align:center;
+        background:#f8fafc
+    }
+
+    /* Time controls */
+    .preset{
+        padding:6px 8px;
+        border-radius:6px;
+        border:1px solid #eef;
+        background:#f8fbff;
+        cursor:pointer
+    }
+
+    .preset-times{
+        display:flex;
+        gap:8px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    /* Pariticipants controls */
+    .people-selector{
+        display:flex;
+        gap:8px;
+        align-items:center;
+        justify-content:center;
+    }
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+
+    .people-btn{
+        width:32px;
+        height:32px;
+        border-radius:6px;
+        border:1px solid #ddd;
+        background:#fff;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        cursor:pointer;
+        font-size:16px
+    }
+
+    .people-selector input[type=number]{
+        width:56px;
+        height:32px;
+        padding:6px;
+        border:1px solid #e6e9ef;
+        border-radius:6px;
+        text-align:center
+    }
+
+    input[type=time],input[type=number]{
+        padding:8px;
+        border:1px solid #e6e9ef;
+        border-radius:6px
+    }
+
+    .reserve-btn{
+        display:block;
+        width:80%;
+        padding:12px;
+        border-radius:8px;
+        background:#007bff;
+        color:#fff;
+        border:none;
+        font-weight:600;
+        cursor:pointer;
+        text-align:center;
+        text-decoration:none;
+        box-sizing:border-box
+    }
+
+   
