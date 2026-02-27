@@ -1,0 +1,220 @@
+<style>
+
+    .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, .6);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .login-wrapper {
+        width: 420px;
+        background: purple;
+        color: #fff;
+        border-radius: 10px;
+        padding: 30px 40px;
+        position: relative;
+        font-family: "Poppins", sans-serif;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .login-wrapper h1 {
+        font-size: 36px;
+        text-align: center;
+    }
+
+    .login-wrapper .input-box {
+        position: relative;
+        width: 100%;
+        height: 50px;
+        margin: 30px 0;
+    }
+
+    .input-box input,
+    .input-box select {
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        outline: none;
+        border: 2px solid rgba(255, 255, 255, .2);
+        border-radius: 40px;
+        font-size: 14px;
+        color: #fff;
+        padding: 0 20px;
+        font-family: "Poppins", sans-serif;
+        appearance: none;
+    }
+
+    .input-box input::placeholder {
+        color: #fff;
+    }
+
+    .input-box select option {
+        color: #333;
+    }
+
+    .input-box i {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 20px;
+    }
+
+    .login-wrapper .remember-forgot {
+        display: flex;
+        justify-content: space-between;
+        font-size: 14.5px;
+        margin: -15px 0 15px;
+    }
+
+    .remember-forgot label input {
+        accent-color: #fff;
+        margin-right: 3px;
+    }
+
+    .remember-forgot a {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .remember-forgot a:hover {
+        text-decoration: underline;
+        color: #e0e0e0;
+    }
+
+    .login-wrapper .btn-login {
+        width: 100%;
+        height: 45px;
+        background: #fff;
+        border: none;
+        outline: none;
+        border-radius: 40px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+        cursor: pointer;
+        font-size: 16px;
+        color: #333;
+        font-weight: 600;
+        font-family: "Poppins", sans-serif;
+        transition: background-color 0.3s;
+    }
+
+    .login-wrapper .btn-login:hover {
+        background-color: #e6e6e6;
+    }
+
+    .login-wrapper .signup-link {
+        font-size: 14.5px;
+        text-align: center;
+        margin: 20px 0 15px;
+    }
+
+    .signup-link p a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s;
+    }
+
+    .signup-link p a:hover {
+        text-decoration: underline;
+        color: #e0e0e0;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 28px;
+        color: #fff;
+        cursor: pointer;
+        background: none;
+        border: none;
+        outline: none;
+        transition: color 0.3s;
+    }
+
+    .close-btn:hover {
+        color: #ccc;
+    }
+
+</style>
+
+<div class="modal-overlay" id="signupModal">
+
+    <div class="login-wrapper">
+
+        <button class="close-btn" onclick="closeModal('signupModal')"> &times; </button>
+
+        <form action="">
+
+            <h1>Sign up</h1>
+
+            <div class="input-box">
+                <input type="text" placeholder="Full name" required>
+                <i class='bx bxs-user'></i>
+            </div>
+
+            <div class="input-box">
+                <input type="text" placeholder="Username" required>
+                <i class='bx bxs-user'></i>
+            </div>
+
+            <div class="input-box">
+                <input type="text" placeholder="Birthday" onfocus="this.type='date'" required>
+                <i class='bx bxs-calendar'></i>
+            </div>
+
+            <div class="input-box select-wrapper">
+                <select required>
+                    <option value="" disabled selected hidden>Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+                <i class='bx bx-caret-down'></i>
+            </div>
+            
+            <div class="input-box">
+                <input type="tel" placeholder="Phone number" required>
+                <i class='bx bxs-phone'></i>
+            </div>
+
+            <div class="input-box">
+                <input type="email" placeholder="Email address" required>
+                <i class='bx bxs-envelope'></i>
+            </div>
+
+            <div class="input-box">
+                <input type="password" placeholder="Password" required>
+                <i class='bx bxs-lock-alt' ></i>
+            </div>
+
+            <div class="input-box">
+                <input type="password" placeholder="Confirm Password" required>
+                <i class='bx bxs-lock-alt' ></i>
+            </div>
+
+            <div class="remember-forgot">
+                <label> <input type="checkbox"> I agree to the terms & conditions </label>
+            </div>
+
+            <button type="submit" class="btn-login"> Create account </button>
+            
+            <div class="signup-link">
+                <p> Already have an account? <a href="#"> Log in </a> </p>
+            </div>
+
+        </form>
+
+    </div>
+    
+</div>
