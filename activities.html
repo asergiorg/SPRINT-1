@@ -3,130 +3,14 @@
 <head>
   <title>Activities</title>
   <meta charset="utf-8">
-  <meta name="description" content="This is an HTML5 example">
   <meta name="keywords" content="HTML5, CSS3, JavaScript">
-
+  <link rel="stylesheet" href="css/activities.css">
+  <link rel="stylesheet" href="css/header-footer.css">
 </head>
-<style>
-
-	* {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f5f5f5;
-      color: #333;
-    }
-
-	/* CONTENEDOR PRINCIPAL */
-	#main_container {
-		display: grid;
-		grid-template-columns: 300px 1fr ; /* Contenido + barra lateral */
-		grid-template-rows: auto 1fr;     /* Barra de búsqueda arriba */
-		gap: 20px;
-		width: 90%;
-		margin: 0 auto;
-		padding: 20px;
-	}
-
-	/* BARRA DE BÚSQUEDA */
-	#search_container {
-		grid-column: 1 / 3; /* Ocupa todo el ancho */
-		display: flex;
-		justify-content: center;
-		margin-bottom: 10px;
-	}
-
-	#search_container form {
-		display: flex;
-		align-items: center;
-		width: 60%; /* Ajusta el tamaño total de la barra */
-		background: white;
-		padding: 8px 12px;
-		border-radius: 25px;
-		box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-	}
-
-	#search_container input {
-		flex: 1; /* El input ocupa todo el espacio */
-		border: none;
-		outline: none;
-		font-size: 16px;
-	}
-
-	#search_container button {
-		background: none;
-		border: none;
-		cursor: pointer;
-		padding: 0 8px;
-	}
-
-	/* BARRA DE FILTROS */
-	#filterbar {
-		grid-column: 1; /* Lateral derecho */
-		background: #ffffffcc;
-		padding: 20px;
-		border-radius: 15px;
-		box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-		height: fit-content;
-	}
-
-	#filterbar h2 {
-		margin-top: 0;
-	}
-
-	#filterbar form {
-		display: flex;
-		flex-direction: column;
-		gap: 10px;
-	}
-
-	.filter-row {
-		display: flex;
-		align-items: center;
-		gap: 8px;
-	}
-
-	.filter-row input{
-		width: 100%;
-		flex: 1;
-	}
 
 
-	#filterbar input,
-	#filterbar select {
-		padding: 8px;
-		border-radius: 8px;
-		border: 1px solid #ccc;
-	}
-
-	#filterbar button {
-		margin-top: 10px;
-		padding: 10px;
-		border: none;
-		background: #0077ff;
-		color: white;
-		border-radius: 8px;
-		cursor: pointer;
-	}
-
-	/* SECCIÓN DE ACTIVIDADES */
-	section {
-		grid-column: 2; /* Columna principal */
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-		justify-content: center;
-		gap: 25px;
-		max-width: 900px;
-		justify-content: center;
-	}
-
-</style>
 <body>
-	<div id="header-container" xlu-include-file="header.html"></div>
+	<header id="header-container" xlu-include-file="header.html"></header>
 <div id="container">
 
 	<div id="main_container">
@@ -163,24 +47,28 @@
                     <option value="en">English</option>
                     <option value="fr">French</option>
                     <option value="de">German</option>
-                </select><br>
-                <label><input type="checkbox" name="categoria" value="accibility"> Accessible</label><br>
+                </select>
+                
                 <h3>Starts:</h3>
-                <select id="stars-actividad" name="start">
+                <select id="stars-actividad" name="starts">
                     <option value="all">All</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
                     <option value="5">5</option>
-                </select><br>
-                <button type="submit">Apply</button>
+                </select>
+				
+				<label><input type="checkbox" name="categoria" value="accibility"> Accessible</label><br>
+                <button type="button">Apply</button>
             </form>
         </aside>
 
-        <section xlu-include-file="activity2.html">
-
-			
+        <section >
+			<article class="activity" xlu-include-file="activity2.html"></article>
+			<article class="activity" xlu-include-file="activity2.html"></article>
+			<article class="activity" xlu-include-file="activity2.html"></article>
+			<article class="activity" xlu-include-file="activity2.html"></article>
         </section>
 
 	</div>
