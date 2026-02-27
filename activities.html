@@ -28,18 +28,30 @@
 
 			<h2 id="filter">Filters</h2>
             <form action="filter">
+                
                 <h3>Price:</h3>
 				<div class="filter-row">
 					<input type="number" name="price_min" min="0" placeholder="min">
 					<span>-</span>
 					<input type="number" name="price_max" min="0" placeholder="max">
 				</div>
+
                 <h3>Duration:</h3>
 				<div class="filter-row">
 					<input type="number" name="duration_min" min="0" placeholder="min">
 					<span>-</span>
 					<input type="number" name="duration_max" min="0" placeholder="max">
 				</div>
+
+                <h3>Time:</h3>
+                <select name="time_block">
+                    <option value="all">Any time</option>
+                    <option value="morning">Morning (06:00–12:00)</option>
+                    <option value="afternoon">Afternoon (12:00–18:00)</option>
+                    <option value="evening">Evening (18:00–22:00)</option>
+                    <option value="night">Night (22:00–06:00)</option>
+                </select>
+
                 <h3>Language:</h3>
                 <select id="idioma-actividad" name="language">
                     <option value="all">All languages</option>
@@ -67,6 +79,10 @@
 
         <section >
 			<article class="activity" xlu-include-file="activity2.html"></article>
+			<article class="activity" xlu-include-file="activity2.html"></article>
+			<article class="activity" xlu-include-file="activity2.html"></article>
+			<article class="activity" xlu-include-file="activity2.html"></article>
+            <article class="activity" xlu-include-file="activity2.html"></article>
 			<article class="activity" xlu-include-file="activity2.html"></article>
 			<article class="activity" xlu-include-file="activity2.html"></article>
 			<article class="activity" xlu-include-file="activity2.html"></article>
