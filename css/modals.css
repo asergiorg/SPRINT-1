@@ -67,25 +67,18 @@
         font-size: 20px;
     }
 
-    .modal-wrapper .remember-forgot {
-        display: flex;
-        justify-content: space-between;
-        font-size: 14.5px;
-        margin: -15px 0 15px;
-    }
-
-    .remember-forgot label input {
+    .modal-checkbox-row label input {
         accent-color: #fff;
         margin-right: 3px;
     }
 
-    .remember-forgot a {
+    .modal-checkbox-row a {
         color: #fff;
         text-decoration: none;
         transition: color 0.3s;
     }
 
-    .remember-forgot a:hover {
+    .modal-checkbox-row a:hover {
         text-decoration: underline;
         color: #e0e0e0;
     }
@@ -145,9 +138,23 @@
         color: #ccc;
     }
 
+    /* Estilos específicos del login-modal */
+
+    .login-modal .login-remember-forgot {
+        display: flex;
+        justify-content: space-between;
+        font-size: 14.5px;
+        margin: -15px 0 15px;
+    }
+
     /* Estilos específicos del signup-modal */
 
     .signup-modal .modal-wrapper {
         max-height: 90vh;
         overflow-y: auto;
+    }
+
+    .signup-modal .signup-terms {
+        font-size: 14.5px;
+        margin: -15px 0 15px;
     }
