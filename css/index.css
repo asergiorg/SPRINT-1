@@ -23,6 +23,12 @@
 		align-items: center;
 	}
 
+	#bar-search-container {
+		width: 500px;
+		height: 70px;
+		margin: 0 auto;
+	}
+
 	#bar-search-container form {
 		display: flex;
 		background: white;
@@ -35,7 +41,7 @@
 		border: none;
 		outline: none;
 		font-size: 16px;
-		width: 400px;
+		width: 100%;
 	}
 
 	#bar-search-container button {
@@ -48,9 +54,12 @@
 		position: relative;
 		max-width: 800px;
 		margin: 0 auto;
+		padding: 0px;
+	}
+
+	#container2 {
 		padding: 30px;
 	}
-	
 	.slider{
 		display: flex;
 		aspect-ratio: 16/9;
