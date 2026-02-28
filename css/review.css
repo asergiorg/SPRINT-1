@@ -24,6 +24,10 @@
         gap:8px
     }
 
+    .review-header h3{
+        margin:0
+    }
+
     .review-content {
         width: 100%;
     }
