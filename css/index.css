@@ -81,6 +81,12 @@
 		padding: 1.5rem;
 		background: #fff;
 		border-radius: .5rem;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.slider .activity:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 	}
 
 	.slider-nav{
