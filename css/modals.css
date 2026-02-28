@@ -68,6 +68,28 @@
         pointer-events: none;
     }
 
+    .modal-wrapper .input-box label {
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        transform: translateY(-50%);
+        color: rgba(255, 255, 255, .7);
+        font-size: 16px;
+        pointer-events: none;
+        transition: all 0.3s ease;
+    }
+
+    .modal-wrapper .input-box input:focus ~ label,
+    .modal-wrapper .input-box input:valid ~ label,
+    .modal-wrapper .input-box select:focus ~ label,
+    .modal-wrapper .input-box select:valid ~ label {
+        top: 0;
+        font-size: 13px;
+        color: #fff;
+        background: purple;
+        padding: 0 5px;
+    }
+
     .modal-checkbox-row label input {
         accent-color: #fff;
         margin-right: 3px;
