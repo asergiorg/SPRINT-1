@@ -83,7 +83,8 @@
     .modal-wrapper .input-box input:focus ~ label,
     .modal-wrapper .input-box input:valid ~ label,
     .modal-wrapper .input-box select:focus ~ label,
-    .modal-wrapper .input-box select:valid ~ label {
+    .modal-wrapper .input-box select:valid ~ label,
+    .modal-wrapper .input-box input[type="date"] ~ label {
         top: 0;
         font-size: 13px;
         color: #fff;
