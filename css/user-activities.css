@@ -92,12 +92,13 @@
         margin-top:12px;
         border-radius:0 0 12px 12px;
         background:linear-gradient(0deg,#fff,transparent);
-        cursor: pointer;
     }
 
-    .view-more span{
+    .view-more a {
+        text-decoration: none;
         color:var(--accent);
-        font-weight:600
+        font-weight:600;
+        cursor: pointer;
     }
 
     /* Activity3 Card */
