@@ -68,4 +68,13 @@
         font-size: 14px;
         color: #333;
         border: 1px solid #eaeaea;
+        width: 100%;
+        box-sizing: border-box;
+        font-family: inherit;
+        resize: vertical;
+        outline: none;
+    }
+
+    .comment-box:focus {
+        border-color: #ccc;
     }
