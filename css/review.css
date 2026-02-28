@@ -58,3 +58,14 @@
     .star.filled svg path{
         fill:#ffb400
     }
+
+    .comment-box {
+        background-color: #fff;
+        padding: 10px 14px;
+        border-radius: 6px;
+        margin-top: 8px;
+        margin-bottom: 0;
+        font-size: 14px;
+        color: #333;
+        border: 1px solid #eaeaea;
+    }
