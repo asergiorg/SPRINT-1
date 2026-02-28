@@ -78,3 +78,26 @@
     .comment-box:focus {
         border-color: #ccc;
     }
+
+    .submit-action {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 10px; 
+    }
+
+    .submit-btn {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 14px;
+        font-family: inherit;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+    }
+
+    .submit-btn:hover {
+        background-color: #555;
+    }
