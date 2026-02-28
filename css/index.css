@@ -10,6 +10,7 @@
       color: #333;
     }
 
+	/*Search Container*/
 	#search-container {
 		width: 100%;
 		height: 400px;
@@ -50,6 +51,11 @@
 		cursor: pointer;
 	}
 
+	/*Slider Container*/
+	#container2 {
+		padding: 30px;
+	}
+
 	.slider-wrapper {
 		position: relative;
 		max-width: 800px;
@@ -57,9 +63,6 @@
 		padding: 0px;
 	}
 
-	#container2 {
-		padding: 30px;
-	}
 	.slider{
 		display: flex;
 		aspect-ratio: 16/9;
@@ -103,7 +106,8 @@
 	.slider-nav:hover{
 		opacity: 1;
 	}
-
+	
+	/* Activity1 Card */
     .activity img {
 		width: 90%;
 		height: 95%;
