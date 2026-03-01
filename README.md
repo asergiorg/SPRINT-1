@@ -45,7 +45,7 @@
 
 ## Diseño y Prototipado
 
-* **PDF Mockups:** `GrandAventures mockups.pdf` (Adjunto en el repositorio)
+* **PDF Mockups:** `Grand Aventures mockups.pdf` (Adjunto en el repositorio)
 * **Storyboard:** [Ver diseño interactivo en Figma](https://www.figma.com/proto/tLkOYybRyv4sexzZ6YwQBl/Activity-Web?node-id=333-530&p=f&viewport=292%2C216%2C0.18&t=I3Xprb6hmbnbc88z-1&scaling=min-zoom&content-scaling=fixed&page-id=131%3A1061)
 * **Vídeo de la presentación:** [Ver vídeo en YouTube](https://youtu.be/ioVLPtHkrtA)
 
