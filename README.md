@@ -69,8 +69,8 @@
 
 | Template | Usado en… |
 | :--- | :--- |
-| `header.html` | `index.html`, `activities.html`, `activity-information.html`, `reservation-information.html`, `user-activities.html` |
-| `footer.html` | `index.html`, `activities.html`, `activity-information.html`, `reservation-information.html`, `user-activities.html` |
+| `header.html` | `index.html`, `activities.html`, `activity-information.html`, `user-activities.html` |
+| `footer.html` | `index.html`, `activities.html`, `activity-information.html`, `user-activities.html` |
 | `activity1.html` | `index.html` |
 | `activity2.html` | `activities.html` |
 | `activity3.html` | `user-activities.html` |
