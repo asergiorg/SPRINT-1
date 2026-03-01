@@ -18,9 +18,16 @@
     
     .review-header{
         display:flex;
-        align-items:center;
+        align-items:flex-start;
         justify-content:space-between;
         width: 100%;
+        gap:8px;
+        margin-bottom:8px
+    }
+
+    .avatar{
+        display:flex;
+        align-items:center;
         gap:8px
     }
 
@@ -67,7 +74,7 @@
         background-color: #fff;
         padding: 10px 14px;
         border-radius: 6px;
-        margin-top: 8px;
+        margin-top: 6px;
         margin-bottom: 0;
         font-size: 14px;
         color: #333;
