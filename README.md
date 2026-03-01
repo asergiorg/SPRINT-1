@@ -47,6 +47,7 @@
 
 * **PDF Mockups:** `GrandAventures mockups.pdf` (Adjunto en el repositorio)
 * **Storyboard:** [Ver diseño interactivo en Figma](https://www.figma.com/proto/tLkOYybRyv4sexzZ6YwQBl/Activity-Web?node-id=333-530&p=f&viewport=292%2C216%2C0.18&t=I3Xprb6hmbnbc88z-1&scaling=min-zoom&content-scaling=fixed&page-id=131%3A1061)
+* **Vídeo de la presentación:** [Ver vídeo en YouTube](https://youtu.be/ioVLPtHkrtA)
 
 ---
 
@@ -54,17 +55,17 @@
 
 ### Páginas HTML
 
-| Archivo | Descripción |
-| :--- | :--- |
-| `index.html` | Home page |
-| `activities.html` | Activities page |
-| `activity-information.html` | Activity Information page |
-| `reservation-information.html`| Reservation page |
-| `login-modal.html` | Log in modal |
-| `signup-modal.html` | Sign up modal |
-| `user-activities.html` | User information page |
+| Archivo | Mockup | Página en el PDF |
+| :--- | :--- | :--- |
+| `index.html` | Home page | 1 |
+| `activities.html` | Activities page | 2 |
+| `activity-information.html` | Activity Information page | 3 |
+| `user-activities.html` | User information page | 4 |
+| `reservation-information.html`| Reservation page | 5 |
+| `login-modal.html` | Log in modal | 6 |
+| `signup-modal.html` | Sign up modal | 7 |
 
-### Componentes / Templates
+### Templates
 
 | Template | Usado en… |
 | :--- | :--- |
@@ -73,6 +74,6 @@
 | `activity1.html` | `index.html` |
 | `activity2.html` | `activities.html` |
 | `activity3.html` | `user-activities.html` |
-| `reservation-card.html` | `reservation-information.html` |
+| `reservation-card.html` | `user-activities.html` |
 | `review.html` | `activity-information.html` |
 
