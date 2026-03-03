@@ -4,7 +4,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 async function cargarEstructura() {
+    const pagina = window.location.pathname.split('/').pop().replace('.html', '');
     document.body.appendChild(await cargarTemplate('templates/header.html'));
+    document.body.appendChild(await cargarTemplate(`templates/${pagina}-body.html`));
     document.body.appendChild(await cargarTemplate('templates/footer.html'));
 }
 
