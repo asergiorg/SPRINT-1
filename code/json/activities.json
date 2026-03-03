@@ -1,0 +1,44 @@
+{
+  "activities": [
+    {
+      "name": "Ciclismo",
+      "price": "25.00€",
+      "rating": 4.5
+    },
+    {
+      "name": "Senderismo",
+      "price": "15.00€",
+      "rating": 4.2
+    },
+    {
+      "name": "Natación",
+      "price": "30.00€",
+      "rating": 4.8
+    },
+    {
+      "name": "Yoga",
+      "price": "20.00€",
+      "rating": 4.0
+    },
+    {
+      "name": "Escalada",
+      "price": "35.00€",
+      "rating": 4.7
+    },
+    {
+      "name": "Kayak",
+      "price": "40.00€",
+      "rating": 4.9
+    },
+    {
+      "name": "Surf",
+      "price": "45.00€",
+      "rating": 4.6
+    },
+    {
+      "name": "Parapente",
+      "price": "50.00€",
+      "rating": 4.3
+    }
+  ]
+}

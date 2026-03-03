@@ -78,16 +78,7 @@
             </form>
         </aside>
 
-        <section >
-			<article class="activity" onclick="window.location.href='activity-information.html'" xlu-include-file="templates/activity2.html"></article>
-			<article class="activity" onclick="window.location.href='activity-information.html'" xlu-include-file="templates/activity2.html"></article>
-			<article class="activity" onclick="window.location.href='activity-information.html'" xlu-include-file="templates/activity2.html"></article>
-			<article class="activity" onclick="window.location.href='activity-information.html'" xlu-include-file="templates/activity2.html"></article>
-            <article class="activity" onclick="window.location.href='activity-information.html'" xlu-include-file="templates/activity2.html"></article>
-			<article class="activity" onclick="window.location.href='activity-information.html'" xlu-include-file="templates/activity2.html"></article>
-			<article class="activity" onclick="window.location.href='activity-information.html'" xlu-include-file="templates/activity2.html"></article>
-			<article class="activity" onclick="window.location.href='activity-information.html'" xlu-include-file="templates/activity2.html"></article>
-        </section>
+        <section data-content-id="activities" data-template="templates/activity2.html"></section>
 
 	</main>
 
@@ -97,10 +88,11 @@
 <script src="scripts/xlu-include-file.js"></script>
 <script src="scripts/header.js"></script>
 <script>
-
+    
     xLuIncludeFile();
-
+    
 </script>
 
+<script src="scripts/content-loader.js"></script>
 </body>
 </html>
