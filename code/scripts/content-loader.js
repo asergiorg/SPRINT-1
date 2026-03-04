@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
     await cargarEstructura();
-    cargarContenidoDinamico();
+    await cargarContenidoDinamico();
+    document.dispatchEvent(new Event('contentLoaded'));
 });
 
 async function cargarEstructura() {

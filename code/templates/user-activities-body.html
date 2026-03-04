@@ -5,27 +5,27 @@
     <!-- Reservadas -->
     <section class="section-card" aria-labelledby="reserved-title">
         <h2 id="reserved-title">Reserved activities</h2>
-        <div class="activities-list" data-content-id="reservations" data-template="templates/reservation-card.html" data-json="json/reservations.json"></div>
+        <div id="reservations" class="activities-list" data-content-id="reservations" data-template="templates/reservation-card.html" data-json="json/reservations.json"></div>
         <div class="view-more">
-            <a href="#" aria-label="Ver más actividades reservadas"> View more </a>
+            <a class="viewMoreBtn" data-target="reservations" href="#" aria-label="Ver más actividades reservadas"> View more </a>
         </div>
     </section>
 
     <!-- Participadas -->
     <section class="section-card" aria-labelledby="attended-title">
         <h2 id="attended-title">Attended activities</h2>
-        <div class="activities-list" data-content-id="activities" data-template="templates/activity3.html" data-json="json/activities.json"></div>
+        <div id="attended-activities" class="activities-list" data-content-id="activities" data-template="templates/activity3.html" data-json="json/activities.json"></div>
         <div class="view-more">
-            <a href="#" aria-label="Ver más actividades participadas"> View more </a>
+            <a class="viewMoreBtn" data-target="attended-activities" href="#" aria-label="Ver más actividades participadas"> View more </a>
         </div>
     </section>
 
     <!-- Recomendadas -->
     <section class="section-card" aria-labelledby="recommended-title">
         <h2 id="recommended-title">Recommended activities</h2>
-        <div class="activities-list" data-content-id="activities" data-template="templates/activity3.html" data-json="json/activities.json"></div>
+        <div id="recommended-activities" class="activities-list" data-content-id="activities" data-template="templates/activity3.html" data-json="json/activities.json"></div>
         <div class="view-more">
-            <a href="#" aria-label="Ver más actividades recomendadas"> View more </a>
+            <a class="viewMoreBtn" data-target="recommended-activities" href="#" aria-label="Ver más actividades recomendadas"> View more </a>
         </div>
     </section>
 </main>
