@@ -21,15 +21,15 @@ async function cargarTemplate(url) {
 async function cargarContenidoDinamico() {
     // Detectar página actual
     const pagina = window.location.pathname.split('/').pop().replace('.html', '');
-    const jsonUrl = `json/${pagina}.json`;
-
-    // Cargar JSON correspondiente
-    const data = await fetch(jsonUrl).then(r => r.json());
-
+    
     // Buscar contenedores dinámicos
     const contenedores = document.querySelectorAll('[data-content-id]');
-
+    
     for (const contenedor of contenedores) {
+        // Cargar JSON correspondiente
+        const jsonUrl = contenedor.dataset.json;
+        const data = await fetch(jsonUrl).then(r => r.json());
+
         const key = contenedor.dataset.contentId;
         const templateUrl = contenedor.dataset.template;
 
