@@ -40,6 +40,13 @@ async function cargarContenidoDinamico() {
             continue;
         }
 
+        // Si estamos en la página de detalle, filtrar por ID 
+        if (pagina === "activity-information" || pagina === "reservation-information") { 
+            const selectedId = localStorage.getItem("selectedActivityId"); 
+            items = items.filter(item => item.id == selectedId);
+        }
+
+
         // Cargar template
         const templateNode = await cargarTemplate(templateUrl);
 

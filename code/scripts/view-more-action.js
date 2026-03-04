@@ -38,3 +38,17 @@ document.addEventListener("contentLoaded", () => {
         container.dataset.paginated = "true";
     });
 });
+
+document.addEventListener("contentLoaded", () => {
+    document.querySelectorAll(".activity-card").forEach(link => {
+        link.addEventListener("click", e => {
+            const card = e.target.closest(".activity-card");
+            const id = card.querySelector(".reservation-id").textContent.trim();
+
+            console.log("ID seleccionado:", id);
+            localStorage.setItem("selectedReservationId", id);
+        });
+    });
+});
+
+

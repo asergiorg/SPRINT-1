@@ -12,20 +12,18 @@
         <main class="container">
             <header><h1>Reservation Information</h1></header>
             <section id="content">
-                <article id="reservation-card" class="card" aria-labelledby="res-id">
+                <article id="reservation-card" class="card" data-content-id="reservations" data-json="json/reservations.json" aria-labelledby="res-id">
+                        <header class="card-header">
+                            <a href="activity-information.html"><div class="title" data-field="activity"></div></a>
+                            <i class='bx bxs-edit-alt' onclick="location.href='activity-information.html'"></i>
+                        </header>
 
-                    <header class="card-header">
-                    <a href="activity-information.html"><div class="title">Hiking</div></a>
-                    <i class='bx bxs-edit-alt' onclick="location.href='activity-information.html'"></i>
-                    </header>
-
-                    <div class="row"><dt>Reservation Holder</dt><dd id="row-name">Juan Pérez</dd></div>
-                    <div class="row"><dt>Date</dt><dd id="row-date">2026-02-25</dd></div>
-                    <div class="row"><dt>Time</dt><dd id="row-time">10:00</dd></div>
-                    <div class="row"><dt>Participants</dt><dd id="row-people">2</dd></div>
-                    <div class="row"><dt>Price</dt><dd id="row-price">€60.00</dd></div>
-                    <div class="row"><dt>Status</dt><dd id="row-status">Pending</dd></div>
-
+                        <div class="row"><dt>Reservation Holder</dt><dd id="row-name" data-field="holder"></dd></div>
+                        <div class="row"><dt>Date</dt><dd id="row-date" data-field="date"></dd></div>
+                        <div class="row"><dt>Time</dt><dd id="row-time" data-field="time"></dd></div>
+                        <div class="row"><dt>Participants</dt><dd id="row-people" data-field="participants"></dd></div>
+                        <div class="row"><dt>Price</dt><dd id="row-price" data-field="price"></dd></div>
+                        <div class="row"><dt>Status</dt><dd id="row-status" data-field="status"></dd></div>
                     <section id="payment-section" aria-label="Métodos de pago">
                         <h3>Select payment method</h3>
                         <div id="payment-methods">
@@ -44,5 +42,8 @@
                 </article>
             </section>
         </main>
+
+        <script src="scripts/info-loader.js"></script>
+
     </body>
 </html>
