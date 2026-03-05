@@ -28,20 +28,30 @@ async function cargarContenidoDinamico() {
     
     for (const contenedor of contenedores) {
         // Cargar JSON correspondiente
-        const jsonUrl = contenedor.dataset.json;
-        const data = await fetch(jsonUrl).then(r => r.json());
+        var jsonReference = contenedor.dataset.json;
+        jsonReference = jsonReference.replace('.json', ''); // Eliminar extensión para cargar desde sessionStorage
+        jsonReference = jsonReference.replace('json/', '');
+        
+        let data;
+        if (sessionStorage.getItem(jsonReference)) {
+            data = JSON.parse(sessionStorage.getItem(jsonReference));
+            console.log("Datos cargados desde sessionStorage:", data);
+        } else {
+            jsonUrl = contenedor.dataset.json;
+            data = await fetch(jsonUrl).then(r => r.json());
+            console.log("Datos cargados desde JSON:", data);
 
-        const key = contenedor.dataset.contentId;
+            // Guardar para futuras visitas
+            sessionStorage.setItem(jsonReference, JSON.stringify(data));
+        } 
+
+
         const templateUrl = contenedor.dataset.template;
 
-        const items = data[key];
-        if (!items) {
-            console.warn(`No hay contenido para "${key}" en ${jsonUrl}`);
-            continue;
-        }
+        var items = data;
 
         // Si estamos en la página de detalle, filtrar por ID 
-        if (pagina === "activity-information" || pagina === "reservation-information") { 
+        if (pagina === "activity-information") { 
             const selectedId = localStorage.getItem("selectedActivityId"); 
             items = items.filter(item => item.id == selectedId);
         }
