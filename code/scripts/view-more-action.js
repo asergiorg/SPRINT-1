@@ -19,6 +19,9 @@ document.addEventListener("contentLoaded", () => {
 
         let visibleCount = step;
 
+        // Botón "Ver menos"
+        const lessBtn = document.querySelector(`.colapseBtn[data-target="${targetId}"]`);
+
         btn.addEventListener("click", (e) => {
             e.preventDefault();
 
@@ -35,6 +38,21 @@ document.addEventListener("contentLoaded", () => {
             }
         });
 
+        // Lógica del botón "Ver menos"
+        if (lessBtn) {
+            lessBtn.addEventListener("click", () => {
+                // Ocultar todas excepto las primeras 5
+                cards.forEach((card, i) => {
+                    card.style.display = i < step ? "" : "none";
+                });
+
+                visibleCount = step;
+
+                // Mostrar de nuevo el botón "Ver más"
+                btn.style.display = "inline-block";
+            });
+        }
+
         container.dataset.paginated = "true";
     });
 });
@@ -45,7 +63,6 @@ document.addEventListener("contentLoaded", () => {
             const card = e.target.closest(".activity-card");
             const id = card.querySelector(".reservation-id").textContent.trim();
 
-            console.log("ID seleccionado:", id);
             localStorage.setItem("selectedReservationId", id);
         });
     });
