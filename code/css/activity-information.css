@@ -194,7 +194,7 @@
         transition: background-color 0.2s, color 0.2s;
     }
 
-    .day:hover:not(.empty) {
+    .day:hover:not(.empty):not(.selected) {
         background-color: #e2e8f0;
     }
 
@@ -218,7 +218,7 @@
         transition: background-color 0.2s, border-color 0.2s, color 0.2s;
     }
 
-    .preset:hover {
+    .preset:hover:not(.active) {
         background-color: #e2e8f0;
     }
 
