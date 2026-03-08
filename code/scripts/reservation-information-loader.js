@@ -12,11 +12,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     // 1. Cargar datos dinámicamente según origen
     if (sessionStorage.getItem('reservations')) {
         data = JSON.parse(sessionStorage.getItem('reservations'));
-        console.log("Datos cargados desde sessionStorage:", data);
     } else {
         const jsonUrl = container.dataset.json;
         data = await fetch(jsonUrl).then(r => r.json());
-        console.log("Datos cargados desde JSON:", data);
 
         // Guardar para futuras visitas
         sessionStorage.setItem('reservations', JSON.stringify(data));
@@ -27,7 +25,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!items) return;
 
     // 3. Buscar la reserva seleccionada
-    const reservation = items.find(item => item.id == selectedId);
+    const reservation = items.find(item => item.code == selectedId);
     if (!reservation) return;
 
     // 4. Rellenar datos en pantalla
@@ -55,6 +53,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             footer
         );
     }
+    document.dispatchEvent(new Event('contentLoaded'));
 });
 
 async function cargarTemplate(url) {

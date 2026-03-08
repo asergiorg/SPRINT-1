@@ -61,7 +61,7 @@ document.addEventListener("contentLoaded", () => {
     document.querySelectorAll(".activity-card").forEach(link => {
         link.addEventListener("click", e => {
             const card = e.target.closest(".activity-card");
-            const id = card.querySelector(".reservation-id").textContent.trim();
+            const id = card.querySelector("#row-res-id").textContent.trim();
 
             localStorage.setItem("selectedReservationId", id);
         });
