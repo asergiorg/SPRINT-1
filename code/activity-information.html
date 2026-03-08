@@ -132,5 +132,40 @@
         <script>
             xLuIncludeFile();
         </script>
+        <script>
+            const ratingContainer = document.getElementById('rating');
+            
+            const stars = ratingContainer.querySelectorAll('.star');
+
+            let currentRating = 0;
+
+            function highlightStars (activeIndex) {
+                stars.forEach((star, index) => {
+                    if (index <= activeIndex) {
+                        star.classList.add('filled');
+                        star.textContent = '★';
+                    } else {
+                        star.classList.remove('filled');
+                        star.textContent = '☆';
+                    }
+                });
+            }
+
+            stars.forEach((star, index) => {
+                star.addEventListener('mouseover', () => {
+                    highlightStars(index);
+                });
+
+                star.addEventListener('click', () => {
+                    currentRating = index + 1;
+                    ratingContainer.setAttribute('aria-label', `Calificación: ${currentRating} de 5 estrellas`);
+                    console.log("Puntuación seleccionada:", currentRating);
+                });
+            });
+            
+            ratingContainer.addEventListener('mouseleave', () => {
+                highlightStars(currentRating - 1);
+            });
+        </script>
     </body>
 </html>
