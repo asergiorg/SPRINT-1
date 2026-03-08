@@ -65,4 +65,31 @@ document.addEventListener('contentLoaded', () => {
     });
 
     renderCalendar();
+
+    const timePresets = document.querySelectorAll('.preset');
+
+    timePresets.forEach(button => {
+        button.addEventListener('click', () => {
+            timePresets.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+        });
+    });
+
+    const btnMinus = document.getElementById('btnMinus');
+    const btnPlus = document.getElementById('btnPlus');
+    const peopleInput = document.getElementById('people');
+
+    function updatePeopleCount(change) {
+        let currentValue = parseInt(peopleInput.value);
+        let newValue = currentValue + change;
+
+        if (newValue >= 1 && newValue <= 20) {
+            peopleInput.value = newValue;
+        }
+    }
+
+    if (btnMinus && btnPlus && peopleInput) {
+        btnMinus.addEventListener('click', () => updatePeopleCount(-1));
+        btnPlus.addEventListener('click', () => updatePeopleCount(1));
+    }
 });
