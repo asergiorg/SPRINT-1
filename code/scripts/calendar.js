@@ -56,6 +56,7 @@ document.addEventListener('contentLoaded', () => {
                 dayEl.addEventListener('click', () => {
                     document.querySelectorAll('.calendar-grid .day:not(.disabled)').forEach(d => d.classList.remove('selected'));
                     dayEl.classList.add('selected');
+                    updateTimeSlots(dateOfThisDay);
                 });
             }
 
@@ -75,10 +76,36 @@ document.addEventListener('contentLoaded', () => {
 
     renderCalendar();
 
+
     const timePresets = document.querySelectorAll('.preset');
+
+    function updateTimeSlots(selectedDate) {
+        const now = new Date();
+
+        const isToday = selectedDate.getFullYear() === now.getFullYear() &&
+                        selectedDate.getMonth() === now.getMonth() &&
+                        selectedDate.getDate() === now.getDate();
+
+        timePresets.forEach(button => {
+            button.classList.remove('disabled', 'active');
+
+            if (isToday) {
+                const [slotHour, slotMinute] = button.innerText.split(':').map(Number);
+                const currentHour = now.getHours();
+                const currentMinute = now.getMinutes();
+
+                if (slotHour < currentHour || (slotHour === currentHour && slotMinute <= currentMinute)) {
+                    button.classList.add('disabled');
+                }
+            }
+        });
+
+    }
 
     timePresets.forEach(button => {
         button.addEventListener('click', () => {
+            if (button.classList.contains('disabled')) return;
+
             timePresets.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
         });
@@ -101,4 +128,6 @@ document.addEventListener('contentLoaded', () => {
         btnMinus.addEventListener('click', () => updatePeopleCount(-1));
         btnPlus.addEventListener('click', () => updatePeopleCount(1));
     }
+
+    updateTimeSlots(new Date());
 });
