@@ -40,6 +40,30 @@
         margin-bottom:20px
     }
 
+    .section-card header {
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        margin-bottom:12px
+    }
+
+    .colapse{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        padding:12px;
+        margin-top:12px;
+        border-radius:0 0 12px 12px;
+        background:linear-gradient(0deg,#fff,transparent);
+    }
+
+    .colapse a {
+        text-decoration: none;
+        color:var(--accent);
+        font-weight:600;
+        cursor: pointer;
+    }
+
     .section-card h2{
         font-size:18px;
         margin:0 0 12px 0

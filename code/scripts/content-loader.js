@@ -35,11 +35,9 @@ async function cargarContenidoDinamico() {
         let data;
         if (sessionStorage.getItem(jsonReference)) {
             data = JSON.parse(sessionStorage.getItem(jsonReference));
-            console.log("Datos cargados desde sessionStorage:", data);
         } else {
             jsonUrl = contenedor.dataset.json;
             data = await fetch(jsonUrl).then(r => r.json());
-            console.log("Datos cargados desde JSON:", data);
 
             // Guardar para futuras visitas
             sessionStorage.setItem(jsonReference, JSON.stringify(data));
