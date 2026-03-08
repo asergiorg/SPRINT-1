@@ -5,7 +5,7 @@
     "price": "20€",
     "category": "Hiking",
     "duration": "1 horas",
-    "languages": [" Spanish", " English", " French"],
+    "languages": ["Spanish", "English", "French"],
     "description": "Disfruta de una emocionante excursión en bicicleta por el emblemático Roque Nublo, una formación rocosa icónica de Gran Canaria. Explora senderos rodeados de naturaleza y disfruta de vistas panorámicas impresionantes.",
     "accessibility": "Medium",
     "rating": 4.5
@@ -16,7 +16,7 @@
     "price": "15€",
     "duration": "2 horas",
     "category": "Hiking",
-    "languages": [" Spanish", " English", " French", " German"],
+    "languages": ["Spanish", "English", "French", "German"],
     "description": "Explora el impresionante barranco de Guayadeque, un valle natural rodeado de vegetación y formaciones rocosas únicas. Disfruta de senderos que te llevan a descubrir paisajes naturales y una rica biodiversidad.",
     "accessibility": "Easy",
     "rating": 3.5
@@ -27,7 +27,7 @@
     "price": "35€",
     "category": "Coastal",
     "duration": "30 min",
-    "languages": [" Spanish", " English"],
+    "languages": ["Spanish", "English"],
     "description": "Disfruta de un relajante paseo en barco por la costa de Mogán, con vistas al mar y paisajes naturales únicos.",
     "accessibility": "Easy",
     "rating": 4.8
@@ -38,7 +38,7 @@
     "price": "30€",
     "category": "Relaxation",
     "duration": "1 horas",
-    "languages": [" Spanish", " English", " French", " German"],
+    "languages": ["Spanish", "English", "French", "German"],
     "description": "Disfruta de una sesión de yoga en las dunas de Maspalomas, con vistas al mar y una experiencia relajante en medio de la naturaleza.",
     "accessibility": "Easy",
     "rating": 4.0
@@ -49,7 +49,7 @@
     "price": "70€",
     "category": "Hiking",
     "duration": "3 horas",
-    "languages": [" Spanish", " English"],
+    "languages": ["Spanish", "English"],
     "description": "Disfruta de una emocionante escalada en las Montañas Sagradas de Gran Canaria, con vistas panorámicas y paisajes naturales únicos.",
     "accessibility": "Hard",
     "rating": 4.7
@@ -60,7 +60,7 @@
     "price": "40€",
     "category": "Coastal",
     "duration": "1 horas",
-    "languages": [" Spanish", " English"],
+    "languages": ["Spanish", "English"],
     "description": "Disfruta de una emocionante excursión en kayak por la Playa de las Canteras, con vistas al mar y paisajes naturales únicos.",
     "accessibility": "Easy",
     "rating": 4.9
@@ -71,7 +71,7 @@
     "price": "30€",
     "category": "Coastal",
     "duration": "1 horas",
-    "languages": [" Spanish", " English", " French", " German"],
+    "languages": ["Spanish", "English", "French", "German"],
     "description": "Disfruta de una emocionante sesión de surf en la Playa de El Confital, con olas ideales para principiantes y expertos.",
     "accessibility": "Easy",
     "rating": 4.6
@@ -82,7 +82,7 @@
     "price": "60€",
     "category": "Aerial",
     "duration": "20 min",
-    "languages": [" Spanish", " English", " German"],
+    "languages": ["Spanish", "English", "German"],
     "description": "Disfruta de una emocionante sesión de parapente sobre el Valle de Agaete, con vistas panorámicas y paisajes naturales únicos.",
     "accessibility": "Medium",
     "rating": 4.0
@@ -93,7 +93,7 @@
     "price": "20€",
     "category": "Hiking",
     "duration": "1 horas",
-    "languages": [" Spanish", " English", " French", " German"],
+    "languages": ["Spanish", "English", "French", "German"],
     "description": "Disfruta de una emocionante visita guiada al Jardín Botánico Viera y Clavijo, con vistas a una rica variedad de plantas exóticas y nativas.",
     "accessibility": "Easy",
     "rating": 4.2
@@ -104,7 +104,7 @@
     "price": "50€",
     "category": "Gastronomy",
     "duration": "2 horas",
-    "languages": [" Spanish", " English"],
+    "languages": ["Spanish", "English"],
     "description": "Disfruta de un emocionante paseo a caballo por el Parque Natural de Tamadaba, con vistas a paisajes naturales únicos.",
     "accessibility": "Easy",
     "rating": 4.3
@@ -115,7 +115,7 @@
     "price": "25€",
     "category": "Coastal",
     "duration": "1 horas",
-    "languages": [" Spanish", " English", " German", " French"],
+    "languages": ["Spanish", "English", "German", "French"],
     "description": "Disfruta de una emocionante sesión de snorkeling en la Reserva Marina de El Cabrón, con vistas a una rica biodiversidad marina.",
     "accessibility": "Easy",
     "rating": 4.8
@@ -126,7 +126,7 @@
     "price": "15€",
     "category": "Hiking",
     "duration": "2 horas",
-    "languages": [" Spanish", " English"],
+    "languages": ["Spanish", "English"],
     "description": "Disfruta de una emocionante caminata nocturna por el Parque Natural de Pilancones, con vistas a paisajes naturales únicos y una rica biodiversidad.",
     "accessibility": "Easy",
     "rating": 4.1
@@ -137,7 +137,7 @@
     "price": "10€",
     "category": "Cultural",
     "duration": "1 horas",
-    "languages": [" Spanish", " English"],
+    "languages": ["Spanish", "English"],
     "description": "Disfruta de una emocionante visita a la Cueva Pintada de Gáldar, con vistas a pinturas rupestres antiguas y una rica historia cultural.",
     "accessibility": "Easy",
     "rating": 4.4
@@ -148,7 +148,7 @@
     "price": "30€",
     "category": "Gastronomy",
     "duration": "3 horas",
-    "languages": [" Spanish", " English", " French"],
+    "languages": ["Spanish", "English", "French"],
     "description": "Disfruta de una emocionante ruta de quesos y vinos en el Valle de Agaete, con vistas a paisajes naturales únicos y una rica cultura gastronómica.",
     "accessibility": "Easy",
     "rating": 4.5
@@ -159,7 +159,7 @@
     "price": "12€",
     "category": "Cultural",
     "duration": "2 horas",
-    "languages": [" Spanish", " English"],
+    "languages": ["Spanish", "English"],
     "description": "Disfruta de una emocionante visita al Museo Elder de la Ciencia y la Tecnología, con vistas a exposiciones interactivas y una rica historia científica.",
     "accessibility": "Easy",
     "rating": 4.3
@@ -170,7 +170,7 @@
     "price": "150€",
     "category": "Aerial",
     "duration": "1 horas",
-    "languages": [" Spanish", " English", " French", " German"],
+    "languages": ["Spanish", "English", "French", "German"],
     "description": "Disfruta de un emocionante paseo en globo aerostático sobre Gran Canaria, con vistas panorámicas y paisajes naturales únicos.",
     "accessibility": "Hard",
     "rating": 4.9
@@ -181,7 +181,7 @@
     "price": "5€",
     "category": "Gastronomy",
     "duration": "1 horas",
-    "languages": [" Spanish", " English"],
+    "languages": ["Spanish", "English"],
     "description": "Disfruta de una emocionante visita al Mercado de Vegueta en Las Palmas, con vistas a una rica variedad de productos locales y una vibrante cultura gastronómica.",
     "accessibility": "Easy",
     "rating": 4.2
@@ -192,7 +192,7 @@
     "price": "20€",
     "category": "Hiking",
     "duration": "3 horas",
-    "languages": [" Spanish", " English", " French"],
+    "languages": ["Spanish", "English", "French"],
     "description": "Disfruta de una emocionante caminata por el Parque Natural de Tamadaba, con vistas a paisajes naturales únicos y una rica biodiversidad.",
     "accessibility": "Medium",
     "rating": 4.6
@@ -203,7 +203,7 @@
     "price": "8€",
     "category": "Cultural",
     "duration": "2 horas",
-    "languages": [" Spanish", " English"],
+    "languages": ["Spanish", "English"],
     "description": "Disfruta de una emocionante visita al Museo Canario en Las Palmas, con vistas a exposiciones sobre la historia y cultura de las Islas Canarias.",
     "accessibility": "Easy",
     "rating": 4.4
@@ -214,7 +214,7 @@
     "price": "50€",
     "category": "Coastal",
     "duration": "2 horas",
-    "languages": [" Spanish", " English", " French"],
+    "languages": ["Spanish", "English", "French"],
     "description": "Disfruta de un relajante paseo en catamarán por la costa de Gran Canaria, con vistas al mar y paisajes naturales únicos.",
     "accessibility": "Easy",
     "rating": 4.7
