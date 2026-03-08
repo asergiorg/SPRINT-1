@@ -1,27 +1,10 @@
 <main id="main_container">
-    <section class="page-header">
-        <h1 class="activity-title">Activity name</h1>
-        <div class="gallery">
-            <img src="#.jpg">
-            <img src="#.jpg">
-            <img src="#.jpg">
-        </div>
-    </section>
+    <section class="page-header" data-content-id="activities" data-template="templates/activity-information-header.html" data-json="json/activities.json"></section>
 
     <div id="wrapper">
 
         <main id="main_section">
-            <article class="activity-details">
-                <h2>Activity Description</h2>
-                <p class="activity-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra risus a est varius, ac gravida massa faucibus. Nam elit quam, laoreet sit amet velit a, egestas faucibus libero. Suspendisse varius maximus magna nec cursus. Nulla in auctor neque, ut interdum enim. Sed in nisl sit amet nulla faucibus commodo at vitae turpis. Proin posuere tellus vel nunc sollicitudin, at eleifend libero interdum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lobortis dictum leo sed blandit. In dignissim rhoncus risus sed bibendum. Sed lectus ex, vulputate eu vulputate eu, ullamcorper ac dui. Vivamus vestibulum mollis diam, vitae varius justo molestie in. Aenean in nisl velit. Donec porttitor metus et condimentum hendrerit. Ut ac consequat eros. Etiam eleifend gravida lorem sed sagittis.</p>
-
-                <div class="activity-grid">
-                    <div class="activity-meta-box"> <strong>Duration</strong><div>3 hours</div></div>
-                    <div class="activity-meta-box"> <strong>Language</strong><div>Spanish / English</div></div>
-                    <div class="activity-meta-box"> <strong>Accessibility</strong><div>Medium</div></div>
-                    <div class="activity-meta-box"> <strong>Price</strong><div>30€ / person</div></div>
-                </div>
-
+            <article class="activity-details" data-content-id="activities" data-template="templates/activity-information-description.html" data-json="json/activities.json"></article>
             <!-- Reviews -->
             <section class="review" aria-labelledby="reviews-heading">
                 <h2 id="reviews-heading">Reviews</h2>
@@ -51,7 +34,6 @@
                 <article class="review-item" xlu-include-file="templates/review.html"></article>
                 <article class="review-item" xlu-include-file="templates/review.html"></article>
             </section>
-        </article>
         </main>
     
 

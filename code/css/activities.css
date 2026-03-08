@@ -122,7 +122,7 @@
 		align-items: stretch;
 	}
 	/* Activity 2 Card */
-	.activity {
+	.activity-card {
         background: #ffffffcc;
         border-radius: 15px;
         padding: 15px;
@@ -134,7 +134,7 @@
 		cursor: pointer;
     }
 
-	.activity:hover {
+	.activity-card:hover {
 		transform: translateY(-5px);
 		box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 	}
@@ -154,7 +154,7 @@
         color: #333;
     }
 
-    .activity .description {
+    .activity-card .description {
         display: flex;
         flex-direction: column;
         align-items: center;

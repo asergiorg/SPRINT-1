@@ -80,3 +80,17 @@ async function cargarContenidoDinamico() {
         });
     }
 }
+
+document.addEventListener("contentLoaded", () => {
+    document.querySelectorAll(".activity-card").forEach(card => {
+        card.addEventListener("click", e => {
+            const activity = e.target.closest(".activity-card");
+            const id = activity.querySelector(".activity-id").textContent.trim();
+
+            console.log("Actividad seleccionada:", id);
+            localStorage.setItem("selectedActivityId", id);
+
+            window.location.href = "activity-information.html";
+        });
+    });
+});
