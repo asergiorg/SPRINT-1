@@ -66,7 +66,7 @@ async function cargarTemplate(url) {
 
 async function cargarReservasSinPerderDatos() {
     // 1. Leer lo que ya existe en sessionStorage
-    const stored = sessionStorage.getItem("reservas");
+    const stored = sessionStorage.getItem("reservations");
     const oldArray = stored ? JSON.parse(stored) : [];
 
     // 2. Cargar el JSON nuevo
@@ -85,6 +85,6 @@ async function cargarReservasSinPerderDatos() {
     );
 
     // 5. Guardar el resultado final
-    sessionStorage.setItem("reservas", JSON.stringify(unique));
+    sessionStorage.setItem("reservations", JSON.stringify(unique));
 }
 

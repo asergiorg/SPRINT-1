@@ -5,38 +5,49 @@ document.addEventListener('contentLoaded', function (){
 
     let reservas = JSON.parse(sessionStorage.getItem('reservations')) || [];
     if(!reservas) {
-        const data = fetch(jsonUrl).then(r => r.json()).then(data => {
+        const data = fetch(jsonUrl)
+        .then(r => r.json())
+        .then(data => {
             sessionStorage.setItem('reservations', JSON.stringify(data));
         });
     }
 
     form.addEventListener('submit', function(e){
         e.preventDefault();
-        const time = document.getElementById('time') ? document.getElementById('time').value : '';
-        const people = document.getElementById('people') ? Number(document.getElementById('people').value) : 1;
-        // Intentar obtener un título de actividad desde la sección de detalles
-        const activityTitleEl = document.querySelector('.activity-details h1');
-        const activity = activityTitleEl ? activityTitleEl.textContent.trim() : 'Actividad';
-        // Fecha: si tu calendario tiene selección, reemplaza esta línea por la fecha seleccionada
-        const date = new Date().toISOString().slice(0,10);
-        const name = 'Jhon Doe'; 
-        reservas = JSON.parse(sessionStorage.getItem('reservations')) || [];
 
-        const id = idMaker(reservas);
-        const code = codeMaker(reservas);
-        const status = "Unpaid"
+        // Recopilar datos del formulario
+        const time = document.getElementById('time') ? document.getElementById('time').value : '';
+        const people = Number(document.getElementById('people').value);
+        // TODO: leer fecha desde el calendario
+        const date = new Date().toISOString().slice(0,10);
+
+        // Recopilar datos de la actividad
+        const activity = document.querySelector('.activity-title').textContent.trim();
+        const id = localStorage.getItem("selectedActivityId"); 
+        const individualPrice = Number(document.getElementById('price').textContent);
         
+        // Cargar datos del usuario
+        const name = 'Jhon Doe';
+        
+        // Cargar datos de la reserva, existente o nueva
+        reservas = JSON.parse(sessionStorage.getItem('reservations')) || [];
+        const code = codeMaker(reservas);
+        const newPrice = individualPrice * people;
+        const amountToPay = totalToPay(newPrice);
+        const status = paymentStatus(amountToPay);
+
         const reservation = {
-            id: id,
+            activity_id: id,
             code: code,
             name: name,
             activity: activity,
             date: date,
             time: time,
             participants: people,
-            price: (people * 30),
+            price: newPrice,
             status: status
         };
+
 
         reservas.push(reservation);
         sessionStorage.setItem('reservations', JSON.stringify(reservas));
@@ -48,19 +59,11 @@ document.addEventListener('contentLoaded', function (){
     });
 });
 
-// Genera un ID incremental basado en los existentes
-function idMaker(reservas) {
-    const ids = reservas.map(r => parseInt(r.id)).filter(n => !isNaN(n));
-    const maxId = ids.length > 0 ? Math.max(...ids) : 0;
-    return maxId + 1;
-}
-
 
 // Genera un código único de 5 dígitos que no exista ya
 function codeMaker(reservas) {
     if (sessionStorage.getItem('reservationToEdit')) {
         const reservation = JSON.parse(sessionStorage.getItem('reservationToEdit'));
-        sessionStorage.removeItem('reservationToEdit');
         return reservation.code; // Reutilizar el mismo código para ediciones
     }
     else {
@@ -75,4 +78,27 @@ function codeMaker(reservas) {
             }
         }
     }
+}
+
+function paymentStatus(amountToPay) {
+    return amountToPay > 0 ? "Unpaid" : "Pending";
+}
+
+
+function totalToPay(newPrice) {
+    const editing = sessionStorage.getItem('reservationToEdit');
+    if (!editing) return newPrice;
+
+    const old = JSON.parse(editing);
+    const oldPrice = old.price;
+    const oldStatus = old.status;
+
+    // Si ya estaba pagada, solo se paga la diferencia
+    if (oldStatus !== "Unpaid") {
+        const difference = newPrice - oldPrice;
+        return Math.max(difference, 0); // nunca negativo
+    }
+
+    // Si no estaba pagada, se paga el precio completo
+    return newPrice;
 }
