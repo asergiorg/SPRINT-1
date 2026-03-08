@@ -189,7 +189,23 @@
         padding:8px 0;
         border-radius:8px;
         text-align:center;
-        background:#f8fafc
+        background:#f8fafc;
+        cursor: pointer;
+        transition: background-color 0.2s, color 0.2s;
+    }
+
+    .day:hover:not(.empty) {
+        background-color: #e2e8f0;
+    }
+
+    .day.selected {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    .day.empty {
+        cursor: default;
+        background-color: transparent;
     }
 
     /* Time controls */
@@ -198,7 +214,18 @@
         border-radius:6px;
         border:1px solid #eef;
         background:#f8fbff;
-        cursor:pointer
+        cursor:pointer;
+        transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+    }
+
+    .preset:hover {
+        background-color: #e2e8f0;
+    }
+
+    .preset.active {
+        background-color: #007bff;
+        color: white;
+        border-color: #007bff;
     }
 
     .preset-times{
@@ -218,8 +245,8 @@
 
     input[type=number]::-webkit-inner-spin-button,
     input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+        -webkit-appearance: none;
+        margin: 0;
     }
 
     .people-btn{
@@ -232,7 +259,12 @@
         align-items:center;
         justify-content:center;
         cursor:pointer;
-        font-size:16px
+        font-size:16px;
+        transition: background-color 0.2s;
+    }
+
+    .people-btn:hover {
+        background-color: #f0f0f0;
     }
 
     .people-selector input[type=number]{
