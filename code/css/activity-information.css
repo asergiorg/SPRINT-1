@@ -208,6 +208,16 @@
         background-color: transparent;
     }
 
+    .day.disabled {
+        color: #cbd5e1;
+        cursor: not-allowed;
+        background-color: transparent;
+    }
+
+    .day.disabled:hover {
+        background-color: transparent;
+    }
+
     /* Time controls */
     .preset{
         padding:6px 8px;

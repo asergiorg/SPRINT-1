@@ -40,15 +40,24 @@ document.addEventListener('contentLoaded', () => {
             calendarGrid.appendChild(emptyDiv);
         }
 
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
         for (let i = 1; i <= daysInMonth; i++) {
             const dayEl = document.createElement('div');
             dayEl.classList.add('day');
             dayEl.innerText = i;
 
-            dayEl.addEventListener('click', () => {
-                document.querySelectorAll('.calendar-grid .day').forEach(d => d.classList.remove('selected'));
-                dayEl.classList.add('selected');
-            });
+            const dateOfThisDay = new Date(year, month, i);
+
+            if (dateOfThisDay < today) {
+                dayEl.classList.add('disabled');
+            } else {
+                dayEl.addEventListener('click', () => {
+                    document.querySelectorAll('.calendar-grid .day:not(.disabled)').forEach(d => d.classList.remove('selected'));
+                    dayEl.classList.add('selected');
+                });
+            }
 
             calendarGrid.appendChild(dayEl);
         }
