@@ -15,5 +15,160 @@
         <script src="scripts/activity-information-loader.js"></script>
         <script src="scripts/reservation-maker.js"></script>
         <script src="scripts/calendar.js"></script>
+        <header id="header-container" xlu-include-file="templates/header.html"></header>
+        <main id="main_container">
+            <section class="page-header">
+                <h1 class="activity-title">Activity name</h1>
+                <div class="gallery">
+                    <img src="#.jpg">
+                    <img src="#.jpg">
+                    <img src="#.jpg">
+                </div>
+            </section>
+
+            <div id="wrapper">
+
+                <main id="main_section">
+                    <article class="activity-details">
+                        <h2>Activity Description</h2>
+                        <p class="activity-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra risus a est varius, ac gravida massa faucibus. Nam elit quam, laoreet sit amet velit a, egestas faucibus libero. Suspendisse varius maximus magna nec cursus. Nulla in auctor neque, ut interdum enim. Sed in nisl sit amet nulla faucibus commodo at vitae turpis. Proin posuere tellus vel nunc sollicitudin, at eleifend libero interdum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lobortis dictum leo sed blandit. In dignissim rhoncus risus sed bibendum. Sed lectus ex, vulputate eu vulputate eu, ullamcorper ac dui. Vivamus vestibulum mollis diam, vitae varius justo molestie in. Aenean in nisl velit. Donec porttitor metus et condimentum hendrerit. Ut ac consequat eros. Etiam eleifend gravida lorem sed sagittis.</p>
+
+                        <div class="activity-grid">
+                            <div class="activity-meta-box"> <strong>Duration</strong><div>3 hours</div></div>
+                            <div class="activity-meta-box"> <strong>Language</strong><div>Spanish / English</div></div>
+                            <div class="activity-meta-box"> <strong>Accessibility</strong><div>Medium</div></div>
+                            <div class="activity-meta-box"> <strong>Price</strong><div>30€ / person</div></div>
+                        </div>
+
+                    <!-- Reviews -->
+                    <section class="review" aria-labelledby="reviews-heading">
+                        <h2 id="reviews-heading">Reviews</h2>
+                        <article class="review-item" xlu-include-file="templates/review.html"></article>
+                        <article class="review-item" xlu-include-file="templates/review.html"></article>
+                        <article class="review-item" xlu-include-file="templates/review.html"></article>
+                        <article class="review-item">
+                            <div class="review-content">
+                                <div class="review-header">
+                                    <div class="avatar">
+                                        <img src="#.jpg" width="30" height="30">
+                                        <h3> Username </h3>
+                                    </div>
+                                    <div id="rating" class="rating" role="img" aria-label="Calificación: 0 de 5 estrellas">
+                                        <span class="star">☆</span>
+                                        <span class="star">☆</span>
+                                        <span class="star">☆</span>
+                                        <span class="star">☆</span>
+                                        <span class="star">☆</span>
+                                    </div>
+                                </div>
+                                <textarea class="comment-box" placeholder="Leave your comment here..." rows="3"></textarea>
+                                <div class="submit-action">
+                                    <button type="button" class="submit-btn"> Submit </button>
+                                </div>
+                            </div>   
+                        </article>
+                    </section>
+                </article>
+                </main>
+            
+
+                <aside class="reservation-panel">
+                    <div class="panel-card">
+                        <h2>Reservation</h2>
+                        <form class="reservation-form" aria-label="Formulario de reserva">
+                            
+                            <div class="calendar">
+                                <div class="calendar-header">
+                                    <div class="title">Calendar</div>
+                                    <div class="calendar-controllers">
+                                        <button type="button" class="small-btn" aria-hidden="true">◀</button>
+                                        <h3 class="month-year">February 2026</h3>
+                                        <button type="button" class="small-btn" aria-hidden="true">▶</button>
+                                    </div>
+                                </div>
+                                <div class="calendar-grid">
+                                    <div class="day-name">M</div>
+                                    <div class="day-name">T</div>
+                                    <div class="day-name">W</div>
+                                    <div class="day-name">T</div>
+                                    <div class="day-name">F</div>
+                                    <div class="day-name">S</div>
+                                    <div class="day-name">S</div>
+                                    <div class="day">1</div><div class="day">2</div><div class="day">3</div><div class="day">4</div><div class="day">5</div><div class="day">6</div><div class="day">7</div>
+                                    <div class="day">8</div><div class="day">9</div><div class="day">10</div><div class="day">11</div><div class="day">12</div><div class="day">13</div><div class="day">14</div>
+                                    <div class="day">15</div><div class="day">16</div><div class="day">17</div><div class="day">18</div><div class="day">19</div><div class="day">20</div><div class="day">21</div>
+                                    <div class="day">22</div><div class="day">23</div><div class="day">24</div><div class="day">25</div><div class="day">26</div><div class="day">27</div><div class="day">28</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="time">Hour</label>
+                                <div class="preset-times">
+                                    <button type="button" class="preset">08:00</button>
+                                    <button type="button" class="preset">09:30</button>
+                                    <button type="button" class="preset">11:00</button>
+                                    <button type="button" class="preset">12:00</button>
+                                    <button type="button" class="preset">14:00</button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="people">Participants</label>
+                                <div class="people-selector">
+                                    <button type="button" class="people-btn">−</button>
+                                    <input type="number" id="people" name="people" value="1" min="1" max="20" required>
+                                    <button type="button" class="people-btn">+</button>
+                                </div>
+                            </div>
+
+                            <a href="reservation-information.html" class="reserve-btn">Make Reservation</a>
+                        </form>
+                    </div>
+                </aside>
+
+            </div>
+        </main>
+        <footer id="footer-container" xlu-include-file="footer.html"></footer>
+        
+        <script src="scripts/xlu-include-file.js"></script>
+        <script src="scripts/header.js"></script>
+        <script>
+            xLuIncludeFile();
+        </script>
+        <script>
+            const ratingContainer = document.getElementById('rating');
+            
+            const stars = ratingContainer.querySelectorAll('.star');
+
+            let currentRating = 0;
+
+            function highlightStars (activeIndex) {
+                stars.forEach((star, index) => {
+                    if (index <= activeIndex) {
+                        star.classList.add('filled');
+                        star.textContent = '★';
+                    } else {
+                        star.classList.remove('filled');
+                        star.textContent = '☆';
+                    }
+                });
+            }
+
+            stars.forEach((star, index) => {
+                star.addEventListener('mouseover', () => {
+                    highlightStars(index);
+                });
+
+                star.addEventListener('click', () => {
+                    currentRating = index + 1;
+                    ratingContainer.setAttribute('aria-label', `Calificación: ${currentRating} de 5 estrellas`);
+                    console.log("Puntuación seleccionada:", currentRating);
+                });
+            });
+            
+            ratingContainer.addEventListener('mouseleave', () => {
+                highlightStars(currentRating - 1);
+            });
+        </script>
     </body>
 </html>
