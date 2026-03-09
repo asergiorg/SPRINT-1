@@ -12,6 +12,20 @@ document.addEventListener("contentLoaded", () => {
         // Evitar repetir si ya se aplicó
         if (container.dataset.paginated === "true") return;
 
+        // Botón "Collapse"
+        const lessBtn = document.querySelector(`.colapseBtn[data-target="${targetId}"]`);
+
+        // Ocultar collapse al inicio
+        if (lessBtn) {
+            lessBtn.style.display = "none";
+        }
+
+        // Si hay 5 o menos elementos, ocultar "View more"
+        if (cards.length <= step) {
+            btn.style.display = "none";
+            return;
+        }
+
         // Ocultar todas excepto las primeras 5
         cards.forEach((card, i) => {
             if (i >= step) card.style.display = "none";
@@ -19,9 +33,7 @@ document.addEventListener("contentLoaded", () => {
 
         let visibleCount = step;
 
-        // Botón "Ver menos"
-        const lessBtn = document.querySelector(`.colapseBtn[data-target="${targetId}"]`);
-
+        // --- VIEW MORE ---
         btn.addEventListener("click", (e) => {
             e.preventDefault();
 
@@ -33,14 +45,21 @@ document.addEventListener("contentLoaded", () => {
 
             visibleCount = next;
 
+            // Mostrar collapse solo después del primer click
+            if (lessBtn) {
+                lessBtn.style.display = "inline-block";
+            }
+
+            // Si ya no quedan más, ocultar el botón
             if (visibleCount >= cards.length) {
                 btn.style.display = "none";
             }
         });
 
-        // Lógica del botón "Ver menos"
+        // --- COLLAPSE ---
         if (lessBtn) {
             lessBtn.addEventListener("click", () => {
+
                 // Ocultar todas excepto las primeras 5
                 cards.forEach((card, i) => {
                     card.style.display = i < step ? "" : "none";
@@ -48,24 +67,16 @@ document.addEventListener("contentLoaded", () => {
 
                 visibleCount = step;
 
-                // Mostrar de nuevo el botón "Ver más"
-                btn.style.display = "inline-block";
+                // Mostrar de nuevo el botón "View more"
+                if (cards.length > step) {
+                    btn.style.display = "inline-block";
+                }
+
+                // Ocultar collapse otra vez
+                lessBtn.style.display = "none";
             });
         }
 
         container.dataset.paginated = "true";
     });
 });
-
-document.addEventListener("contentLoaded", () => {
-    document.querySelectorAll(".activity-card").forEach(link => {
-        link.addEventListener("click", e => {
-            const card = e.target.closest(".activity-card");
-            const id = card.querySelector("#row-res-id").textContent.trim();
-
-            localStorage.setItem("selectedReservationId", id);
-        });
-    });
-});
-
-

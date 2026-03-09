@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    await cargarReservasSinPerderDatos();
     const selectedId = localStorage.getItem("selectedReservationId");
     if (!selectedId) return;
 
@@ -63,28 +62,3 @@ async function cargarTemplate(url) {
     template.innerHTML = html.trim();
     return template.content;
 }
-
-async function cargarReservasSinPerderDatos() {
-    // 1. Leer lo que ya existe en sessionStorage
-    const stored = sessionStorage.getItem("reservations");
-    const oldArray = stored ? JSON.parse(stored) : [];
-
-    // 2. Cargar el JSON nuevo
-    const response = await fetch("json/reservations.json");
-    const newData = await response.json();
-
-    // Si tu JSON tiene la forma { "reservations": [ ... ] }
-    const newArray = Array.isArray(newData) ? newData : newData.reservations;
-
-    // 3. Fusionar ambos arrays
-    const merged = [...oldArray, ...newArray];
-
-    // 4. Eliminar duplicados por id
-    const unique = merged.filter(
-        (item, index, arr) => index === arr.findIndex(r => r.id === item.id)
-    );
-
-    // 5. Guardar el resultado final
-    sessionStorage.setItem("reservations", JSON.stringify(unique));
-}
-

@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
     await cargarEstructura();
+    cancelarResevaSinConfirmar();
+    eliminarEdicionesSinConfirmar();
     await cargarDatosActivityInformation();
     document.dispatchEvent(new Event('contentLoaded'));
 });
@@ -39,6 +41,7 @@ async function cargarDatosActivityInformation() {
 
     // Filtrar por ID seleccionado
     const selectedId = localStorage.getItem("selectedActivityId");
+
     const item = data.find(act => act.id == selectedId);
     if (!item) return;
 
@@ -65,4 +68,24 @@ async function cargarDatosActivityInformation() {
         });
 
     });
+}
+
+function cancelarResevaSinConfirmar() {
+    if (sessionStorage.getItem("reservationToConfirm")) {
+        const reservas = JSON.parse(sessionStorage.getItem("reservations")) || [];
+        const reservaToCancel = JSON.parse(sessionStorage.getItem("reservationToConfirm")); 
+        sessionStorage.removeItem("reservationToConfirm");
+        const updatedReservas = reservas.filter(r => r.code !== reservaToCancel.code);
+        sessionStorage.setItem("reservations", JSON.stringify(updatedReservas));
+    }
+}
+
+function eliminarEdicionesSinConfirmar() {
+    if (sessionStorage.getItem("reservationToEdit")) {
+        const reservas = JSON.parse(sessionStorage.getItem("reservations")) || [];
+        const reservaToCancel = JSON.parse(sessionStorage.getItem("reservationToEdit")); 
+        sessionStorage.removeItem("reservationToEdit");
+        const updatedReservas = reservas.filter(r => r.code !== reservaToCancel.code);
+        sessionStorage.setItem("reservations", JSON.stringify(updatedReservas));
+    }
 }

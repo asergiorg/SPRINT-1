@@ -45,7 +45,7 @@ document.addEventListener("contentLoaded", () => {
                 reservas = reservas.map(r => {
                     if (r.code === reservationId) {
                         return {
-                            "id": r.id,
+                            "activity_id": r.activity_id,
                             "code": r.code,
                             "activity": r.activity,
                             "date": r.date,
@@ -88,6 +88,9 @@ document.addEventListener("contentLoaded", () => {
 
         // Si está pagada, continuar
         // Aquí pones lo que quieras: redirigir, avanzar, etc.
+        if (sessionStorage.getItem("reservationToEdit")) {
+            sessionStorage.removeItem("reservationToEdit"); // Limpiar reserva temporal de edición
+        }
         window.location.href='user-activities.html';
     });
 });
@@ -108,10 +111,7 @@ document.addEventListener("contentLoaded", () => {
 
         // Guardar la reserva que se quiere editar
         sessionStorage.setItem("reservationToEdit", JSON.stringify(reserva));
-
-        // Se elimina la reserva actual para evitar duplicados al guardar cambios
-        reservas = reservas.filter(r => r.code != reservationId);
-        sessionStorage.setItem("reservations", JSON.stringify(reservas));
+        localStorage.setItem("selectedActivityId", reserva.activity_id); // Para cargar info de la actividad en el formulario
 
         window.location.href = 'activity-information.html';
     });

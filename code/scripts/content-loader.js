@@ -85,7 +85,6 @@ document.addEventListener("contentLoaded", () => {
             const activity = e.target.closest(".activity-card");
             const id = activity.querySelector(".activity-id").textContent.trim();
 
-            console.log("Actividad seleccionada:", id);
             localStorage.setItem("selectedActivityId", id);
 
             window.location.href = "activity-information.html";
