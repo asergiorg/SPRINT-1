@@ -6,8 +6,6 @@ document.addEventListener('contentLoaded', function () {
     form.addEventListener('submit', async function (e) {
         e.preventDefault();
         
-        let reservas = await loadReservations();
-        
         // Datos del formulario
         const time = document.getElementById('time')?.value || '';
         const people = Number(document.getElementById('people').value);
@@ -26,14 +24,15 @@ document.addEventListener('contentLoaded', function () {
         const name = 'John Doe';
         
         // Cargar reservas
-        reservas = JSON.parse(sessionStorage.getItem('reservations')) || [];
+        const reservas = JSON.parse(sessionStorage.getItem('reservations')) || [];
+        const reservationToEdit = sessionStorage.getItem('reservationToEdit');
+
         
         // ¿Estamos editando?
-        const editing = sessionStorage.getItem('reservationToEdit');
         let reservation;
         
-        if (editing) {
-            const old = JSON.parse(editing);
+        if (reservationToEdit) {
+            const old = JSON.parse(reservationToEdit);
             
             const newPrice = individualPrice * people;
             const amountToPay = totalToPay(newPrice);
@@ -44,16 +43,12 @@ document.addEventListener('contentLoaded', function () {
                 ...old,
                 time: time,
                 participants: people,
-                price: newPrice,
+                price: amountToPay,
                 status: status
             };
             
-            // Reemplazar la reserva en el array
-            const index = reservas.findIndex(r => r.code === old.code);
-            if (index !== -1) reservas[index] = reservation;
-            
-            sessionStorage.removeItem('reservationToEdit');
         } else {
+            
             // Nueva reserva
             const code = codeMaker(reservas);
             const newPrice = individualPrice * people;
@@ -68,19 +63,15 @@ document.addEventListener('contentLoaded', function () {
                 date: date,
                 time: time,
                 participants: people,
-                price: newPrice,
+                price: amountToPay,
                 status: status
             };
             
-            crearResevaSinConfirmar(reservation);
-            reservas.push(reservation);
         }
-
+        
         // Guardar
-        console.log("ANTES DE GUARDAR:", sessionStorage.getItem("reservations"));
-        sessionStorage.setItem('reservations', JSON.stringify(reservas));
+        sessionStorage.setItem('currentReservation', JSON.stringify(reservation));
         localStorage.setItem("selectedReservationId", reservation.code);
-        console.log("DESPUÉS DE GUARDAR:", sessionStorage.getItem("reservations"));
 
         // Redirigir
         window.location.href = 'reservation-information.html';
@@ -90,7 +81,7 @@ document.addEventListener('contentLoaded', function () {
 // ------------------ FUNCIONES ------------------
 
 function codeMaker(reservas) {
-    const usados = new Set(reservas.map(r => r.code));
+    const usados = new Set(reservas.map(r => r.code)) || {};
 
     while (true) {
         const num = Math.floor(Math.random() * 100000);
@@ -107,28 +98,13 @@ function paymentStatus(amountToPay) {
 function totalToPay(newPrice) {
     const editing = sessionStorage.getItem('reservationToEdit');
     if (!editing) return newPrice;
-
+    
     const old = JSON.parse(editing);
-
+    
     if (old.status !== "Unpaid") {
         const diff = newPrice - old.price;
         return Math.max(diff, 0);
     }
 
     return newPrice;
-}
-
-async function loadReservations() {
-    let reservas = JSON.parse(sessionStorage.getItem('reservations'));
-
-    if (!Array.isArray(reservas)) {
-        reservas = [];
-        sessionStorage.setItem('reservations', JSON.stringify(reservas));
-    }
-
-    return reservas;
-}
-
-function crearResevaSinConfirmar(reservation) {
-    sessionStorage.setItem("reservationToConfirm", JSON.stringify(reservation));
 }

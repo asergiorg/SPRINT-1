@@ -9,6 +9,9 @@ async function cargarEstructura() {
     document.body.appendChild(await cargarTemplate('templates/header.html'));
     document.body.appendChild(await cargarTemplate(`templates/${pagina}-body.html`));
     document.body.appendChild(await cargarTemplate('templates/footer.html'));
+    if (pagina === "user-activities") { 
+        sessionStorage.setItem("reservations", "[]")
+    }
 }
 
 async function cargarTemplate(url) {
@@ -22,6 +25,8 @@ async function cargarTemplate(url) {
 async function cargarContenidoDinamico() {
     // Detectar página actual
     const pagina = window.location.pathname.split('/').pop().replace('.html', '');
+
+    // Si estamos en la página de detalle, filtrar por ID 
     
     // Buscar contenedores dinámicos
     const contenedores = document.querySelectorAll('[data-content-id]');
@@ -47,12 +52,6 @@ async function cargarContenidoDinamico() {
         const templateUrl = contenedor.dataset.template;
 
         var items = data;
-
-        // Si estamos en la página de detalle, filtrar por ID 
-        if (pagina === "activity-information") { 
-            const selectedId = localStorage.getItem("selectedActivityId"); 
-            items = items.filter(item => item.id == selectedId);
-        }
 
 
         // Cargar template

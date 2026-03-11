@@ -5,42 +5,22 @@ document.addEventListener("DOMContentLoaded", async () => {
     const container = document.querySelector("[data-content-id][data-json]");
     if (!container) return;
 
-    const key = container.dataset.contentId;
-    let data;
-
-    // 1. Cargar datos dinámicamente según origen
-    if (sessionStorage.getItem('reservations')) {
-        data = JSON.parse(sessionStorage.getItem('reservations'));
-    } else {
-        const jsonUrl = container.dataset.json;
-        data = await fetch(jsonUrl).then(r => r.json());
-
-        // Guardar para futuras visitas
-        sessionStorage.setItem('reservations', JSON.stringify(data));
-    }
-
-    // 2. Acceder a la lista correspondiente
-    const items = data;
-    if (!items) return;
-
-    // 3. Buscar la reserva seleccionada
-    const reservation = items.find(item => item.code == selectedId);
-    if (!reservation) return;
+    const item = JSON.parse(sessionStorage.getItem('currentReservation')) || [];
 
     // 4. Rellenar datos en pantalla
-    Object.keys(reservation).forEach(prop => {
+    Object.keys(item).forEach(prop => {
         const el = container.querySelector(`[data-field="${prop}"]`);
         if (!el) return;
 
         if (el.tagName === "IMG") {
-            el.src = reservation[prop];
+            el.src = item[prop];
         } else {
-            el.textContent = reservation[prop];
+            el.textContent = item[prop];
         }
     });
 
     // 5. Insertar métodos de pago si está unpaid
-    const status = reservation.status?.trim().toLowerCase();
+    const status = item.status?.trim().toLowerCase();
     const isUnpaid = status === "unpaid";
 
     if (isUnpaid) {
