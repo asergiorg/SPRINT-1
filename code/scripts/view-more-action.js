@@ -80,17 +80,3 @@ document.addEventListener("contentLoaded", () => {
         container.dataset.paginated = "true";
     });
 });
-
-document.addEventListener("contentLoaded", () => {
-    document.querySelectorAll(".activity-card").forEach(link => {
-        link.addEventListener("click", e => {
-            const card = e.target.closest(".activity-card");
-            const id = card.querySelector("#row-res-id").textContent.trim();
-            let reservas = sessionStorage.getItem("reservations") || [];
-            reservas = JSON.parse(reservas);
-            const reserva = reservas.find(r => r.code === id);
-
-            sessionStorage.setItem("currentReservation", JSON.stringify(reserva));
-        });
-    });
-});

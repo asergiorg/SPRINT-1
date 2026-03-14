@@ -7,10 +7,10 @@ document.addEventListener("contentLoaded", () => {
         e.preventDefault();
 
         sessionStorage.removeItem("reservationToEdit");
-        const reserva = JSON.parse(sessionStorage.getItem("currentReservation"));
-        const reservas = JSON.parse(sessionStorage.getItem("reservations"));
-        const storaged =  reservas.filter(r => r.code != reserva.code);
-        if(storaged.length !== reservas.length){
+        const reservation = JSON.parse(sessionStorage.getItem("currentReservation"));
+        const reservations = JSON.parse(sessionStorage.getItem("reservations"));
+        const storaged =  reservations.filter(r => r.code !== reservation.code);
+        if(storaged.length !== reservations.length){
             sessionStorage.setItem("reservations", JSON.stringify(storaged));
         }
         sessionStorage.removeItem("currentReservation");
@@ -36,14 +36,12 @@ document.addEventListener("contentLoaded", () => {
             setTimeout(() => {
                 const old = JSON.parse(sessionStorage.getItem("currentReservation"));
             
-            
                 // FUSIÓN SEGURA: mantiene todo lo anterior y solo actualiza lo necesario
                 reservation = {
                     ...old,
                     status: 'Pending'
                 };
             
-
                 sessionStorage.setItem("currentReservation", JSON.stringify(reservation));
 
                 location.reload();
@@ -60,28 +58,28 @@ document.addEventListener("contentLoaded", () => {
     if (!confirmBtn || !idElement) return;
 
     confirmBtn.addEventListener("click", () => {
-        const reservas = JSON.parse(sessionStorage.getItem("reservations")) || [];
-        const reserva = JSON.parse(sessionStorage.getItem("currentReservation"));
+        const reservations = JSON.parse(sessionStorage.getItem("reservations")) || [];
+        const reservation = JSON.parse(sessionStorage.getItem("currentReservation"));
         const editing = sessionStorage.getItem("reservationToEdit");
 
-        if (!reserva || reserva.status === "Unpaid") {
+        if (!reservation || reservation.status === "Unpaid") {
             // Mostrar mensaje
             warning.style.display = "block";
             return;
         }
-        let old = reserva;
+        let old = reservation;
         if (editing) {
             // Estamos editando → reemplazar
             old = JSON.parse(editing); 
         } 
-        const index = reservas.findIndex(r => r.code === old.code);
+        const index = reservations.findIndex(r => r.code === old.code);
         if (index !== -1) {
-        reservas[index] = reserva; // reemplazo correcto
+        reservations[index] = reservation; // reemplazo correcto
         } else {
-            reservas.push(reserva)
+            reservations.push(reservation)
         }
 
-        sessionStorage.setItem("reservations", JSON.stringify(reservas));
+        sessionStorage.setItem("reservations", JSON.stringify(reservations));
         sessionStorage.removeItem("currentReservation");
         sessionStorage.removeItem("reservationToEdit");
 
@@ -92,18 +90,18 @@ document.addEventListener("contentLoaded", () => {
 
 document.addEventListener("contentLoaded", () => {
     const editBtn = document.querySelector("#edit-btn");
-    const idElement = document.querySelector("#row-res-id");
+    const idElement = document.querySelector("#code");
 
     if (!editBtn || !idElement) return;
 
     editBtn.addEventListener("click", () => {
-        const reserva = JSON.parse(sessionStorage.getItem("currentReservation"))
+        const reservation = JSON.parse(sessionStorage.getItem("currentReservation"))
 
-        if (!reserva) return;
+        if (!reservation) return;
 
         // Guardar la reserva que se quiere editar
-        localStorage.setItem("selectedActivityId", reserva.activity_id); // Para cargar info de la actividad en el formulario
-        sessionStorage.setItem("reservationToEdit", JSON.stringify(reserva))
+        localStorage.setItem("selectedActivityId", reservation.activity_id); // Para cargar info de la actividad en el formulario
+        sessionStorage.setItem("reservationToEdit", JSON.stringify(reservation));
         window.location.href = 'activity-information.html';
     });
 });

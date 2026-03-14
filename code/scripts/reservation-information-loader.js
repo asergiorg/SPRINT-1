@@ -28,14 +28,14 @@ document.addEventListener("DOMContentLoaded", async () => {
         const footer = reservationCard.querySelector("footer.actions");
 
         reservationCard.insertBefore(
-            await cargarTemplate("templates/payment-methods.html"),
+            await loadTemplate("templates/payment-methods.html"),
             footer
         );
     }
     document.dispatchEvent(new Event('contentLoaded'));
 });
 
-async function cargarTemplate(url) {
+async function loadTemplate(url) {
     const response = await fetch(url);
     const html = await response.text();
     const template = document.createElement('template');

@@ -24,7 +24,7 @@ document.addEventListener('contentLoaded', function () {
         const name = 'John Doe';
         
         // Cargar reservas
-        const reservas = JSON.parse(sessionStorage.getItem('reservations')) || [];
+        const reservations = JSON.parse(sessionStorage.getItem('reservations')) || [];
         const reservationToEdit = sessionStorage.getItem('reservationToEdit');
 
         
@@ -50,7 +50,7 @@ document.addEventListener('contentLoaded', function () {
         } else {
             
             // Nueva reserva
-            const code = codeMaker(reservas);
+            const code = codeMaker(reservations);
             const newPrice = individualPrice * people;
             const amountToPay = totalToPay(newPrice);
             const status = paymentStatus(amountToPay);
@@ -80,8 +80,8 @@ document.addEventListener('contentLoaded', function () {
 
 // ------------------ FUNCIONES ------------------
 
-function codeMaker(reservas) {
-    const usados = new Set(reservas.map(r => r.code)) || {};
+function codeMaker(reservations) {
+    const usados = new Set(reservations.map(r => r.code)) || {};
 
     while (true) {
         const num = Math.floor(Math.random() * 100000);
@@ -103,6 +103,7 @@ function totalToPay(newPrice) {
     
     if (old.status !== "Unpaid") {
         const diff = newPrice - old.price;
+        console.log(diff)
         return Math.max(diff, 0);
     }
 

@@ -13,6 +13,12 @@
     </head>
     <body>
         <script src="scripts/content-loader.js"></script>
+        <script>
+            const elements = ['header.html', 'user-activities-body.html', 'footer.html'];
+            document.addEventListener('DOMContentLoaded', async () => {
+                await load(elements);
+            });
+        </script>
         <script src="scripts/view-more-action.js"></script>
         <script src="scripts/header.js"></script>
     </body>
