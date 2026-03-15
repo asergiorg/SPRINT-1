@@ -65,29 +65,30 @@ async function loadActivityInformationData() {
 
     const contenedores = document.querySelectorAll("[data-content-id]");
     if (!contenedores.length) return;
-
-    let data = await dataLoader(contenedores[0].dataset.json);
-
+    
+    const data = await dataLoader(contenedores[0].dataset.json);
+    
+    
     // Filtrar por ID seleccionado
     const selectedId = localStorage.getItem("selectedActivityId");
-
+    
     const item = data.find(act => act.id == selectedId);
     if (!item) return;
-
+    
     // Rellenar TODOS los contenedores
     contenedores.forEach(contenedor => {
-
+        
         Object.keys(item).forEach(prop => {
             const targets = contenedor.querySelectorAll(`[data-field="${prop}"]`);
             if (!targets.length) return;
-
+            
             targets.forEach(target => {
                 let value = item[prop];
-
+                
                 if (Array.isArray(value)) {
                     value = value.join(", ");
                 }
-
+                
                 if (target.tagName === "IMG") {
                     target.src = value;
                 } else {
@@ -95,6 +96,48 @@ async function loadActivityInformationData() {
                 }
             });
         });
+    });
+    let reviews = await dataLoader(contenedores[2].dataset.json);
+    reviews = reviews.filter(r => r.activity_id == selectedId);
+
+    // Cargar template
+    const templateUrl = contenedores[2].dataset.template;
+    const templateNode = await loadTemplate(templateUrl);
+    
+    // Renderizar cada elemento del JSON
+    reviews.forEach(review => {
+        const clone = templateNode.cloneNode(true);
+
+        // Rellenar campos del template
+        Object.keys(review).forEach(prop => {
+            const target = clone.querySelector(`[data-field="${prop}"]`);
+            if (target) {
+                if (target.tagName === 'IMG') {
+                    target.src = review[prop];
+                } else {
+                    target.textContent = review[prop];
+                }
+            }
+        });
+
+        // ⭐ Renderizar estrellas del rating
+        const ratingContainer = clone.querySelector(".rating");
+        if (ratingContainer && review.rating !== undefined) {
+            const stars = ratingContainer.querySelectorAll(".star");
+            const rating = Number(review.rating);
+
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.textContent = "★";
+                    star.classList.add("filled");
+                } else {
+                    star.textContent = "☆";
+                    star.classList.remove("filled");
+                }
+            });
+        }
+
+        contenedores[2].appendChild(clone);
     });
     deleteEditionWithNoConfirmation();
 }
