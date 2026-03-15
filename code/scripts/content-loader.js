@@ -48,6 +48,10 @@ async function cargarContenidoDinamico() {
 
         var items = data;
 
+        if (pagina === "activities") {
+            window.catalogoOriginal = data;
+        }
+        
         // Si estamos en la página de detalle, filtrar por ID 
         if (pagina === "activity-information") { 
             const selectedId = localStorage.getItem("selectedActivityId"); 
