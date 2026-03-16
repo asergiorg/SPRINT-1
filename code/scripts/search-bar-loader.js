@@ -15,7 +15,7 @@ document.addEventListener("contentLoaded", () => {
     if (busquedaGuardada) {
         searchInput.value = busquedaGuardada;
         localStorage.removeItem("catalogSearch");
-        aplicarBusqueda(); // Ejecutar búsqueda automáticamente
+        aplicarBusqueda();
     }
 
     // Evento de búsqueda manual
@@ -24,11 +24,9 @@ document.addEventListener("contentLoaded", () => {
         aplicarBusqueda();
     });
 
-    // Función principal de búsqueda
     async function aplicarBusqueda() {
         const texto = searchInput.value.trim().toLowerCase();
 
-        // Si no hay texto, mostrar catálogo completo
         if (!texto) {
             renderCatalogo(window.catalogoOriginal);
             return;
@@ -42,11 +40,10 @@ document.addEventListener("contentLoaded", () => {
         renderCatalogo(resultados);
     }
 
-    // Renderizado reutilizando tu sistema de templates
     async function renderCatalogo(lista) {
         const contenedor = document.querySelector('[data-content-id]');
         const templateUrl = contenedor.dataset.template;
-        const templateNode = await cargarTemplate(templateUrl);
+        const templateNode = await loadTemplate(templateUrl);
 
         contenedor.innerHTML = "";
 

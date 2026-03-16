@@ -29,13 +29,26 @@ async function loadTemplate(url) {
 }
 
 async function loadDynamicContent() {    
+    const pagina = window.location.pathname.split('/').pop().replace('.html', '');
+
+    
     // Buscar contenedores dinámicos
     const contenedores = document.querySelectorAll('[data-content-id]');
     if (!contenedores.length) return;
     
     for (const contenedor of contenedores) {
-        const items = await dataLoader(contenedor.dataset.json);
+        let items = await dataLoader(contenedor.dataset.json);
         
+        if (pagina === "activities") {
+            window.catalogoOriginal = items;
+        }
+        
+        // Si estamos en la página de detalle, filtrar por ID 
+        if (pagina === "activity-information") { 
+            const selectedId = localStorage.getItem("selectedActivityId"); 
+            items = items.filter(item => item.id == selectedId);
+        }
+
         // Cargar template
         const templateUrl = contenedor.dataset.template;
         const templateNode = await loadTemplate(templateUrl);
