@@ -43,12 +43,15 @@
 		outline: none;
 		font-size: 16px;
 		width: 100%;
+		padding-left: 0.4rem;
+		background: white;
 	}
 
 	#bar-search-container button {
 		background: none;
 		border: none;
 		cursor: pointer;
+		color: black;
 	}
 
 	/*Slider Container*/
@@ -67,9 +70,14 @@
 		display: flex;
 		aspect-ratio: 16/9;
 		scroll-snap-type: x mandatory;
-		overflow-x: hidden;
+		overflow-x: scroll;
 		scroll-behavior: smooth;
 		border-radius: .5rem;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.slider::-webkit-scrollbar {
+		display: none;
 	}
 
 	.slider .activity{
@@ -139,6 +147,26 @@
 		line-height: 1.4;
 	}
 /* Media queries */
+	@media (max-width: 750px) {
+
+		#bar-search-container {
+			width: 90%;
+			padding: 0 15px;
+		}
+
+		.slider-nav{
+			display: none;
+		}
+
+		.activity .description h3 {
+			font-size: 1.1rem;
+		}
+
+		.activity .description p {
+			display: none;
+		}
+	}
+
 
     @media (max-width: 1024px) {
         .home {
