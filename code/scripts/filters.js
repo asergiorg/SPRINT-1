@@ -1,6 +1,5 @@
 document.addEventListener("contentLoaded", () => {
 
-    // Detectar página actual
     const pagina = window.location.pathname.split('/').pop().replace('.html', '');
     if (pagina !== "activities") return;
 
@@ -47,42 +46,27 @@ document.addEventListener("contentLoaded", () => {
             const itemPrice = parsePrice(item.price);
             const itemDuration = parseDuration(item.duration);
 
-            // PRICE
+            // Price
             if (priceMin !== "" && itemPrice < Number(priceMin)) return false;
             if (priceMax !== "" && itemPrice > Number(priceMax)) return false;
 
-            // DURATION
+            // Duration
             if (durationMin !== "" && itemDuration < Number(durationMin)) return false;
             if (durationMax !== "" && itemDuration > Number(durationMax)) return false;
 
-            // TIME
-            // if (timeBlock !== "all" && !coincideBloqueHorario(item.time, timeBlock)) return false;
-
-            // LANGUAGE
+            // Language
             if (language !== "all" && !item.languages.includes(language)) return false;
 
-            // STARS
+            // Stars
             if (stars !== "all" && Math.floor(item.rating) < Number(stars)) return false;
 
-            // DIFFICULTY
+            // Difficulty
             if (difficulty !== "all" && item.difficulty !== difficulty) return false;
 
             return true;
         });
 
         renderCatalogo(filtrado);
-    }
-
-    function coincideBloqueHorario(time, block) {
-        const hour = parseInt(time.split(":")[0]);
-
-        switch (block) {
-            case "morning": return hour >= 6 && hour < 12;
-            case "afternoon": return hour >= 12 && hour < 18;
-            case "evening": return hour >= 18 && hour < 22;
-            case "night": return hour >= 22 || hour < 6;
-            default: return true;
-        }
     }
 
     async function renderCatalogo(lista) {
@@ -130,4 +114,27 @@ document.addEventListener("contentLoaded", () => {
             });
         });
     }
+
+    const filterbar = document.getElementById('filterbar');
+    const overlay = document.getElementById('filtersOverlay');
+    const openBtn = document.getElementById('openFilters');
+    const closeBtn = document.getElementById('closeFilters');
+
+    if (openBtn && closeBtn && filterbar && overlay) {
+        openBtn.addEventListener("click", () => {
+            filterbar.classList.add("open");
+            overlay.classList.add("visible");
+        });
+
+        closeBtn.addEventListener("click", () => {
+            filterbar.classList.remove("open");
+            overlay.classList.remove("visible");
+        });
+
+        overlay.addEventListener("click", () => {
+            filterbar.classList.remove("open");
+            overlay.classList.remove("visible");
+        });
+    }
+
 });

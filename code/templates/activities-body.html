@@ -2,16 +2,21 @@
 
     <div id="search_container">
         <form >
-            <input type="search" placeholder="Search activity..." name="activity">
             <button type="submit">
                 <i class='bx bx-search'></i>
             </button>
+            <input type="search" placeholder="Search activity..." name="activity">
+            
         </form>
+        <button id="openFilters" class="filters-toggle"><i class='bx bx-filter'></i></button>
     </div>
 
+
     <aside id="filterbar">
+        <button id="closeFilters" class="close-filters">✕</button>
 
         <h2 id="filter">Filters</h2>
+        
         <form action="filter">
             
             <h3>Price:</h3>
@@ -27,15 +32,6 @@
                 <span>-</span>
                 <input type="number" name="duration_max" min="0" placeholder="max">
             </div>
-
-            <h3>Time:</h3>
-            <select name="time_block">
-                <option value="all">Any time</option>
-                <option value="morning">Morning (06:00–12:00)</option>
-                <option value="afternoon">Afternoon (12:00–18:00)</option>
-                <option value="evening">Evening (18:00–22:00)</option>
-                <option value="night">Night (22:00–06:00)</option>
-            </select>
 
             <h3>Language:</h3>
             <select id="idioma-actividad" name="language">
@@ -67,6 +63,8 @@
             <button type="button">Apply</button>
         </form>
     </aside>
+
+    <div id="filtersOverlay"></div>
 
     <section data-content-id="activities" data-template="templates/activity2.html" data-json="json/activities.json"></section>
 
