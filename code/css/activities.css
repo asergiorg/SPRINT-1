@@ -164,4 +164,18 @@
     .price {
         padding-top: .5em;
     }
+
+	/* Media queries */
+    @media (max-width: 767px) {
+        .activity-card {
+            min-width: 100%;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        .activities {
+            display: none !important;
+        }
+    }
+   
     

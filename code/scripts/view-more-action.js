@@ -1,5 +1,5 @@
 document.addEventListener("contentLoaded", () => {
-    const step = 5;
+    const step = getStep();
 
     document.querySelectorAll(".viewMoreBtn").forEach(btn => {
         const targetId = btn.dataset.target;
@@ -80,3 +80,11 @@ document.addEventListener("contentLoaded", () => {
         container.dataset.paginated = "true";
     });
 });
+
+function getStep() {
+    const width = window.innerWidth;
+
+    if (width < 767) return 1;      // móviles
+    if (width < 1024) return 4;      // tablets
+    return 5;                       // escritorio
+}
