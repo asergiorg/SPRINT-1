@@ -44,3 +44,22 @@ function handleLogout() {
   localStorage.clear();
   window.location.href = 'index.html';
 }
+
+document.addEventListener("contentLoaded", () => {
+    const hamburger = document.getElementById("hamburger");
+    const sideMenu = document.getElementById("side-menu");
+    const overlay = document.getElementById("overlay");
+
+    if (!hamburger) return; // Evita errores si aún no está cargado
+
+    hamburger.addEventListener("click", () => {
+        sideMenu.classList.toggle("show");
+        overlay.classList.toggle("show");
+    });
+
+    overlay.addEventListener("click", () => {
+        sideMenu.classList.remove("show");
+        overlay.classList.remove("show");
+    });
+});
+

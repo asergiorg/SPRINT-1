@@ -138,3 +138,11 @@
 		margin: 0;
 		line-height: 1.4;
 	}
+/* Media queries */
+
+    @media (max-width: 1024px) {
+        .home {
+            display: none !important;
+        }
+    }
+   
