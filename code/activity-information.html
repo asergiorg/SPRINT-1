@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="description" content="This is a page with inofrmation of a particular activity">
         <meta name="keywords" content="HTML5, CSS3, JavaScript">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Activity information</title>
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet for icons'>
         <link rel="stylesheet for modals" href="css/modals.css">
@@ -23,5 +24,48 @@
         <script src="scripts/review-maker.js"></script>
         <script src="scripts/calendar.js"></script>
         <script src="scripts/header.js"></script>
+        <script>
+        document.addEventListener("contentLoaded", () => {
+            const btn = document.getElementById("reservation-menu");
+            
+            if (!btn) {
+                console.error("No se encontró el botón #reservation-menu");
+                return;
+            }
+
+            // Creamos una media query
+            const mobileQuery = window.matchMedia("(max-width: 676px)");
+            const tabletQuery = window.matchMedia("(max-width: 1024px)");
+            const wrapper = document.getElementById("wrapper");
+            const panel = document.querySelector(".reservation-panel");
+            
+            btn.addEventListener("click", () => {
+                if (mobileQuery.matches) {
+                    // SOLO móvil
+                    wrapper.classList.toggle("show-reservation");
+
+                } else if (tabletQuery.matches) {
+                    panel.classList.toggle("show");
+                    document.addEventListener("click", (e) => {
+                        if (!panel.contains(e.target) && e.target !== btn) {
+                            panel.classList.remove("show");
+                        }
+                    });
+                }
+            });
+
+            const x = document.getElementById("cross");
+
+            x.addEventListener("click", () => {
+                if (mobileQuery.matches) {
+                    // SOLO móvil
+                    wrapper.classList.remove("show-reservation");
+
+                } else if (tabletQuery.matches) {
+                    panel.classList.remove("show");
+                }
+            });
+        });
+        </script>
     </body>
 </html>

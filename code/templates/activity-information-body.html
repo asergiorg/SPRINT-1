@@ -2,9 +2,9 @@
     <section class="page-header" data-content-id="activities" data-json="json/activities.json">
         <h1 class="activity-title" data-field="name"></h1>
         <div class="gallery">
-            <img src="">
-            <img src="">
-            <img src="">
+            <img id="img1" src="">
+            <img id="img2" src="">
+            <img id="img3" src="">
         </div>
     </section>
 
@@ -12,7 +12,10 @@
 
         <main id="main_section">
             <article class="activity-details" data-content-id="activities" data-json="json/activities.json">
-                <h2>Activity Description</h2>
+                <div id="header-main-section">
+                    <h2>Activity Description</h2>
+                    <button id="reservation-menu">Reservate</button>
+                </div>
                 <p class="activity-description" data-field="description"></p>
 
                 <div class="activity-grid">
@@ -55,6 +58,7 @@
 
         <aside class="reservation-panel">
             <div class="panel-card">
+                <span id="cross" class='bx bx-x'></span>
                 <h2>Reservation</h2>
                 <form class="reservation-form" id="reservationForm" aria-label="Formulario de reserva">
                     

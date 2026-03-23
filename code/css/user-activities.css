@@ -149,4 +149,23 @@
 		margin-top: 5px;
 		color: #777;
 	}
+
+/* Media queries */
+    @media (max-width: 767px) {
+        #recommended-section {
+            visibility: hidden;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .activity-card {
+            min-width: 100%;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        .user-activities {
+            display: none !important;
+        }
+    }
    

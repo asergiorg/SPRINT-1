@@ -14,7 +14,8 @@
     .page-header{
         max-width:80%;
         margin:12px auto 12px;
-        padding:0 12px
+        padding:0 12px;
+        position: relative
     }
 
     .activity-title{
@@ -51,6 +52,18 @@
     #main_section{flex:1}
 
     /* Activity details */
+    #reservation-menu {
+        visibility: hidden;
+        height: 0;
+        overflow: hidden;
+    }
+
+    #header-main-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: middle;
+    }
+
     .activity-details{
         background:#fff;
         padding:22px;
@@ -81,6 +94,12 @@
     }
         
     /* Reservation panel */
+    #cross {
+        visibility: hidden;
+        height: 0;
+        overflow: hidden;
+    }
+
     .reservation-panel{
         width:360px;
         flex-shrink:0
@@ -323,4 +342,179 @@
         background: #0056b3;
 	}
 
-   
+
+/* Media queries */
+    @media (max-width: 1024px) {
+        .gallery {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        #img3 {
+            display: none !important;
+        }
+
+        
+        .reservation-panel {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 360px;
+            max-width: 90%;
+            height: 100vh;
+            background: white;
+            box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+            transform: translateX(100%);
+            transition: transform 0.4s ease;
+            z-index: 999;
+        }
+
+        .reservation-panel.show {
+            transform: translateX(0);
+        }
+
+        #wrapper {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #reservation-menu {
+            visibility: visible;
+            height: auto;
+            display: block;
+            padding: 8px;
+            border-radius: 8px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            box-sizing: border-box;
+            transition: background-color 0.2s;
+        }
+
+        #cross {
+            visibility: visible;
+            height: auto;
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+            z-index: 10;
+            font-weight: bold;
+        }
+    }
+    
+    @media (max-width: 767px) {
+        .page-header {
+            max-width: 90%;
+        }
+
+        #wrapper {
+            max-width: 90%;
+        }
+        
+        .gallery {
+            grid-template-columns: 1fr; /* 1 sola columna */
+        }
+        
+        #img2 {
+            display: none !important;
+        }
+
+        header a {
+            font-size: smaller !important;
+        }
+
+        header h1 {
+            font-size: small;
+        }
+
+        header .header-wrapper {
+            gap: 8px;
+        }
+
+        header .header-left {
+            gap: 8px;
+        }
+
+        #header-main-section h2, #reviews-heading{
+            font-size: 20px;
+        }
+
+        .activity-title {
+            font-size: 26px;
+        }
+
+        /* Cuando se activa la reserva */
+
+        /* El wrapper será la “ventana” del slide */
+        #wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Ambos paneles deben poder moverse */
+        #main_section,
+        .reservation-panel {
+            transition: transform 0.4s ease;
+            width: 100%;
+        }
+
+        /* Estado inicial */
+        #main_section {
+            transform: translateX(0);
+        }
+
+        .reservation-panel {
+            position: absolute;
+            top: 0;
+            left: 100%; /* empieza fuera */
+            height: 100%;
+        }
+
+        /* Estado normal */
+        .activity-details {
+            opacity: 1;
+            transition: opacity 0.35s ease;
+        }
+
+        /* Cuando se activa el slide */
+        #wrapper.show-reservation .activity-details {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Cuando se activa la reserva */
+        #wrapper.show-reservation #main_section {
+            transform: translateX(-100%);
+        }
+
+        .reservation-panel {
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            width: 90%;
+            max-width: 420px;
+            height: auto;
+            transform: translate(50%, -50%); /* fuera de pantalla */
+            transition: transform 0.4s ease, opacity 0.35s ease;
+            opacity: 0; /* empieza invisible */
+            z-index: 999;
+        }
+
+        /* Cuando se abre la reserva */
+        #wrapper.show-reservation .reservation-panel {
+            transform: translate(-50%, -50%); /* centrado */
+            opacity: 1;
+        }
+
+        /* Cuando se cierra la reserva → se desvanece */
+        #wrapper:not(.show-reservation) .reservation-panel {
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
