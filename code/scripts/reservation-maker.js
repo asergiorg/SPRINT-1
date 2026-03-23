@@ -63,13 +63,12 @@ document.addEventListener('contentLoaded', function () {
             date: date,
             time: time,
             participants: participants,
-            price: newPrice,
+            price: amountToPay,
             status: status
         };
 
 
-        reservas.push(reservation);
-        sessionStorage.setItem('reservations', JSON.stringify(reservas));
+        sessionStorage.setItem('currentReservation', JSON.stringify(reservation));
         localStorage.setItem("selectedReservationId", code); // Guardar ID para la página de detalles
         
         // redirigir a la página de detalles de la reserva

@@ -5,8 +5,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const container = document.querySelector("[data-content-id][data-json]");
     if (!container) return;
 
-    const reservas = JSON.parse(sessionStorage.getItem('reservations')) || [];
-    const item = reservas.find(r => r.code === selectedId);
+    const item = JSON.parse(sessionStorage.getItem('currentReservation')) || [];
 
     if (!item) return;
 
