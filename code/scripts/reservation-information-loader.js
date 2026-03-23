@@ -5,7 +5,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     const container = document.querySelector("[data-content-id][data-json]");
     if (!container) return;
 
-    const item = JSON.parse(sessionStorage.getItem('currentReservation')) || [];
+    const reservas = JSON.parse(sessionStorage.getItem('reservations')) || [];
+    const item = reservas.find(r => r.code === selectedId);
+
+    if (!item) return;
 
     // 4. Rellenar datos en pantalla
     Object.keys(item).forEach(prop => {

@@ -1,4 +1,11 @@
 document.addEventListener('contentLoaded', () => {
+    
+    window.selectedReservationData = {
+        date: null,
+        time: null,
+        participants: 1
+    }
+
     const monthDisplay = document.getElementById('monthDisplay');
     const calendarGrid = document.getElementById('calendarGrid');
     const prevMonthBtn = document.getElementById('prevMonth');
@@ -56,7 +63,12 @@ document.addEventListener('contentLoaded', () => {
                 dayEl.addEventListener('click', () => {
                     document.querySelectorAll('.calendar-grid .day:not(.disabled)').forEach(d => d.classList.remove('selected'));
                     dayEl.classList.add('selected');
+                
                     updateTimeSlots(dateOfThisDay);
+
+                    const formattedMonth = String(month +1).padStart(2, '0');
+                    const formattedDay = String(i).padStart(2, '0');
+                    window.selectedReservationData.date = `${year}-${formattedMonth}-${formattedDay}`;
                 });
             }
 
@@ -108,6 +120,8 @@ document.addEventListener('contentLoaded', () => {
 
             timePresets.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
+
+            window.selectedReservationData.time = button.innerText;
         });
     });
 
@@ -121,6 +135,7 @@ document.addEventListener('contentLoaded', () => {
 
         if (newValue >= 1 && newValue <= 20) {
             peopleInput.value = newValue;
+            window.selectedReservationData.participants = newValue;
         }
     }
 

@@ -5,75 +5,74 @@ document.addEventListener('contentLoaded', function () {
     
     form.addEventListener('submit', async function (e) {
         e.preventDefault();
-        
-        // Datos del formulario
-        const time = document.getElementById('time')?.value || '';
-        const people = Number(document.getElementById('people').value);
-        const date = new Date().toISOString().slice(0, 10);
-        
-        // Datos de la actividad
-        const activity = document.querySelector('.activity-title').textContent.trim();
+
+        // Recopilar datos del formulario de la reserva
+        const date = window.selectedReservationData ? window.selectedReservationData.date : null;
+        const time = window.selectedReservationData ? window.selectedReservationData.time : null;
+        const participants = window.selectedReservationData ? window.selectedReservationData.participants : 1;
+    
+        if (!date || !time) {
+            alert("Please select a date and time for your reservation");
+            return;
+        }
+
+        // Recopilar datos de la actividad
         const id = localStorage.getItem("selectedActivityId");
-        
-        
-        // Precio individual (limpiado)
-        const priceText = document.getElementById('price').textContent;
-        const individualPrice = Number(priceText.replace(/[^0-9.]/g, ""));
+        if (!id) {
+            alert("Error: No activity selected.");
+            return;
+        }
+
+        let activityName = "";
+        let individualPrice = 0;
+
+        try {
+            const response = await fetch('json/activities.json');
+            const activities = await response.json();
+
+            const currentActivity = activities.find(act => String(act.id) === String(id));
+
+            if (currentActivity) {
+                activityName = currentActivity.name;
+                individualPrice = Number(currentActivity.price.replace(/[^0-9.]/g, ""));
+            } else {
+                alert("Error: Activity not found in database.");
+                return;
+            }
+        } catch (error) {
+            console.error("Error loading activities from JSON", error);
+            alert("Error processing reservation. Please try again.");
+            return;
+        }
         
         // Datos del usuario
         const name = 'John Doe';
         
-        // Cargar reservas
-        const reservations = JSON.parse(sessionStorage.getItem('reservations')) || [];
-        const reservationToEdit = sessionStorage.getItem('reservationToEdit');
+        // Cargar datos de la reserva, existente o nueva
+        const reservas = JSON.parse(sessionStorage.getItem('reservations')) || [];
+        const code = codeMaker(reservas);
+        const newPrice = individualPrice * participants;
+        const amountToPay = totalToPay(newPrice);
+        const status = paymentStatus(amountToPay);
 
-        
-        // ¿Estamos editando?
-        let reservation;
-        
-        if (reservationToEdit) {
-            const old = JSON.parse(reservationToEdit);
-            
-            const newPrice = individualPrice * people;
-            const amountToPay = totalToPay(newPrice);
-            const status = paymentStatus(amountToPay);
-            
-            // FUSIÓN SEGURA: mantiene todo lo anterior y solo actualiza lo necesario
-            reservation = {
-                ...old,
-                time: time,
-                participants: people,
-                price: amountToPay,
-                status: status
-            };
-            
-        } else {
-            
-            // Nueva reserva
-            const code = codeMaker(reservations);
-            const newPrice = individualPrice * people;
-            const amountToPay = totalToPay(newPrice);
-            const status = paymentStatus(amountToPay);
-            
-            reservation = {
-                activity_id: id,
-                code: code,
-                name: name,
-                activity: activity,
-                date: date,
-                time: time,
-                participants: people,
-                price: amountToPay,
-                status: status
-            };
-            
-        }
-        
-        // Guardar
-        sessionStorage.setItem('currentReservation', JSON.stringify(reservation));
-        localStorage.setItem("selectedReservationId", reservation.code);
+        const reservation = {
+            activity_id: id,
+            code: code,
+            holder: name,
+            activity: activityName,
+            date: date,
+            time: time,
+            participants: participants,
+            price: newPrice,
+            status: status
+        };
 
-        // Redirigir
+
+        reservas.push(reservation);
+        sessionStorage.setItem('reservations', JSON.stringify(reservas));
+        localStorage.setItem("selectedReservationId", code); // Guardar ID para la página de detalles
+        
+        // redirigir a la página de detalles de la reserva
         window.location.href = 'reservation-information.html';
     });
 });
@@ -81,7 +80,7 @@ document.addEventListener('contentLoaded', function () {
 // ------------------ FUNCIONES ------------------
 
 function codeMaker(reservations) {
-    const usados = new Set(reservations.map(r => r.code)) || {};
+    const usados = new Set(reservations.map(r => r.code));
 
     while (true) {
         const num = Math.floor(Math.random() * 100000);
