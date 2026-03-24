@@ -124,7 +124,7 @@
 	
 	/* Activity1 Card */
     .activity img {
-		width: 90%;
+		width: 60%;
 		height: 95%;
 		object-fit: cover;
 		border-radius: .5rem;
@@ -148,6 +148,10 @@
 	}
 /* Media queries */
 	@media (max-width: 750px) {
+
+		#search-container {
+			height: 350px;
+		}
 
 		#bar-search-container {
 			width: 90%;
