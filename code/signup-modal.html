@@ -4,30 +4,49 @@
 
         <button class="close-btn" onclick="closeModal('signupModal')"> &times; </button>
 
-        <form action="">
+        <form action="#" method="POST">
 
             <h1>Sign Up</h1>
 
             <div class="input-box">
-                <input type="text" required>
+                <input 
+                    type="text" 
+                    name="fullname" 
+                    placeholder=" "
+                    required minlength="3"
+                    pattern="[a-zA-ZÀ-ÿ\s]+"
+                    title="Introduce un nombre válido (solo letras y espacios)">
                 <label> Full name </label>
                 <i class='bx bxs-user'></i>
             </div>
 
             <div class="input-box">
-                <input type="text" required>
+                <input 
+                    type="text" 
+                    name="username"
+                    placeholder=" "
+                    required minlength="3"
+                    maxlength="20"
+                    pattern="^[A-Z][a-zA-Z0-9_]{2,19}$"
+                    title="El usuario debe comenzar con una letra mayúscula, tener entre 3 y 20 caracteres y solo puede contener letras, números y guiones bajos">
                 <label> Username </label>
                 <i class='bx bxs-user'></i> 
             </div>
 
             <div class="input-box">
-                <input type="text" onfocus="this.type='date'" onblur="if(!this.value) this.type='text'" required>
+                <input 
+                    type="text" 
+                    name="birthday"
+                    placeholder=" "
+                    onfocus="this.type='date'" 
+                    onblur="if(!this.value) this.type='text'"
+                    required>
                 <label> Birthday </label>
                 <i class='bx bxs-calendar'></i>
             </div>
 
             <div class="input-box select-wrapper">
-                <select required>
+                <select name="gender" required>
                     <option value="" disabled selected hidden></option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
@@ -38,31 +57,55 @@
             </div>
             
             <div class="input-box">
-                <input type="tel" required>
+                <input 
+                    type="tel" 
+                    name="phone"
+                    placeholder=" "
+                    required
+                    pattern="^\+?[0-9]{9,15}$"
+                    title="Introduce un número de teléfono válido (puede comenzar con + y tener entre 9 y 15 dígitos)">
                 <label> Phone number </label>
                 <i class='bx bxs-phone'></i>
             </div>
 
             <div class="input-box">
-                <input type="email" required>
+                <input 
+                    type="email" 
+                    name="email" 
+                    placeholder=" " 
+                    required 
+                    title="Introduce un formato de correo electrónico válido, por ejemplo usuario@dominio.com">
                 <label> Email address </label>
                 <i class='bx bxs-envelope'></i>
             </div>
 
             <div class="input-box">
-                <input type="password" required>
+                <input 
+                    type="password"
+                    name="password"
+                    id="new-password"
+                    placeholder=" "
+                    required 
+                    minlength="8"
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    title="La contraseña debe tener al menos 8 caracteres, un número, una letra mayúscula y una letra minúscula">
                 <label> Password </label>
                 <i class='bx bxs-lock-alt' ></i>
             </div>
 
             <div class="input-box">
-                <input type="password" required>
+                <input 
+                    type="password" 
+                    name="confirm_password" 
+                    placeholder=" " 
+                    required 
+                    oninput="this.setCustomValidity(this.value != document.getElementById('new-password').value ? 'Las contraseñas no coinciden' : '')">
                 <label> Confirm Password </label>
                 <i class='bx bxs-lock-alt' ></i>
             </div>
 
             <div class="signup-terms modal-checkbox-row">
-                <label> <input type="checkbox"> I agree to the terms & conditions </label>
+                <label> <input type="checkbox" name="terms" required> I agree to the terms & conditions </label>
             </div>
 
             <button type="submit" class="btn-submit"> Create account </button>
