@@ -81,7 +81,7 @@
     }
 
     .modal-wrapper .input-box input:focus ~ label,
-    .modal-wrapper .input-box input:valid ~ label,
+    .modal-wrapper .input-box input:not(:placeholder-shown) ~ label,
     .modal-wrapper .input-box select:focus ~ label,
     .modal-wrapper .input-box select:valid ~ label,
     .modal-wrapper .input-box input[type="date"] ~ label {
@@ -96,6 +96,11 @@
     .modal-wrapper .input-box select:focus {
         border-color: #fff;
         box-shadow: 0 0 10px rgba(255, 255, 255, .3);
+    }
+
+    .modal-wrapper .input-box input:not(:placeholder-shown):invalid {
+        border-color: #ff6b6b;
+        box-shadow: 0 0 5px rgba(255, 107, 107, 0.5);
     }
 
     .modal-checkbox-row label input {
