@@ -31,7 +31,11 @@ async function loadTemplate(url) {
 async function loadDynamicContent() {    
     const pagina = window.location.pathname.split('/').pop().replace('.html', '');
 
-    
+    if (pagina === "index") {
+        await loadIndexSlider();
+        return;
+    }
+
     // Buscar contenedores dinámicos
     const contenedores = document.querySelectorAll('[data-content-id]');
     if (!contenedores.length) return;
@@ -133,7 +137,7 @@ async function loadActivityInformationData() {
             }
         });
 
-        // ⭐ Renderizar estrellas del rating
+        // Renderizar estrellas del rating
         const ratingContainer = clone.querySelector(".rating");
         if (ratingContainer && review.rating !== undefined) {
             const stars = ratingContainer.querySelectorAll(".star");
@@ -153,6 +157,36 @@ async function loadActivityInformationData() {
         contenedores[2].appendChild(clone);
     });
     deleteEditionWithNoConfirmation();
+}
+
+async function loadIndexSlider() {
+
+    const sliderArticles = document.querySelectorAll(".slider .activity-card");
+
+    const data = await dataLoader(sliderArticles[0].dataset.json);
+
+    sliderArticles.forEach(async (article, index) => {
+
+        const templateUrl = article.dataset.template;
+        const templateNode = await loadTemplate(templateUrl);
+
+        const item = data[index];
+        if (!item) return;
+
+        const clone = templateNode.cloneNode(true);
+
+        Object.keys(item).forEach(prop => {
+            const target = clone.querySelector(`[data-field="${prop}"]`);
+            if (target) {
+                if (target.tagName === "IMG") {
+                    target.src = item[prop];
+                } else {
+                    target.textContent = item[prop];
+                }
+            }
+        });
+        article.appendChild(clone);
+    });
 }
 
 function deleteEditionWithNoConfirmation() {

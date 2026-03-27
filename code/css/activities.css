@@ -53,12 +53,16 @@
 		padding: 0 8px;
 	}
 
+	#search_container button:hover {
+		transform: translateY(-1px);
+	}
+
 	/* Filter Bar */
 	#filterbar {
 		grid-column: 1;
 		background: #ffffffcc;
 		padding: 20px;
-		border-radius: 15px;
+		border-radius: .6rem;
 		box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 		height: fit-content;
 		gap: 10px;
@@ -89,7 +93,7 @@
 	#filterbar input,
 	#filterbar select {
 		padding: 8px;
-		border-radius: 8px;
+		border-radius: .5rem;
 		border: 1px solid #ccc;
 	}
 
@@ -99,7 +103,7 @@
 		border: none;
 		background: #007bff;
 		color: white;
-		border-radius: 8px;
+		border-radius: .3rem;
 		cursor: pointer;
 		transition: background-color 0.2s;
 	}
@@ -126,6 +130,8 @@
 	}
 	
 	.close-filters {
+		color: #000 !important;
+		background: transparent !important;
 		display: none;
 	}
 
@@ -143,10 +149,11 @@
 		justify-content: center;
 		align-items: stretch;
 	}
+	
 	/* Activity 2 Card */
 	.activity-card {
         background: #ffffffcc;
-        border-radius: 15px;
+        border-radius: .6rem;
         padding: 15px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         text-align: center;
@@ -165,7 +172,7 @@
         width: 100%;
         height: 190px;
         object-fit: cover;
-        border-radius: 12px;
+        border-radius: .5rem;
         margin-bottom: 10px;
     }
 
@@ -187,15 +194,7 @@
         padding-top: .5em;
     }
 
-	/* Media queries 
-    @media (max-width: 767px) {
-        .activity-card {
-            min-width: 100%;
-        }
-
-    }*/
-
-	@media (max-width: 750px) {
+	@media (max-width: 767px) {
 
 		#main_container {
 			grid-template-columns: 1fr;
@@ -212,15 +211,19 @@
 			width: 100%;
 		}
 
-		#search_container form{
+		#search_container form {
 			width: 100%;
 		}
 
 		#search_container button {
 			font-size: 0.7rem;
 		}
-		
-		.activity-card{
+
+		#search_container #openFilters i {
+    		font-size: 1.2rem; 
+		}
+
+		.activity-card {
 			width: 100%;
 		}
 
@@ -259,7 +262,7 @@
 			display: block;
 		}
 
-		.close-filters{
+		.close-filters {
 			display: inline;
 			background: none;
 			border: none;
@@ -272,6 +275,83 @@
 
 
     @media (max-width: 1024px) {
+		section {
+			width: 100%;
+		}
+		#main_container {
+			grid-template-columns: 1fr;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding: 15px;
+		}
+
+		#search_container {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			width: 100%;
+		}
+
+		#search_container form {
+			width: 100%;
+		}
+
+		#search_container button {
+			font-size: 0.7rem;
+		}
+
+		#search_container #openFilters i {
+    		font-size: 1.2rem; 
+		}
+		
+		.activity-card {
+			width: 100%;
+		}
+
+		#filterbar {
+			position: fixed;
+			top: 0;
+			right: 0;
+			width: 80%;
+			max-width: 350px;
+			height: 100vh;
+			background: white;
+			padding: 20px;
+			box-shadow: -4px 0 12px rgba(0,0,0,0.25);
+			z-index: 1000;
+			transform: translateX(100%);
+			transition: transform 0.3s ease;
+		}
+
+		#filterbar.open {
+			transform: translateX(0);
+		}
+
+		.filters-toggle {
+			display: inline-block;
+		}
+
+		#filtersOverlay {
+			position: fixed;
+			inset: 0;
+			background: rgba(0,0,0,0.4);
+			z-index: 900;
+			display: none;
+		}
+
+		#filtersOverlay.visible {
+			display: block;
+		}
+
+		.close-filters{
+			display: inline;
+			background: none;
+			border: none;
+			font-size: 1.3rem;
+			cursor: pointer;
+			float: right;
+		}
         .activities {
             display: none !important;
         }

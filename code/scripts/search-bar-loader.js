@@ -1,6 +1,5 @@
 document.addEventListener("contentLoaded", () => {
 
-    // Solo activar búsqueda en el catálogo
     const pagina = window.location.pathname.split('/').pop().replace('.html', '');
     if (pagina !== "activities") return;
 
@@ -9,7 +8,6 @@ document.addEventListener("contentLoaded", () => {
 
     if (!searchForm || !searchInput) return;
 
-    // Si venimos desde el index con una búsqueda guardada
     const busquedaGuardada = localStorage.getItem("catalogSearch");
 
     if (busquedaGuardada) {
@@ -18,7 +16,6 @@ document.addEventListener("contentLoaded", () => {
         aplicarBusqueda();
     }
 
-    // Evento de búsqueda manual
     searchForm.addEventListener("submit", e => {
         e.preventDefault();
         aplicarBusqueda();
@@ -69,7 +66,7 @@ document.addEventListener("contentLoaded", () => {
         activarClicks();
     }
 
-    // Click en tarjetas
+
     function activarClicks() {
         document.querySelectorAll(".activity-card").forEach(card => {
             card.addEventListener("click", e => {
