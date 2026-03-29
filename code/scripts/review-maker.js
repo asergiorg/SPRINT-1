@@ -10,15 +10,26 @@ document.addEventListener("contentLoaded", () => {
 
     // Listener para seleccionar estrellas
     stars.forEach((star, index) => {
-        star.addEventListener("click", () => {
-            currentRating = index + 1;
+            star.addEventListener("click", () => {
+                const newRating = index + 1;
+                
+                if (currentRating === newRating) {
+                    currentRating = 0;
+                } else {
+                    currentRating = newRating;
+                }
 
-            // Actualizar visualmente
-            stars.forEach((s, i) => {
-                s.textContent = i < currentRating ? "★" : "☆";
+                stars.forEach((s, i) => {
+                    if (i < currentRating) {
+                        s.textContent = "★";
+                        s.classList.add("filled");
+                    } else {
+                        s.textContent = "☆";
+                        s.classList.remove("filled");
+                    }
+                });
             });
         });
-    });
 
     // Listener para el botón Submit
     submitBtn.addEventListener("click", () => {

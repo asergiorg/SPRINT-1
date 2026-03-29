@@ -58,23 +58,17 @@
         color: #ddd;
         transition: color 0.2s ease, transform 0.2s ease;
     }
-/*
-    .star svg{
-        width:100%;
-        height:100%;
-        display:block
-    }
 
-    .star svg path{
-        fill:#ddd
-    }
-
-    .star.filled svg path{
-        fill:#ffb400
-    }
-*/
-    .star.filled {
+    .rating:hover .star {
         color: #ffb400;
+    }
+
+    .rating .star:hover ~ .star {
+        color: #ddd;
+    }
+
+    .star.filled {
+        color: #ffb400 !important;
     }
 
     .comment-box {
