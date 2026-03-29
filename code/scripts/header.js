@@ -11,6 +11,11 @@ async function loadAndOpenModal(fileUrl, modalId) {
       document.body.insertAdjacentHTML("beforeend", htmlSnippet);
 
       modal = document.getElementById(modalId);
+
+      if (modalId === 'signupModal') {
+        setupBirthdayValidation();
+      }
+      
       modal.style.display = "flex";
 
     } catch (error) {
@@ -241,3 +246,29 @@ document.addEventListener('click', function(event) {
         }
     }
 });
+
+function setupBirthdayValidation() {
+    const birthdayInput = document.querySelector('input[name="birthday"]');
+    if (!birthdayInput) return;
+
+    const today = new Date().toISOString().split("T")[0];
+    birthdayInput.setAttribute("max", today);
+
+    birthdayInput.addEventListener("input", () => {
+        const birthDate = new Date(birthdayInput.value);
+        const today = new Date();
+        const age = today.getFullYear() - birthDate.getFullYear();
+        const monthDiff = today.getMonth() - birthDate.getMonth();
+        
+        let finalAge = age;
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+            finalAge--;
+        }
+
+        if (finalAge < 16) {
+            birthdayInput.setCustomValidity("Debes tener al menos 16 años para registrarte.");
+        } else {
+            birthdayInput.setCustomValidity("");
+        }
+    });
+}
