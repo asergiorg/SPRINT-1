@@ -258,6 +258,10 @@
 		#filtersOverlay.visible {
 			display: block;
 		}
+		
+		#openFilters {
+			display: inline;
+		}
 
 		#closeFilters{
 			display: inline;
