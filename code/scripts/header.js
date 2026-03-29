@@ -194,3 +194,33 @@ function handleLogout() {
     sessionStorage.removeItem('currentUser'); 
     window.location.href = 'index.html';
 }
+
+async function initializeTestUsers() {
+    try {
+        const response = await fetch('json/users.json');
+        if (response.ok) {
+            const testUsers = await response.json();
+            
+            let existingUsers = JSON.parse(localStorage.getItem('users')) || [];
+            let modified = false;
+
+            testUsers.forEach(testUser => {
+                const exists = existingUsers.find(u => u.username === testUser.username);
+                
+                if (!exists) {
+                    existingUsers.push(testUser);
+                    modified = true;
+                }
+            });
+
+            if (modified) {
+                localStorage.setItem('users', JSON.stringify(existingUsers));
+                console.log("Usuarios de prueba cargados y fusionados con éxito.");
+            }
+        }
+    } catch (error) {
+        console.error("Error al cargar los usuarios de prueba: ", error);
+    }
+}
+
+initializeTestUsers();
