@@ -29,7 +29,8 @@
                     placeholder=" " 
                     required 
                     minlength="8" 
-                    title="La contraseña debe tener al menos 8 caracteres">
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    title="La contraseña debe tener al menos 8 caracteres, un número, una letra mayúscula y una letra minúscula">
                 <label> Password </label>
                 <i class='bx bxs-lock-alt' ></i>
             </div>
