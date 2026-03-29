@@ -224,3 +224,20 @@ async function initializeTestUsers() {
 }
 
 initializeTestUsers();
+
+document.addEventListener('click', function(event) {
+    if (event.target.classList.contains('toggle-password')) {
+        const icon = event.target;
+        const inputField = icon.parentElement.querySelector('input');
+
+        if (inputField.type === 'password') {
+            inputField.type = 'text';
+            icon.classList.remove('bxs-lock-alt');
+            icon.classList.add('bx-show'); 
+        } else {
+            inputField.type = 'password';
+            icon.classList.remove('bx-show');
+            icon.classList.add('bxs-lock-alt');
+        }
+    }
+});
