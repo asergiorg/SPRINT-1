@@ -1,4 +1,4 @@
-    /* Reviwes */
+    /* Reviews */
     .review{
         background:transparent;
         padding:0;
@@ -126,4 +126,17 @@
 
     .star:hover {
         transform: scale(1.15);
+    }
+
+    .char-counter {
+        font-size: 12px;
+        color: #888;
+        text-align: right;
+        margin-top: 4px;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .char-counter.limit-reached {
+        color: #ff6b6b;
+        font-weight: bold;
     }
