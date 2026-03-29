@@ -1,5 +1,7 @@
 document.addEventListener("contentLoaded", () => {
     const reviewItem = document.querySelector(".review-item");
+    if (!reviewItem) return;
+
     const submitBtn = reviewItem.querySelector(".submit-btn");
     const commentBox = reviewItem.querySelector(".comment-box");
     const stars = reviewItem.querySelectorAll(".star");
@@ -20,6 +22,14 @@ document.addEventListener("contentLoaded", () => {
 
     // Listener para el botón Submit
     submitBtn.addEventListener("click", () => {
+
+        const currentUser = localStorage.getItem('currentUser') || sessionStorage.getItem('currentUser');
+
+        if (!currentUser) {
+            alert("Debes iniciar sesión para publicar una reseña.");
+            return;
+        }
+
         const comment = commentBox.value.trim();
 
         if (!comment || currentRating === 0) {
@@ -35,7 +45,7 @@ document.addEventListener("contentLoaded", () => {
         // Crear nueva review
         const newReview = {
             activity_id: activity_id,
-            user: "Username", // Puedes cambiarlo si tienes login
+            user: currentUser,
             body: comment,
             rating: currentRating
         };

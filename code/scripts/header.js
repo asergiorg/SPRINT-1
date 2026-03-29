@@ -39,12 +39,6 @@ window.onclick = function(event) {
   }
 }
 
-function handleLogout() {
-  alert('Sesión cerrada');
-  localStorage.clear();
-  window.location.href = 'index.html';
-}
-
 document.addEventListener("contentLoaded", () => {
     const hamburger = document.getElementById("hamburger");
     const sideMenu = document.getElementById("side-menu");
@@ -82,6 +76,11 @@ function updateAuthUI() {
     const myActivitiesLinks = document.querySelectorAll('.user-activities');
 
     if (!btnSignup && myActivitiesLinks.length === 0) return;
+
+    const reviewUserNameDisplay = document.querySelector(".review-item .avatar h3");
+    if (reviewUserNameDisplay) {
+        reviewUserNameDisplay.textContent = currentUser ? currentUser : "Inicia sesión para comentar";
+    }
 
     let greetingElement = document.getElementById('user-greeting');
     if (!greetingElement && authContainer) {
@@ -190,6 +189,7 @@ document.addEventListener('submit', function(event) {
 });
 
 function handleLogout() {
+    alert('Sesión cerrada');
     localStorage.removeItem('currentUser'); 
     sessionStorage.removeItem('currentUser'); 
     window.location.href = 'index.html';
