@@ -36,7 +36,6 @@ document.addEventListener("contentLoaded", () => {
             setTimeout(() => {
                 const old = JSON.parse(sessionStorage.getItem("currentReservation"));
             
-                // FUSIÓN SEGURA: mantiene todo lo anterior y solo actualiza lo necesario
                 reservation = {
                     ...old,
                     status: 'Pending'
@@ -69,7 +68,7 @@ document.addEventListener("contentLoaded", () => {
         }
         let old = reservation;
         if (editing) {
-            // Estamos editando → reemplazar
+            
             old = JSON.parse(editing); 
         } 
         const index = reservations.findIndex(r => r.code === old.code);

@@ -100,7 +100,7 @@ async function loadActivityInformationData() {
     const item = data.find(act => act.id == selectedId);
     if (!item) return;
     
-    // Rellenar TODOS los contenedores
+    // Rellenar los contenedores
     contenedores.forEach(contenedor => {
         
         Object.keys(item).forEach(prop => {
@@ -122,6 +122,7 @@ async function loadActivityInformationData() {
             });
         });
     });
+
     let reviews = await dataLoader(contenedores[2].dataset.json);
     reviews = reviews.filter(r => r.activity_id == selectedId);
 
@@ -129,7 +130,6 @@ async function loadActivityInformationData() {
     const templateUrl = contenedores[2].dataset.template;
     const templateNode = await loadTemplate(templateUrl);
     
-    // Renderizar cada elemento del JSON
     reviews.forEach(review => {
         const clone = templateNode.cloneNode(true);
 

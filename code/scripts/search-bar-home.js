@@ -8,7 +8,6 @@ document.addEventListener("contentLoaded", () => {
 
     if (!searchForm || !searchInput) return;
 
-    // Evento de búsqueda manual
     searchForm.addEventListener("submit", e => {
         e.preventDefault();
 

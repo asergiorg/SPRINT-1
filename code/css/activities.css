@@ -117,21 +117,11 @@
   		margin: 0;
 	}
 	
-	.filters-toggle {
+	#openFilters {
 		display: none;
-		margin: 10px 0;
-		padding: 10px 15px;
-		border-radius: 20px;
-		border: none;
-		background: #007bff;
-		color: white;
-		font-size: 0.9rem;
-		cursor: pointer;
 	}
 	
-	.close-filters {
-		color: #000 !important;
-		background: transparent !important;
+	#closeFilters {
 		display: none;
 	}
 
@@ -193,97 +183,23 @@
     .price {
         padding-top: .5em;
     }
-
-	@media (max-width: 767px) {
-
-		#main_container {
-			grid-template-columns: 1fr;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			padding: 15px;
-		}
-
-		#search_container {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			width: 100%;
-		}
-
-		#search_container form {
-			width: 100%;
-		}
-
-		#search_container button {
-			font-size: 0.7rem;
-		}
-
-		#search_container #openFilters i {
-    		font-size: 1.2rem; 
-		}
-
-		.activity-card {
-			width: 100%;
-		}
-
-		#filterbar {
-			position: fixed;
-			top: 0;
-			right: 0;
-			width: 80%;
-			max-width: 320px;
-			height: 100vh;
-			background: white;
-			padding: 20px;
-			box-shadow: -4px 0 12px rgba(0,0,0,0.25);
-			z-index: 1000;
-			transform: translateX(100%);
-			transition: transform 0.3s ease;
-		}
-
-		#filterbar.open {
-			transform: translateX(0);
-		}
-
-		.filters-toggle {
-			display: inline-block;
-		}
-
-		#filtersOverlay {
-			position: fixed;
-			inset: 0;
-			background: rgba(0,0,0,0.4);
-			z-index: 900;
-			display: none;
-		}
-
-		#filtersOverlay.visible {
-			display: block;
-		}
-
-		.close-filters {
-			display: inline;
-			background: none;
-			border: none;
-			font-size: 1.3rem;
-			cursor: pointer;
-			float: right;
-		}
-
-	}
-
+	
+	.activities {
+        display: none !important;
+    }
 
     @media (max-width: 1024px) {
-		section {
-			width: 100%;
-		}
+
 		#main_container {
 			grid-template-columns: 1fr;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			padding: 15px;
+		}
+		
+		section {
+			width: 100%;
 		}
 
 		#search_container {
@@ -314,22 +230,21 @@
 			top: 0;
 			right: 0;
 			width: 80%;
-			max-width: 350px;
+			max-width: 320px;
 			height: 100vh;
+			max-height: fit-content;
 			background: white;
 			padding: 20px;
 			box-shadow: -4px 0 12px rgba(0,0,0,0.25);
 			z-index: 1000;
 			transform: translateX(100%);
 			transition: transform 0.3s ease;
+			overflow-y: auto;
+    		-webkit-overflow-scrolling: touch;
 		}
 
 		#filterbar.open {
 			transform: translateX(0);
-		}
-
-		.filters-toggle {
-			display: inline-block;
 		}
 
 		#filtersOverlay {
@@ -344,17 +259,15 @@
 			display: block;
 		}
 
-		.close-filters{
+		#closeFilters{
 			display: inline;
-			background: none;
 			border: none;
 			font-size: 1.3rem;
 			cursor: pointer;
 			float: right;
+			color: #000 !important;
+			background: transparent !important;
 		}
-        .activities {
-            display: none !important;
-        }
     }
    
     

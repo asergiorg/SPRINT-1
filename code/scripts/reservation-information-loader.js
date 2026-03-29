@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     if (!item) return;
 
-    // 4. Rellenar datos en pantalla
     Object.keys(item).forEach(prop => {
         const el = container.querySelector(`[data-field="${prop}"]`);
         if (!el) return;
@@ -20,8 +19,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             el.textContent = item[prop];
         }
     });
-
-    // 5. Insertar métodos de pago si está unpaid
+    
     const status = item.status?.trim().toLowerCase();
     const isUnpaid = status === "unpaid";
 
