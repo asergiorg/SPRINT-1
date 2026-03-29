@@ -150,7 +150,11 @@
 		color: #777;
 	}
 
+    .user-activities {
+        display: none !important;
+    }
 /* Media queries */
+
     @media (max-width: 767px) {
         #recommended-section {
             visibility: hidden;
@@ -162,10 +166,3 @@
             min-width: 100%;
         }
     }
-
-    @media (max-width: 1024px) {
-        .user-activities {
-            display: none !important;
-        }
-    }
-   
