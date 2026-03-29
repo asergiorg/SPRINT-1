@@ -39,6 +39,8 @@ async function loadDynamicContent() {
     // Buscar contenedores dinámicos
     const contenedores = document.querySelectorAll('[data-content-id]');
     if (!contenedores.length) return;
+
+    const currentUser = localStorage.getItem('currentUser') || sessionStorage.getItem('currentUser');
     
     for (const contenedor of contenedores) {
         let items = await dataLoader(contenedor.dataset.json);
@@ -51,6 +53,12 @@ async function loadDynamicContent() {
         if (pagina === "activity-information") { 
             const selectedId = localStorage.getItem("selectedActivityId"); 
             items = items.filter(item => item.id == selectedId);
+        }
+
+        if (pagina === "user-activities") {
+            if (contenedor.dataset.contentId === "reservations") {
+                items = items.filter(item => item.holder === currentUser);
+            }
         }
 
         // Cargar template
