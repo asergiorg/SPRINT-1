@@ -35,18 +35,7 @@
     "difficulty": "Easy",
     "rating": 4.8
   },
-  {
-    "name": "Yoga en las Dunas de Maspalomas",
-    "id": 4521,
-    "price": "30€",
-    "image": "/images/activities/duna.jpg",
-    "category": "Relaxation",
-    "duration": "1 horas",
-    "languages": ["Spanish", "English", "French", "German"],
-    "description": "Disfruta de una sesión de yoga en las dunas de Maspalomas, con vistas al mar y una experiencia relajante en medio de la naturaleza.",
-    "difficulty": "Easy",
-    "rating": 4.0
-  },
+  
   {
     "name": "Escalada en las Montañas Sagradas de Gran Canaria",
     "id": 5632,
@@ -58,6 +47,17 @@
     "description": "Disfruta de una emocionante escalada en las Montañas Sagradas de Gran Canaria, con vistas panorámicas y paisajes naturales únicos.",
     "difficulty": "Hard",
     "rating": 4.7
+  },{
+    "name": "Yoga en las Dunas de Maspalomas",
+    "id": 4521,
+    "price": "30€",
+    "image": "/images/activities/duna.jpg",
+    "category": "Relaxation",
+    "duration": "1 horas",
+    "languages": ["Spanish", "English", "French", "German"],
+    "description": "Disfruta de una sesión de yoga en las dunas de Maspalomas, con vistas al mar y una experiencia relajante en medio de la naturaleza.",
+    "difficulty": "Easy",
+    "rating": 4.0
   },
   {
     "name": "Kayaking en la Playa de las Canteras",

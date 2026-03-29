@@ -1,4 +1,4 @@
-    /* Reviwes */
+    /* Reviews */
     .review{
         background:transparent;
         padding:0;
@@ -58,23 +58,17 @@
         color: #ddd;
         transition: color 0.2s ease, transform 0.2s ease;
     }
-/*
-    .star svg{
-        width:100%;
-        height:100%;
-        display:block
-    }
 
-    .star svg path{
-        fill:#ddd
-    }
-
-    .star.filled svg path{
-        fill:#ffb400
-    }
-*/
-    .star.filled {
+    .rating:hover .star {
         color: #ffb400;
+    }
+
+    .rating .star:hover ~ .star {
+        color: #ddd;
+    }
+
+    .star.filled {
+        color: #ffb400 !important;
     }
 
     .comment-box {
@@ -132,4 +126,17 @@
 
     .star:hover {
         transform: scale(1.15);
+    }
+
+    .char-counter {
+        font-size: 12px;
+        color: #888;
+        text-align: right;
+        margin-top: 4px;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .char-counter.limit-reached {
+        color: #ff6b6b;
+        font-weight: bold;
     }

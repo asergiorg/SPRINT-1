@@ -6,6 +6,13 @@ document.addEventListener('contentLoaded', function () {
     form.addEventListener('submit', async function (e) {
         e.preventDefault();
 
+        const currentUser = localStorage.getItem('currentUser') || sessionStorage.getItem('currentUser');
+        
+        if (!currentUser) {
+            alert("Debes iniciar sesión para poder hacer una reserva.");
+            return;
+        }
+
         // Recopilar datos del formulario de la reserva
         const date = window.selectedReservationData ? window.selectedReservationData.date : null;
         const time = window.selectedReservationData ? window.selectedReservationData.time : null;
@@ -45,9 +52,6 @@ document.addEventListener('contentLoaded', function () {
             return;
         }
         
-        // Datos del usuario
-        const name = 'John Doe';
-        
         // Cargar datos de la reserva, existente o nueva
         const reservas = JSON.parse(sessionStorage.getItem('reservations')) || [];
         const code = codeMaker(reservas);
@@ -58,7 +62,7 @@ document.addEventListener('contentLoaded', function () {
         const reservation = {
             activity_id: id,
             code: code,
-            holder: name,
+            holder: currentUser,
             activity: activityName,
             date: date,
             time: time,
@@ -66,7 +70,6 @@ document.addEventListener('contentLoaded', function () {
             price: amountToPay,
             status: status
         };
-
 
         sessionStorage.setItem('currentReservation', JSON.stringify(reservation));
         localStorage.setItem("selectedReservationId", code); // Guardar ID para la página de detalles

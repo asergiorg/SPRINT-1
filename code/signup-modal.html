@@ -13,7 +13,8 @@
                     type="text" 
                     name="fullname" 
                     placeholder=" "
-                    required minlength="3"
+                    required 
+                    minlength="3"
                     pattern="[a-zA-ZÀ-ÿ\s]+"
                     title="Introduce un nombre válido (solo letras y espacios)">
                 <label> Full name </label>
@@ -25,7 +26,8 @@
                     type="text" 
                     name="username"
                     placeholder=" "
-                    required minlength="3"
+                    required 
+                    minlength="3"
                     maxlength="20"
                     pattern="^[A-Z][a-zA-Z0-9_]{2,19}$"
                     title="El usuario debe comenzar con una letra mayúscula, tener entre 3 y 20 caracteres y solo puede contener letras, números y guiones bajos">
@@ -90,7 +92,7 @@
                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                     title="La contraseña debe tener al menos 8 caracteres, un número, una letra mayúscula y una letra minúscula">
                 <label> Password </label>
-                <i class='bx bxs-lock-alt' ></i>
+                <i class='bx bxs-lock-alt toggle-password'></i>
             </div>
 
             <div class="input-box">
@@ -101,7 +103,7 @@
                     required 
                     oninput="this.setCustomValidity(this.value != document.getElementById('new-password').value ? 'Las contraseñas no coinciden' : '')">
                 <label> Confirm Password </label>
-                <i class='bx bxs-lock-alt' ></i>
+                <i class='bx bxs-lock-alt toggle-password'></i>
             </div>
 
             <div class="signup-terms modal-checkbox-row">

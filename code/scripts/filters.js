@@ -35,8 +35,7 @@ document.addEventListener("contentLoaded", () => {
 
         const durationMin = filterForm.duration_min.value.trim();
         const durationMax = filterForm.duration_max.value.trim();
-
-        const timeBlock = filterForm.time_block.value;
+        
         const language = filterForm.language.value;
         const stars = filterForm.stars.value;
         const difficulty = filterForm.difficulty.value;
@@ -75,7 +74,6 @@ document.addEventListener("contentLoaded", () => {
         const templateUrl = contenedor.dataset.template;
         const templateNode = await loadTemplate(templateUrl);
 
-        // Vacia el contenedor de activities
         contenedor.replaceChildren();
 
         lista.forEach(item => {

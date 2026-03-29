@@ -40,6 +40,10 @@
         object-fit:cover
     }
 
+    .gallery img#img1, .gallery img#img2, .gallery img#img3{
+        border-radius: .2rem;
+    }
+
     #wrapper{
         max-width:80%;
         margin:20px auto;
@@ -67,7 +71,7 @@
     .activity-details{
         background:#fff;
         padding:22px;
-        border-radius:12px;
+        border-radius: 0.6em;
         box-shadow:0 6px 18px rgba(16,24,40,0.06);
         margin-bottom:20px
     }
@@ -113,7 +117,7 @@
     .panel-card{
         background:#fff;
         padding:20px;
-        border-radius:12px;
+        border-radius: 0.6rem;
         box-shadow:0 6px 18px rgba(16,24,40,0.06)
     }
 
@@ -169,8 +173,7 @@
         background-color: #007bff;
         width: 100%;
         text-align: center;
-        border-top-left-radius: 6px;
-        border-top-right-radius: 6px;
+        border-radius: .5rem;
     }
 
     .calendar-controllers .month-year{
