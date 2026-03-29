@@ -3,7 +3,6 @@ document.addEventListener("contentLoaded", () => {
     const pagina = window.location.pathname.split('/').pop().replace('.html', '');
     if (pagina !== "activities") return;
 
-  
     const filterForm = document.querySelector("#filterbar form");
     if (!filterForm) {
         console.warn("Filter form not found");
@@ -113,6 +112,7 @@ document.addEventListener("contentLoaded", () => {
         });
     }
 
+    // Barra de filtros lateral en dispositivos pequeños
     const filterbar = document.getElementById('filterbar');
     const overlay = document.getElementById('filtersOverlay');
     const openBtn = document.getElementById('openFilters');

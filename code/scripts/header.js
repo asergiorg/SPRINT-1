@@ -50,7 +50,7 @@ document.addEventListener("contentLoaded", () => {
     const sideMenu = document.getElementById("side-menu");
     const overlay = document.getElementById("overlay");
 
-    if (!hamburger) return; // Evita errores si aún no está cargado
+    if (!hamburger) return;
 
     hamburger.addEventListener("click", () => {
         sideMenu.classList.toggle("show");

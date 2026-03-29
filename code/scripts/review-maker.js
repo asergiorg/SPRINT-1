@@ -35,7 +35,7 @@ document.addEventListener("contentLoaded", () => {
         // Crear nueva review
         const newReview = {
             activity_id: activity_id,
-            user: "Username", // Puedes cambiarlo si tienes login
+            user: "Username",
             body: comment,
             rating: currentRating
         };
