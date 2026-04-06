@@ -1,0 +1,26 @@
+[
+    {
+        "activity_id": 1511,
+        "user": "Jhon Doe",
+        "body": "La actividad fue maravillosa, la atención fue magnífica.",
+        "rating": 4
+    },
+    {
+        "activity_id": 1511,
+        "user": "Sergio",
+        "body": "La atención fue muy buena, pero tuvimos que esperar demasiado.",
+        "rating": 5
+    },
+    {
+        "activity_id": 2465,
+        "user": "Kilian",
+        "body": "El precio de la activdad es demasiado alto, no la recomiendo.",
+        "rating": 1
+    },
+    {
+        "activity_id": 2465,
+        "user": "Ubay",
+        "body": "Recomiendo la actividad a las familias con niños.",
+        "rating": 4
+    }
+]
