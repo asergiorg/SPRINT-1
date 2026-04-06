@@ -1,0 +1,40 @@
+<header id="header-container">
+    <div class="header-wrapper">
+        <div class="header-left">
+            <!-- Botón hamburguesa -->
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <img src="/images/Logo_GrandAdventures.png" height="60" width="60" alt="Logo">
+            <h1>Grand Adventures</h1>
+        </div>
+        <nav id="main_menu">
+            <ul>
+            <li><a class="home" href="index.html">Home</a></li>
+            <li><a class="activities" href="activities.html">Activities</a></li>
+            <li><a class="user-activities" href="user-activities.html">My Activities</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <button class="btn-primary normal" (click)="loadAndOpenModal('signup-modal.html', 'signupModal')"> Sign Up </button>
+            <button class="btn-secondary normal" (click)="loadAndOpenModal('login-modal.html', 'loginModal')"> Log In </button>
+            <button id="login-reduce" class="btn-secondary bx bxs-user reduce" (click)="loadAndOpenModal('login-modal.html', 'loginModal')"></button>
+            <button class="btn-danger normal" (click)="handleLogout()">Log Out</button>
+            <button id="logout-reduce" class="btn-danger bx bx-log-out" (click)="handleLogout()"></button>
+        </div>
+    </div>
+</header>
+
+<!-- Menú lateral -->
+<aside class="side-menu" id="side-menu">
+  <nav>
+    <a class="home" href="index.html">Home</a>
+    <a class="activities" href="activities.html">Activities</a>
+    <a class="user-activities"href="user-activities.html">My Activities</a>
+  </nav>
+</aside>
+
+<!-- Capa oscura detrás del menú -->
+<div class="overlay" id="overlay"></div>
