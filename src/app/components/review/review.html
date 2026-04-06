@@ -1,0 +1,26 @@
+<article class="review-item">
+    <div class="review-content">
+        <div class="review-header">
+            <div class="avatar">
+                <img [src]="imageUrl" width="30" height="30">
+                <h3>{{ username }}</h3>
+            </div>
+            <div class="rating" role="img" [attr.aria-label]="'Calificación: ' + rating + ' de 5 estrellas'">
+                <span class="star" [class.filled]="i < rating" *ngFor="let star of [1,2,3,4,5]; let i = index">★</span>
+            </div>
+        </div>
+        <p>{{ comment }}</p>
+    </div>
+</article>
+
+<!-- Formulario para crear reseña -->
+<div class="review-form">
+    <div class="rating-input">
+        @for (start of [1,2,3,4,5]; track $index) {
+            <span class="star" [class.filled]="start <= currentRating" (click)="selectStar(start)">{{ start <= currentRating ? '★' : '☆' }}</span>
+        }
+    </div>
+    <textarea #commentBox class="comment-box" placeholder="Escribe tu comentario..." maxlength="500" (input)="updateCounter($event)"></textarea>
+    <div #counter class="char-counter">0 / 500</div>
+    <button class="submit-btn" (click)="submitReview()">Enviar Reseña</button>
+</div>
