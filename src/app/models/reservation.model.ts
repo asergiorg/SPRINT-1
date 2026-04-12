@@ -1,8 +1,11 @@
-export interface Reservation {
-    code: string;
+import { Card } from "./card.model";
+
+export interface Reservation extends Card{
+    type: 'reservation';
     activity: string;
     date: string;
     time: string;
     participants: number;
-    price: number;
+    holder: string;
+    status: 'pending' | 'confirmed' | 'cancelled';
 }

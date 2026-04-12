@@ -1,0 +1,100 @@
+{
+    "activities": [
+        {
+        "id": 1,
+        "name": "Hiking",
+        "description": "Explore scenic trails and enjoy nature.",
+        "image": "https://example.com/images/hiking.jpg",
+        "dificulty": "Moderate",
+        "duration": "3-4 hours",
+        "type": "activity",
+        "category": "Outdoor",
+        "languages": ["English", "Spanish"],
+        "rating": 4.5
+        },
+        {
+        "id": 2,
+        "name": "Kayaking",
+        "description": "Paddle through calm waters and discover hidden coves.",
+        "image": "https://example.com/images/kayaking.jpg",
+        "dificulty": "Easy",
+        "duration": "2-3 hours",
+        "type": "activity",
+        "category": "Water",
+        "languages": ["English", "French"],
+        "rating": 4.7
+        },
+        {
+        "id": 3,
+        "name": "Rock Climbing",
+        "description": "Challenge yourself with thrilling climbs and breathtaking views.",
+        "image": "https://example.com/images/rock_climbing.jpg",
+        "dificulty": "Hard",
+        "duration": "4-5 hours",
+        "type": "activity",
+        "category": "Mountain",
+        "languages": ["English"],
+        "rating": 4.8
+        },
+        {
+        "id": 4,
+        "name": "Camping",
+        "description": "Experience the great outdoors with a night under the stars.",
+        "image": "https://example.com/images/camping.jpg",
+        "dificulty": "Easy",
+        "duration": "Overnight",
+        "type": "activity",
+        "category": "Outdoor",
+        "languages": ["English", "Spanish", "French"],
+        "rating": 4.6
+        },
+        {
+        "id": 5,
+        "name": "Wildlife Watching",
+        "description": "Observe diverse wildlife in their natural habitats.",
+        "image": "https://example.com/images/wildlife_watching.jpg",
+        "dificulty": "Easy",
+        "duration": "2-3 hours",
+        "type": "activity",
+        "category": "Nature",
+        "languages": ["English"],
+        "rating": 4.4
+        },
+        {
+        "id": 6,
+        "name": "Mountain Biking",
+        "description": "Ride through rugged trails and experience the thrill of mountain biking.",
+        "image": "https://example.com/images/mountain_biking.jpg",
+        "dificulty": "Moderate",
+        "duration": "3-4 hours",
+        "type": "activity",
+        "category": "Outdoor",
+        "languages": ["English", "Spanish"],
+        "rating": 4.7
+        }
+    ],
+    "reservations": [
+        {
+        "id": "RES12345",
+        "type": "reservation",
+        "activity": "Hiking",
+        "holder": "John Doe",
+        "date": "2024-07-15",
+        "time": "10:00",
+        "participants": 2,
+        "price": 50,
+        "status": "pending"
+        },
+        {
+        "id": "RES67890",
+        "type": "reservation",
+        "activity": "Kayaking",
+        "holder": "Jane Smith",
+        "date": "2024-08-20",
+        "time": "14:00",
+        "participants": 4,
+        "price": 80,
+        "status": "pending"
+        }
+    ]
+}

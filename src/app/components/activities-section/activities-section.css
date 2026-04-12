@@ -1,0 +1,72 @@
+    .section-card {
+        background:var(--card-bg);
+        padding:18px;
+        border-radius: 0.6rem;
+        box-shadow:0 6px 18px rgba(16,24,40,0.06);
+        margin-bottom:20px
+    }
+
+    .section-card header {
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        margin-bottom:12px
+    }
+
+    .colapse{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        padding:12px;
+        margin-top:12px;
+        border-radius:0 0 12px 12px;
+        background:linear-gradient(0deg,#fff,transparent);
+    }
+
+    .colapse a {
+        text-decoration: none;
+        color:var(--accent);
+        font-weight:600;
+        cursor: pointer;
+    }
+
+    h2{
+        font-size:18px;
+        margin:0 0 12px 0
+    }
+    
+    .activities-list {
+    display: grid;
+    /* Esto crea exactamente 5 columnas del mismo tamaño (1fr = 1 fracción) */
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 20px;
+    }
+    
+    /* View more */
+    .view-more{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        border-top:1px solid #eef2ff;
+        padding:12px;
+        margin-top:12px;
+        border-radius:0 0 12px 12px;
+        background:linear-gradient(0deg,#fff,transparent);
+    }
+
+    .view-more a:hover{
+        color:#003063;
+    }
+
+    .colapse a:hover{
+        color:#003063;
+    }
+
+    .view-more a {
+        text-decoration: none;
+        color:var(--accent) !important;
+        font-weight:600;
+        cursor: pointer;
+    }
+
+    

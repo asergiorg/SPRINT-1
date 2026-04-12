@@ -1,0 +1,41 @@
+    :host {
+        display: block;
+        width: 100%; /* Ocupa toda su "celda" del Grid */
+    }
+
+    /* Tu clase activity-card se queda sin anchos, solo el diseño visual */
+    .activity-card {
+        height: 100%; 
+        box-sizing: border-box;
+        border: 1px solid #e6e9ef;
+        padding: 12px;
+        border-radius: 0.6rem;
+        display: block;
+        background: #fff;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .activity-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+
+    .activity-card h3 {
+        font-size: 14px;
+        margin: 0 0 6px;
+    }
+
+    .row{display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:8px 0;
+        border-bottom:1px solid #f0f0f0
+    }
+
+    .row:last-child{
+        border-bottom:0
+    }
+
+    .row dt{font-weight:600}
+    .row dd{margin:0}
