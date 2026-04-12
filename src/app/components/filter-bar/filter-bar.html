@@ -1,0 +1,51 @@
+<aside id="filterbar" [class.open]="blockedFilters">
+        <button id="closeFilters" (click)="closeFilters()"><i class="bi bi-x"></i></button>
+
+        <h2 id="filter">Filters</h2>
+        
+        <form action="filter">
+            
+            <h3>Price:</h3>
+            <div class="filter-row">
+                <input type="number" name="price_min" min="0" placeholder="min">
+                <span>-</span>
+                <input type="number" name="price_max" min="0" placeholder="max">
+            </div>
+
+            <h3>Duration:</h3>
+            <div class="filter-row">
+                <input type="number" name="duration_min" min="0" placeholder="min">
+                <span>-</span>
+                <input type="number" name="duration_max" min="0" placeholder="max">
+            </div>
+
+            <h3>Language:</h3>
+            <select id="idioma-actividad" name="language">
+                <option value="all">All languages</option>
+                <option value="Spanish">Spanish</option>
+                <option value="English">English</option>
+                <option value="French">French</option>
+                <option value="German">German</option>
+            </select>
+            
+            <h3>Stars:</h3>
+            <select id="stars-actividad" name="stars">
+                <option value="all">All</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            
+            <h3>Difficulty:</h3>
+            <select id="difficulty-actividad" name="difficulty">
+                <option value="all">All</option>
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+            </select>
+            
+            <button type="button">Apply</button>
+        </form>
+    </aside>

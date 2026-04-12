@@ -1,0 +1,98 @@
+/* Filter Bar */
+	#filterbar {
+		grid-column: 1;
+		background: #ffffffcc;
+		padding: 20px;
+		border-radius: .6rem;
+		box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+		height: fit-content;
+		gap: 10px;
+	}
+
+	#filterbar h2 {
+		margin-top: 0;
+		padding-bottom: 10px;
+	}
+
+	#filterbar form {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5em;
+	}
+
+	.filter-row {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+	}
+
+	.filter-row input{
+		width: 100%;
+		flex: 1;
+	}
+
+	#filterbar input,
+	#filterbar select {
+		padding: 8px;
+		border-radius: .5rem;
+		border: 1px solid #ccc;
+	}
+
+	#filterbar button {
+		margin-top: 10px;
+		padding: 10px;
+		border: none;
+		background: #007bff;
+		color: white;
+		border-radius: .3rem;
+		cursor: pointer;
+		transition: background-color 0.2s;
+	}
+
+    #filterbar button:hover{
+        background:#0056b3;
+    }
+
+	input::-webkit-inner-spin-button {
+  		-webkit-appearance: none;
+  		margin: 0;
+	}
+	
+	#closeFilters {
+		display: none;
+	}
+
+    @media (max-width: 1024px) {
+		
+		#filterbar {
+			position: fixed;
+			top: 0;
+			right: 0;
+			width: 80%;
+			max-width: 320px;
+			height: 100vh;
+			max-height: fit-content;
+			background: white;
+			padding: 20px;
+			box-shadow: -4px 0 12px rgba(0,0,0,0.25);
+			z-index: 1000;
+			transform: translateX(100%);
+			transition: transform 0.3s ease;
+			overflow-y: auto;
+    		-webkit-overflow-scrolling: touch;
+		}
+
+		#filterbar.open {
+			transform: translateX(0);
+		}
+
+		#closeFilters{
+			display: inline;
+			border: none;
+			font-size: 1.3rem;
+			cursor: pointer;
+			float: right;
+			color: #000 !important;
+			background: transparent !important;
+		}
+    }

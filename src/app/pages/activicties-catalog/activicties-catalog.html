@@ -1,0 +1,32 @@
+<app-header></app-header>
+<main id="main_container">
+
+    <div id="search_container">
+        <form >
+            <button type="submit">
+                <i class='bi bi-search'></i>
+            </button>
+            <input type="search" placeholder="Search activity..." name="activity">
+        </form>
+        
+        <button id="openFilters" (click)="showFilters()"><i class="bi bi-filter"></i></button>
+    </div>
+
+
+    <app-filter-bar
+        [blockedFilters]="blockedFilters"
+        (filterClosed)="showFilters()"
+    ></app-filter-bar>
+
+    <div id="filtersOverlay"></div>
+
+    <section>
+        @for(activity of activities; track $index){
+            <app-activity2 
+                [activity]="activity"
+                (activityClicked)="onActivityClicked($event)"
+            ></app-activity2>
+        }
+    </section>
+
+</main>
