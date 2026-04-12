@@ -1,3 +1,15 @@
+.activity{
+    flex: 1 0 100%;
+    scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: .5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
 .activity img {
     width: 60%;
     height: 95%;
@@ -23,6 +35,10 @@
 }
 
 @media (max-width: 767px) {
+    .activity{
+        padding: 1rem;
+    }
+
     .activity img{
         height: 100%;
     }
@@ -37,6 +53,10 @@
 }
 
  @media (max-width: 1024px) {
+    .activity{
+        padding: 1rem;
+    }
+
     .activity img{
         height: 100%;
     }

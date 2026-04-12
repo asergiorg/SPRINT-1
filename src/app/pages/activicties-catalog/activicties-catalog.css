@@ -76,50 +76,6 @@
 		align-items: stretch;
 	}
 	
-	/* Activity 2 Card */
-	.activity-card {
-        background: #ffffffcc;
-        border-radius: .6rem;
-        padding: 15px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        text-align: center;
-		gap: 25px;
-        height: 340px;
-		transition: transform 0.3s ease, box-shadow 0.3s ease;
-		cursor: pointer;
-    }
-
-	.activity-card:hover {
-		transform: translateY(-5px);
-		box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-	}
-
-    .activity-image {
-        width: 100%;
-        height: 190px;
-        object-fit: cover;
-        border-radius: .5rem;
-        margin-bottom: 10px;
-    }
-
-    .activity-name {
-        font-size: 20px;
-        font-weight: bold;
-        text-decoration: none;
-        color: #333;
-    }
-
-    .activity-card .description {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .price {
-        padding-top: .5em;
-    }
-	
 	.activities {
         display: none !important;
     }
