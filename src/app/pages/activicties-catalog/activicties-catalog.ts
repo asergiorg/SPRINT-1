@@ -4,10 +4,11 @@ import { Activity2 } from '../../components/activity2/activity2';
 import { Activity } from '../../models/activity.model';
 import { FilterBar } from '../../components/filter-bar/filter-bar';
 import { ActivitiesService } from '../../services/activities.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-activicties-catalog',
-  imports: [ Header, Activity2, FilterBar ],
+  imports: [ Header, Activity2, FilterBar, FormsModule ],
   templateUrl: './activicties-catalog.html',
   styleUrl: './activicties-catalog.css',
 })
@@ -15,6 +16,7 @@ export class ActivictiesCatalog implements OnInit {
   @Output() filterClicked = new EventEmitter<boolean>();
 
   blockedFilters = false;
+  searchText: string = '';
 
   activities: Activity[] = [];
 
@@ -23,7 +25,6 @@ export class ActivictiesCatalog implements OnInit {
   ngOnInit(): void {
     this.activitiesService.getActivities().subscribe(data => {
       this.activities = data;
-      console.log('data:', data);
     });
   }
 
@@ -33,5 +34,16 @@ export class ActivictiesCatalog implements OnInit {
 
   showFilters() {
     this.blockedFilters = !this.blockedFilters;
+  }
+
+  onSearchChange(search: string) {
+    this.searchText = search;
+  }
+
+  get filteredActivities() {
+    const text = this.searchText.toLowerCase();
+    return this.activities.filter(a =>
+      a.name.toLowerCase().includes(text)
+    );
   }
 }
