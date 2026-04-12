@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Activity1 } from '../../components/activity1/activity1';
 import { Header } from '../../components/header/header';
 import { Activity } from '../../models/activity.model';
+import { ActivitiesService } from '../../services/activities.service';
+
 
 @Component({
   selector: 'app-index',
@@ -10,19 +12,17 @@ import { Activity } from '../../models/activity.model';
   templateUrl: './index.html',
   styleUrl: './index.css',
 })
-export class Index {
-  activities: Activity[] = [{
-    id: 1,
-    name: 'Activity 1',
-    description: 'Description for Activity 1',
-    image: 'https://via.placeholder.com/150',
-    price: 100,
-    category: 'Adventure',
-    duration: 2,
-    difficulty: 'Medium',
-    language: ['English'],
-    rating: 4.5
-  }];
+export class Index implements OnInit{
+  activities: Activity[] = [];
+
+  constructor(private activitiesService: ActivitiesService){}
+  
+  ngOnInit(): void {
+    this.activitiesService.getActivities().subscribe(data => {
+      this.activities = data.slice(0, 5);
+      console.log('data:', data);
+    });
+  }
 
   onActivityClicked(activityId: number) {
     console.log('Activity clicked:', activityId);

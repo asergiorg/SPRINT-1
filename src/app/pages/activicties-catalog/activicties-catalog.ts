@@ -1,8 +1,9 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Header } from '../../components/header/header';
 import { Activity2 } from '../../components/activity2/activity2';
 import { Activity } from '../../models/activity.model';
 import { FilterBar } from '../../components/filter-bar/filter-bar';
+import { ActivitiesService } from '../../services/activities.service';
 
 @Component({
   selector: 'app-activicties-catalog',
@@ -10,34 +11,21 @@ import { FilterBar } from '../../components/filter-bar/filter-bar';
   templateUrl: './activicties-catalog.html',
   styleUrl: './activicties-catalog.css',
 })
-export class ActivictiesCatalog {
+export class ActivictiesCatalog implements OnInit {
   @Output() filterClicked = new EventEmitter<boolean>();
 
   blockedFilters = false;
 
-  activities: Activity[] = [{
-      id: 1,
-      name: 'Activity 1',
-      description: 'Description for Activity 1',
-      image: 'https://via.placeholder.com/150',
-      price: 100,
-      category: 'Adventure',
-      duration: 2,
-      difficulty: 'Medium',
-      language: ['English'],
-      rating: 4.5
-    }, {
-      id: 2,
-      name: 'Activity 2',
-      description: 'Description for Activity 2',
-      image: 'https://via.placeholder.com/150',
-      price: 150,
-      category: 'Relaxation',
-      duration: 3,
-      difficulty: 'Easy',
-      language: ['English'],
-      rating: 4.0
-    }];
+  activities: Activity[] = [];
+
+  constructor(private activitiesService: ActivitiesService){}
+
+  ngOnInit(): void {
+    this.activitiesService.getActivities().subscribe(data => {
+      this.activities = data;
+      console.log('data:', data);
+    });
+  }
 
   onActivityClicked(activityId: number) {
     console.log('Activity clicked:', activityId);
