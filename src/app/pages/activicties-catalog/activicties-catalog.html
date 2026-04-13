@@ -30,7 +30,6 @@
         @for(activity of filteredActivities; track $index){
             <app-activity2 
                 [activity]="activity"
-                (activityClicked)="onActivityClicked($event)"
             ></app-activity2>
         }
     </section>

@@ -10,9 +10,4 @@ import { Activity } from '../../models/activity.model';
 })
 export class Activity1 {
   @Input() activity!: Activity;
-  @Output() activityClicked = new EventEmitter<number>();
-
-  onClick() {
-    this.activityClicked.emit(this.activity.id);
-  }
 }

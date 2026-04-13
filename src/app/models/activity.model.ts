@@ -1,12 +1,13 @@
-export interface Activity {
-  id: number;
+import { Card } from './card.model';
+
+export interface Activity extends Card {
   name: string;
   description: string;
-  price: number;
-  image: string;
+  type:'activity';
+  image: string[];
   category: string;
   duration: number;
-  language: string[];
-  difficulty: string;
+  languages: string[];
+  dificulty: string;
   rating: number;
 }
