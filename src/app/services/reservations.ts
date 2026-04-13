@@ -1,7 +1,8 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { firstValueFrom, Observable } from 'rxjs';
 import { DatabaseService } from './database-service';
+import { Observable } from 'rxjs';
+import { Reservation } from '../models/reservation.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,10 @@ export class ReservationsDatabaseService implements DatabaseService {
 
   save(data: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/reservations`, data);
+  }
+
+  update(id: string, data: Reservation): Observable<any> {
+    return this.http.put(`${this.baseUrl}/reservations/${id}`, data);
   }
 
   delete(id: string): Observable<any> {

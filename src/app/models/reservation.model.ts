@@ -7,5 +7,5 @@ export interface Reservation extends Card{
     time: string;
     participants: number;
     holder: string;
-    status: 'pending' | 'confirmed' | 'cancelled';
+    status: 'Pending' | 'Paid' | 'Confirmed' | 'Cancelled';
 }

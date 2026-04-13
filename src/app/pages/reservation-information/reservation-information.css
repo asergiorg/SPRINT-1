@@ -1,0 +1,140 @@
+    .container{
+        max-width:900px;
+        margin:0 auto
+    }
+
+    .card{
+        background:#fff;
+        padding:20px;
+        border-radius:10px;
+        box-shadow:0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .row{display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:8px 0;
+        border-bottom:1px solid #f0f0f0
+    }
+
+    .row:last-child{
+        border-bottom:0
+    }
+
+    .title{
+        font-size:24px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #333;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .card-header{
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      display:flex;
+    }
+
+    .actions {
+      justify-content: center;
+      margin-top:16px;
+      gap: 5px;
+      display:flex;
+    }
+
+    button{
+        padding:8px 12px;
+        border-radius:6px;
+        border:1px solid #ccc;
+        background:#fff;
+        cursor:pointer
+    }
+
+    .card-header i{
+      position: relative;
+      font-size: 26px;
+      transition:background-color 0.2s;
+      cursor: pointer;
+    }
+
+    .card-header i:hover{
+      background:#f0f0f0;
+      border-radius: 50%;
+    }
+
+    #payment-section {
+      margin-top:14px;
+    }
+
+    #payment-methods {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+      margin: 0 auto;
+      max-width: 70%;
+    }
+
+  #pm-info {
+    margin-top:8px;
+    color:#555;
+    text-align: center;
+  }
+
+  #confirm {
+    background:#28a745;
+    color:#fff;
+    border-color:#28a745;
+  }
+
+  #confirm:hover {
+    background:#218838;
+    border-color:#1e7e34;
+  }
+
+  #cancel {
+    background:#dc3545;
+    color:#fff;
+    border-color:#dc3545;
+  }
+
+  #cancel:hover {
+    background:#c82333;
+    border-color:#bd2130;
+  }
+
+  #payment-methods .pm-btn {
+    background:#007bff;
+    color:#fff;
+    border:none;
+    padding:10px;
+    border-radius:6px;
+    font-size:14px;
+    transition:background-color 0.2s;
+    cursor:pointer;
+  }
+
+  #payment-methods .pm-btn:hover {
+    background:#0056b3;
+  }
+  
+    /* estilo para pares definición */
+    .row dt{font-weight:600}
+    .row dd{margin:0}
+    article footer.actions{margin-top:16px}
+
+    /* Media queries */
+    @media (max-width: 767px){
+      .container header h1 {
+        font-size: 24px;
+      }
+
+      .title {
+        font-size: 20px;
+      }
+    }
