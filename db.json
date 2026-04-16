@@ -1,98 +1,150 @@
 {
   "activities": [
     {
-      "id": "1",
       "name": "Hiking",
       "description": "Explore scenic trails and enjoy nature.",
-      "image": "https://example.com/images/hiking.jpg",
+      "image": [
+        "assets/images/activities/roque-nublo.jpg"
+      ],
       "dificulty": "Moderate",
       "duration": "3-4 hours",
       "type": "activity",
       "category": "Outdoor",
+      "hours": [
+        "08:00",
+        "09:30",
+        "11:00",
+        "12:00",
+        "14:00"
+      ],
+      "price": 50,
       "languages": [
         "English",
         "Spanish"
       ],
-      "rating": 4.5
+      "rating": 4.5,
+      "id": "TRQ9U5frI9I"
     },
     {
-      "id": "2",
       "name": "Kayaking",
       "description": "Paddle through calm waters and discover hidden coves.",
-      "image": "https://example.com/images/kayaking.jpg",
+      "image": [
+        "https://2.bp.blogspot.com/-epneGMSghoM/T7Etq2B4yEI/AAAAAAAAc9U/u7F8lh0GkCw/s1600/Reflexion-Montanas-Lagos_Paisajes-Naturales.jpg"
+      ],
       "dificulty": "Easy",
       "duration": "2-3 hours",
       "type": "activity",
       "category": "Water",
+      "price": 80,
       "languages": [
         "English",
         "French"
       ],
-      "rating": 4.7
+      "rating": 4.7,
+      "id": "YpRoIa8qAkE"
     },
     {
-      "id": "3",
       "name": "Rock Climbing",
       "description": "Challenge yourself with thrilling climbs and breathtaking views.",
-      "image": "https://example.com/images/rock_climbing.jpg",
+      "image": [
+        "https://example.com/images/rock_climbing.jpg"
+      ],
       "dificulty": "Hard",
       "duration": "4-5 hours",
       "type": "activity",
       "category": "Mountain",
+      "hours": [
+        "08:00",
+        "09:30",
+        "11:00",
+        "12:00",
+        "14:00"
+      ],
+      "price": 100,
       "languages": [
         "English"
       ],
-      "rating": 4.8
+      "rating": 4.8,
+      "id": "SxhCEOiGibw"
     },
     {
-      "id": "4",
       "name": "Camping",
       "description": "Experience the great outdoors with a night under the stars.",
-      "image": "https://example.com/images/camping.jpg",
+      "image": [
+        "https://example.com/images/camping.jpg"
+      ],
       "dificulty": "Easy",
       "duration": "Overnight",
       "type": "activity",
       "category": "Outdoor",
+      "hours": [
+        "08:00",
+        "09:30",
+        "11:00",
+        "12:00",
+        "14:00"
+      ],
       "languages": [
         "English",
         "Spanish",
         "French"
       ],
-      "rating": 4.6
+      "price": 120,
+      "rating": 4.6,
+      "id": "PCkQEyV2G0Q"
     },
     {
-      "id": "5",
       "name": "Wildlife Watching",
       "description": "Observe diverse wildlife in their natural habitats.",
-      "image": "https://example.com/images/wildlife_watching.jpg",
+      "image": [
+        "https://example.com/images/wildlife_watching.jpg"
+      ],
       "dificulty": "Easy",
       "duration": "2-3 hours",
       "type": "activity",
       "category": "Nature",
+      "hours": [
+        "08:00",
+        "09:30",
+        "11:00",
+        "12:00",
+        "14:00"
+      ],
       "languages": [
         "English"
       ],
-      "rating": 4.4
+      "price": 40,
+      "rating": 4.4,
+      "id": "07__LEDNltw"
     },
     {
-      "id": "6",
       "name": "Mountain Biking",
       "description": "Ride through rugged trails and experience the thrill of mountain biking.",
-      "image": "https://example.com/images/mountain_biking.jpg",
+      "image": [
+        "https://example.com/images/mountain_biking.jpg"
+      ],
       "dificulty": "Moderate",
       "duration": "3-4 hours",
       "type": "activity",
       "category": "Outdoor",
+      "hours": [
+        "08:00",
+        "09:30",
+        "11:00",
+        "12:00",
+        "14:00"
+      ],
       "languages": [
         "English",
         "Spanish"
       ],
-      "rating": 4.7
+      "price": 90,
+      "rating": 4.7,
+      "id": "O9CqbPUsfO0"
     }
   ],
   "reservations": [
     {
-      "id": "RES12345",
       "type": "reservation",
       "activity": "Hiking",
       "holder": "John Doe",
@@ -100,10 +152,10 @@
       "time": "10:00",
       "participants": 2,
       "price": 50,
-      "status": "Confirmed"
+      "status": "Confirmed",
+      "id": "LGy5bt4zRuc"
     },
     {
-      "id": "RES67890",
       "type": "reservation",
       "activity": "Kayaking",
       "holder": "Jane Smith",
@@ -111,10 +163,10 @@
       "time": "14:00",
       "participants": 4,
       "price": 80,
-      "status": "Confirmed"
+      "status": "Confirmed",
+      "id": "E7lZoo5vGj4"
     },
     {
-      "id": "RES54321",
       "type": "reservation",
       "activity": "Rock Climbing",
       "holder": "Alice Johnson",
@@ -122,10 +174,10 @@
       "time": "09:00",
       "participants": 1,
       "price": 100,
-      "status": "Confirmed"
+      "status": "Confirmed",
+      "id": "6TCptl3Unps"
     },
     {
-      "id": "RES98765",
       "type": "reservation",
       "activity": "Camping",
       "holder": "Bob Brown",
@@ -133,10 +185,10 @@
       "time": "18:00",
       "participants": 3,
       "price": 120,
-      "status": "Confirmed"
+      "status": "Confirmed",
+      "id": "-FpjJL5wM-w"
     },
     {
-      "id": "RES24680",
       "type": "reservation",
       "activity": "Wildlife Watching",
       "holder": "Charlie Davis",
@@ -144,10 +196,10 @@
       "time": "08:00",
       "participants": 2,
       "price": 40,
-      "status": "Pending"
+      "status": "Confirmed",
+      "id": "pQbYC38Pp1E"
     },
     {
-      "id": "RES13579",
       "type": "reservation",
       "activity": "Mountain Biking",
       "holder": "Diana Evans",
@@ -155,7 +207,59 @@
       "time": "13:00",
       "participants": 5,
       "price": 90,
-      "status": "Pending"
+      "status": "Confirmed",
+      "id": "GmYnROYEDlA"
+    }
+  ],
+  "reviews": [
+    {
+      "activity": "2",
+      "reviewer": "Emily Wilson",
+      "rating": 5,
+      "comment": "Amazing experience! The trails were beautiful and the guide was fantastic.",
+      "id": "IkNSGPLLKiI"
+    },
+    {
+      "activity": "3",
+      "reviewer": "Michael Lee",
+      "rating": 4,
+      "comment": "Great fun on the water! The scenery was stunning, but the equipment could have been better.",
+      "id": "nRTxU36a9vs"
+    },
+    {
+      "activity": "4",
+      "reviewer": "Sarah Kim",
+      "rating": 5,
+      "comment": "Thrilling and rewarding! The climbs were challenging but the views from the top were worth it.",
+      "id": "EIyx0c02Nzc"
+    },
+    {
+      "activity": "5",
+      "reviewer": "David Martinez",
+      "rating": 4,
+      "comment": "A wonderful night under the stars. The campsite was well-maintained and the staff were friendly.",
+      "id": "nC2pz_KZE44"
+    },
+    {
+      "activity": "5",
+      "reviewer": "Laura Garcia",
+      "rating": 5,
+      "comment": "Incredible wildlife sightings! The guide was knowledgeable and made the experience unforgettable.",
+      "id": "v9mZl8tlNsM"
+    },
+    {
+      "activity": "6",
+      "reviewer": "James Anderson",
+      "rating": 4,
+      "comment": "Exciting trails and great fun! The bikes were in good condition, but some of the paths were a bit crowded.",
+      "id": "ejrMvV1b-cQ"
+    },
+    {
+      "reviewer": "Usuario Actual",
+      "activity": "1",
+      "rating": 3,
+      "comment": "alo",
+      "id": "6ItQbUUNnAE"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

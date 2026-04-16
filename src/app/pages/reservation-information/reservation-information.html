@@ -1,39 +1,41 @@
-<main class="container">
-    <header><h1>Reservation Information</h1></header>
-    <section id="content">
-        <article id="reservation-card" class="card" data-content-id="reservations" data-json="json/reservations.json" aria-labelledby="res-id">
-            <header class="card-header">
-                <a href="activity-information.html"><div class="title">{{ reservation.activity }}</div></a>
-                <i id="edit-btn" class='bx bxs-edit-alt'></i>
-            </header>
-
-            <div class="row"><dt>Reservation Holder</dt><dd id="row-name">{{ reservation.holder }}</dd></div>
-            <div class="row"><dt>Date</dt><dd id="row-date">{{ reservation.date }}</dd></div>
-            <div class="row"><dt>Time</dt><dd id="row-time">{{ reservation.time }}</dd></div>
-            <div class="row"><dt>Participants</dt><dd id="row-people">{{ reservation.participants }}</dd></div>
-            <div class="row"><dt>Price</dt><dd id="row-price">${{ reservation.price }}</dd></div>
-            <div class="row"><dt>Status</dt><dd id="row-status">{{ reservation.status }}</dd></div>
-
-            @if(reservation.status === 'Pending'){
-                <section id="payment-section" aria-label="Métodos de pago">
-                    <h3>Select payment method</h3>
-                    <div id="payment-methods">
-                        <button class="pm-btn" (click)="applyPaymentMethod(googlePay)">{{googlePay.text}}</button>
-                        <button class="pm-btn" (click)="applyPaymentMethod(masterCard)">{{masterCard.text}}</button>
-                        <button class="pm-btn" (click)="applyPaymentMethod(visa)">{{visa.text}}</button>
-                        <button class="pm-btn" (click)="applyPaymentMethod(applePay)">{{applePay.text}}</button>
-                    </div>
-                    <p id="pm-info">You will be redirected to the selected payment gateway.</p>
-                </section>
-            }
-
-            <footer class="actions">
-                <button id="confirm" (click)="confirmReservation()">Confirm</button>
-                <button id="cancel" (click)="cancelReservation()">Cancel</button>
-            </footer>
-            <div id="payment-warning" style="display:none; color:red; text-align: center; margin-top: 12px;">
-                Debes completar el pago antes de continuar.
-            </div>
-        </article>
-    </section>
-</main>
+@if(reservation) {
+    <main class="container">
+        <header><h1>Reservation Information</h1></header>
+        <section id="content">
+            <article id="reservation-card" class="card" data-content-id="reservations" data-json="json/reservations.json" aria-labelledby="res-id">
+                <header class="card-header">
+                    <a href="activity-information.html"><div class="title">{{ reservation.activity }}</div></a>
+                    <i id="edit-btn" class='bx bxs-edit-alt'></i>
+                </header>
+    
+                <div class="row"><dt>Reservation Holder</dt><dd id="row-name">{{ reservation.holder }}</dd></div>
+                <div class="row"><dt>Date</dt><dd id="row-date">{{ reservation.date }}</dd></div>
+                <div class="row"><dt>Time</dt><dd id="row-time">{{ reservation.time }}</dd></div>
+                <div class="row"><dt>Participants</dt><dd id="row-people">{{ reservation.participants }}</dd></div>
+                <div class="row"><dt>Price</dt><dd id="row-price">${{ reservation.price }}</dd></div>
+                <div class="row"><dt>Status</dt><dd id="row-status">{{ reservation.status }}</dd></div>
+    
+                @if(reservation.status === 'Pending'){
+                    <section id="payment-section" aria-label="Métodos de pago">
+                        <h3>Select payment method</h3>
+                        <div id="payment-methods">
+                            <button class="pm-btn" (click)="applyPaymentMethod(googlePay)">{{googlePay.text}}</button>
+                            <button class="pm-btn" (click)="applyPaymentMethod(masterCard)">{{masterCard.text}}</button>
+                            <button class="pm-btn" (click)="applyPaymentMethod(visa)">{{visa.text}}</button>
+                            <button class="pm-btn" (click)="applyPaymentMethod(applePay)">{{applePay.text}}</button>
+                        </div>
+                        <p id="pm-info">You will be redirected to the selected payment gateway.</p>
+                    </section>
+                }
+    
+                <footer class="actions">
+                    <button id="confirm" (click)="confirmReservation()">Confirm</button>
+                    <button id="cancel" (click)="cancelReservation()">Cancel</button>
+                </footer>
+                <div id="payment-warning" style="display:none; color:red; text-align: center; margin-top: 12px;">
+                    Debes completar el pago antes de continuar.
+                </div>
+            </article>
+        </section>
+    </main>
+}

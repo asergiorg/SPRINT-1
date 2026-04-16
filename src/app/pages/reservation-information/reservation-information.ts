@@ -3,6 +3,7 @@ import { ReservationsDatabaseService } from '../../services/reservations';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Reservation } from '../../models/reservation.model';
 import { Location } from '@angular/common';
+import { ReservationState } from '../../services/reservation-state';
 
 export interface PaymentMethod {
   text: string;
@@ -20,6 +21,7 @@ export class ReservationInformation implements OnInit {
   private cdr = inject(ChangeDetectorRef);
   private router = inject(Router);
   private location = inject(Location);
+  private stateService = inject(ReservationState)
   
   reservation!: Reservation;
   googlePay: PaymentMethod = { text: 'Google Pay' };
@@ -28,11 +30,13 @@ export class ReservationInformation implements OnInit {
   applePay: PaymentMethod = { text: 'Apple Pay' };
   
   isProcessing: boolean = false; 
+  private reservationMade = this.stateService.reservation();
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-
-    if (id) {
+    if (id == 'new'){
+      this.reservation = this.reservationMade;
+    } else if (id) {
       this.reservationService.getById(id).subscribe({
         next: (datos) => {
           this.reservation = datos;
@@ -41,6 +45,7 @@ export class ReservationInformation implements OnInit {
         error: (err) => console.error('Error cargando detalles', err)
       });
     }
+    
   }
 
   applyPaymentMethod(method: PaymentMethod): void {
@@ -57,44 +62,70 @@ export class ReservationInformation implements OnInit {
     this.isProcessing = true;
     this.cdr.detectChanges();
 
-    setTimeout(() => {
-      this.reservation.status = 'Paid'; 
-
-      this.reservationService.update(this.reservation.id, this.reservation).subscribe({
-        next: (res) => {
-          this.isProcessing = false;
-          this.cdr.detectChanges();
-          
-          console.log('Pago procesado y reserva guardada con éxito', res);
-        },
-        error: (err) => {
-          console.error('Error al guardar en el servidor', err);
-          this.reservation.status = 'Pending';
-          this.isProcessing = false;
-          this.cdr.detectChanges();
-        }
-      });
-    }, 2000);
+    if(this.reservationMade){
+      setTimeout(() => { 
+        this.reservation.status = 'Paid';
+        this.isProcessing = false;
+        this.cdr.detectChanges();
+      }, 2000);
+    } else {
+      setTimeout(() => {
+        this.reservation.status = 'Paid'; 
+  
+        this.reservationService.update(this.reservation.id, this.reservation).subscribe({
+          next: (res) => {
+            this.isProcessing = false;
+            this.cdr.detectChanges();
+            
+            console.log('Pago procesado y reserva guardada con éxito', res);
+          },
+          error: (err) => {
+            console.error('Error al guardar en el servidor', err);
+            this.reservation.status = 'Pending';
+            this.isProcessing = false;
+            this.cdr.detectChanges();
+          }
+        });
+      }, 2000);
+    }
   }
 
   cancelReservation(): void {
-    this.reservationService.delete(this.reservation.id).subscribe({
-      next: () => {
-        console.log('Reserva cancelada');
-        this.location.back();
-      },
-      error: (err) => console.error('Error cancelando', err)
-    });
+    if(this.reservationMade){
+      this.stateService.clearState();
+    } else {
+      this.reservationService.delete(this.reservation.id).subscribe({
+        next: () => {
+          this.stateService.clearState();
+          console.log('Reserva cancelada');
+          this.location.back();
+        },
+        error: (err) => console.error('Error cancelando', err)
+      });
+    }
   }
 
   confirmReservation(): void {
     this.reservation.status = 'Confirmed';
-    this.reservationService.update(this.reservation.id, this.reservation).subscribe({
-      next: () => {
-        console.log('Reserva confirmada');
-        this.router.navigate(['/user-activities']);
-      },
-      error: (err) => console.error('Error confirmando', err)
-    });
+    if(this.reservationMade){
+      this.reservationService.save(this.reservation).subscribe({
+        next: () => {
+          console.log('Reserva confirmada');
+          this.stateService.clearState();
+          this.router.navigate(['/user-activities']);
+        },
+        error: (err) => console.error('Error confirmando', err)
+      });
+    } else {
+      this.reservationService.update(this.reservation.id, this.reservation).subscribe({
+        next: () => {
+          console.log('Reserva confirmada');
+          this.stateService.clearState();
+          this.router.navigate(['/user-activities']);
+        },
+        error: (err) => console.error('Error confirmando', err)
+      });
+    }
   }
+
 }

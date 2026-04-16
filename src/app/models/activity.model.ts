@@ -8,6 +8,7 @@ export interface Activity extends Card {
   category: string;
   duration: number;
   languages: string[];
+  hours: string[];
   dificulty: string;
   rating: number;
 }
