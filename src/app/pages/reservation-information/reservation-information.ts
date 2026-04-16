@@ -30,14 +30,14 @@ export class ReservationInformation implements OnInit {
   applePay: PaymentMethod = { text: 'Apple Pay' };
   
   isProcessing: boolean = false; 
-  private reservationMade = this.stateService.reservation();
+  reservationMade = this.stateService.reservation();
+  id = this.route.snapshot.paramMap.get('id');
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id == 'new'){
+    if (this.reservationMade){
       this.reservation = this.reservationMade;
-    } else if (id) {
-      this.reservationService.getById(id).subscribe({
+    } else if (this.id) {
+      this.reservationService.getById(this.id).subscribe({
         next: (datos) => {
           this.reservation = datos;
           this.cdr.detectChanges();
@@ -107,7 +107,7 @@ export class ReservationInformation implements OnInit {
 
   confirmReservation(): void {
     this.reservation.status = 'Confirmed';
-    if(this.reservationMade){
+    if(this.id == 'new'){
       this.reservationService.save(this.reservation).subscribe({
         next: () => {
           console.log('Reserva confirmada');
@@ -126,6 +126,12 @@ export class ReservationInformation implements OnInit {
         error: (err) => console.error('Error confirmando', err)
       });
     }
+  }
+
+  modifyReservation(): void {
+    this.stateService.clearState();
+    this.stateService.reservation.set(this.reservation);
+    this.router.navigate(['/activity-information', this.reservation.activityId])
   }
 
 }

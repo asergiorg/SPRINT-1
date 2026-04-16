@@ -35,6 +35,13 @@
       "duration": "2-3 hours",
       "type": "activity",
       "category": "Water",
+      "hours": [
+        "08:00",
+        "09:30",
+        "11:00",
+        "12:00",
+        "14:00"
+      ],
       "price": 80,
       "languages": [
         "English",
@@ -153,7 +160,8 @@
       "participants": 2,
       "price": 50,
       "status": "Confirmed",
-      "id": "LGy5bt4zRuc"
+      "id": "LGy5bt4zRuc",
+      "activityId": "TRQ9U5frI9I"
     },
     {
       "type": "reservation",
@@ -164,7 +172,8 @@
       "participants": 4,
       "price": 80,
       "status": "Confirmed",
-      "id": "E7lZoo5vGj4"
+      "id": "E7lZoo5vGj4",
+      "activityId": "YpRoIa8qAkE"
     },
     {
       "type": "reservation",
@@ -175,7 +184,8 @@
       "participants": 1,
       "price": 100,
       "status": "Confirmed",
-      "id": "6TCptl3Unps"
+      "id": "6TCptl3Unps",
+      "activityId": "SxhCEOiGibw"
     },
     {
       "type": "reservation",
@@ -186,7 +196,8 @@
       "participants": 3,
       "price": 120,
       "status": "Confirmed",
-      "id": "-FpjJL5wM-w"
+      "id": "-FpjJL5wM-w",
+      "activityId": "PCkQEyV2G0Q"
     },
     {
       "type": "reservation",
@@ -197,7 +208,8 @@
       "participants": 2,
       "price": 40,
       "status": "Confirmed",
-      "id": "pQbYC38Pp1E"
+      "id": "pQbYC38Pp1E",
+      "activityId": "07__LEDNltw"
     },
     {
       "type": "reservation",
@@ -208,7 +220,34 @@
       "participants": 5,
       "price": 90,
       "status": "Confirmed",
-      "id": "GmYnROYEDlA"
+      "id": "GmYnROYEDlA",
+      "activityId": "O9CqbPUsfO0"
+    },
+    {
+      "id": "lxJ77VivSIA",
+      "type": "reservation",
+      "activity": "Hiking",
+      "date": "2026-04-22",
+      "time": "11:00",
+      "participants": 3,
+      "holder": "Jhon Doe",
+      "status": "Confirmed",
+      "price": 150,
+      "totalToPay": 0,
+      "activityId": "TRQ9U5frI9I"
+    },
+    {
+      "id": "44b2EsDeg7o",
+      "type": "reservation",
+      "activity": "Kayaking",
+      "date": "2026-05-23",
+      "time": "11:00",
+      "participants": 3,
+      "holder": "Jhon Doe",
+      "status": "Confirmed",
+      "price": 240,
+      "totalToPay": 80,
+      "activityId": "YpRoIa8qAkE"
     }
   ],
   "reviews": [
@@ -260,6 +299,13 @@
       "rating": 3,
       "comment": "alo",
       "id": "6ItQbUUNnAE"
+    },
+    {
+      "reviewer": "Usuario Actual",
+      "activity": "TRQ9U5frI9I",
+      "rating": 3,
+      "comment": "hhhhh",
+      "id": "Tcv4L2___k4"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

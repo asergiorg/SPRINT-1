@@ -77,8 +77,16 @@ export class ActivityInformation implements OnInit {
         },
         error: (err) => console.error('Error cargando reviews', err)
       });
+      const reservationModified = this.stateService.reservation();
+      if (reservationModified && reservationModified.activityId == id) {
+        const fechaLimpia = reservationModified.date.replace(/-/g, '\/'); 
+        this.selectedDate = new Date(fechaLimpia);
+        this.selectedHour = reservationModified.time;
+        this.participants = reservationModified.participants;
+      }
       this.generateCalendar();
     }
+
   }
 
   setRating(rating: number) {
@@ -197,9 +205,17 @@ export class ActivityInformation implements OnInit {
   
   // ---------------------- FUNCIONES RESERVA ---------------------
   makeReservation(): void {
-    if(!this.selectedDate) return;
+    if(!this.selectedDate){
+      alert("You have not selected any date.")
+      return;
+    } 
     const date =  formatDate(this.selectedDate, 'yyyy-MM-dd', 'en-US')
-    const reservation: NewReservation ={
+    if(!this.selectedHour) {
+      alert("You have not selected any hour.")
+      return;
+    }
+    const reservation: Reservation ={
+      "id": this.getId(),
       "type": "reservation",
       "activity": this.activity.name,
       "date": date,
@@ -207,17 +223,31 @@ export class ActivityInformation implements OnInit {
       "participants": this.participants,
       "holder": "Jhon Doe",
       "status": this.getStatus(),
-      "price": this.calculatePrice()
+      "price": this.calculatePrice(),
+      "totalToPay": this.calculateAmount(),
+      "activityId": this.activity.id
     }
+    this.stateService.clearState();
     this.stateService.reservation.set(reservation);
-    this.router.navigate(['/reservation-information/new']);
+    this.router.navigate(['/reservation-information', reservation.id]);
   }
 
   getStatus(): "Pending" | "Paid" | "Confirmed" | "Cancelled" {
-    return "Pending";
+    return (this.calculateAmount() > 0) ? "Pending" : "Paid";
   }
 
   calculatePrice():number {
     return this.activity.price * this.participants;
+  }
+
+  calculateAmount(): number {
+    const reservation = this.stateService.reservation();
+    const amount = (reservation) ? (this.calculatePrice() - reservation.price) : this.calculatePrice();
+    return (amount > 0) ? amount : 0;
+  }
+
+  getId(): string {
+    const reservation = this.stateService.reservation();
+    return (reservation) ? reservation.id : 'new';
   }
 }

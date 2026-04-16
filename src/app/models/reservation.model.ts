@@ -8,4 +8,6 @@ export interface Reservation extends Card{
     participants: number;
     holder: string;
     status: 'Pending' | 'Paid' | 'Confirmed' | 'Cancelled';
+    activityId: string;
+    totalToPay: number;
 }
