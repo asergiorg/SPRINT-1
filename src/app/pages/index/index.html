@@ -1,34 +1,43 @@
+<app-header></app-header>
 
-    <app-header></app-header>
-    <main id="main_container">
-        <div id="search-container">
-            <div id="bar-search-container">
-                <form >
-                    <button type="submit">
-                        <i class='bi bi-search'></i>
-                    </button>
-                    <input type="search" placeholder="Search activity..." name="activity">
-                </form>
-            </div>
-        </div>
-        
-        <div id="container2">
-            <div class="slider-wrapper">
-                <div class="slider">
-                    @for(activity of activities; track $index){
-                        <article id="art{{ $index + 1 }}" class="activity activity-card" data-content-id="activities" >
-                            <app-activity1 
-                              [activity]="activity"
-                            ></app-activity1>
-                        </article>
-                    }
-                </div>
+<main id="main_container">
 
-                <div class="slider-nav">
-                    @for(activity of activities; track $index){
-                         <a href="#art{{ $index + 1 }}"></a>
-                    }
-                </div>
-            </div>
+    <div id="search-container" class="d-flex justify-content-center align-items-center">
+        <div id="bar-search-container">
+            <form>
+                <button type="submit">
+                    <i class="bi bi-search"></i>
+                </button>
+                <input type="search" placeholder="Search activity..." name="activity">
+            </form>
         </div>
-    </main>
+    </div>
+
+    <div id="container2">
+        <div class="slider-wrapper">
+
+            <div class="slider">
+
+                @for(activity of activities; track $index){
+                    <article 
+                        id="art{{ $index + 1 }}" 
+                        class="activity activity-card"
+                        data-content-id="activities">
+
+                        <app-activity1 [activity]="activity"></app-activity1>
+
+                    </article>
+                }
+
+            </div>
+
+            <div class="slider-nav">
+                @for(activity of activities; track $index){
+                    <a href="#art{{ $index + 1 }}"></a>
+                }
+            </div>
+
+        </div>
+    </div>
+
+</main>

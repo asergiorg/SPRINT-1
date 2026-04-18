@@ -1,37 +1,65 @@
 <app-header></app-header>
-<main id="main_container">
 
-    <div id="search_container">
-        <form >
-            <button type="submit">
-                <i class='bi bi-search'></i>
+<main class="container py-4">
+
+    <div class="row mb-3 justify-content-center align-items-center">
+
+        <div class="col-12 col-md-10 col-lg-8 d-flex align-items-center gap-2">
+
+            <form class="d-flex flex-grow-1 bg-white px-2 rounded-pill align-items-center shadow">
+                <button type="submit" class="btn btn-link text-dark">
+                    <i class="bi bi-search"></i>
+                </button>
+
+                <input 
+                    type="search"
+                    class="form-control border-0 shadow-none"
+                    placeholder="Search activity..."
+                    name="activity"
+                    [(ngModel)]="searchText"
+                    (ngModelChange)="onSearchChange($event)"
+                >
+            </form>
+            
+            <button class="btn d-lg-none" (click)="showFilters()">
+                <i class="bi bi-filter fs-5"></i>
             </button>
-            <input 
-                type="search" 
-                placeholder="Search activity..." 
-                name="activity"
-                [(ngModel)]="searchText"
-                (ngModelChange)="onSearchChange($event)"
-            >
-        </form>
-        
-        <button id="openFilters" (click)="showFilters()"><i class="bi bi-filter"></i></button>
+
+        </div>
+
+    </div>
+    
+    <div class="row">
+
+        <aside class="col-lg-3 d-none d-lg-block">
+            <app-filter-bar
+                [blockedFilters]="blockedFilters"
+            ></app-filter-bar>
+        </aside>
+
+        <section class="col-12 col-lg-9">
+
+            <div class="row g-4">
+
+                @for(activity of filteredActivities; track $index){
+                    <div class="col-12 col-md-6 col-xl-4">
+                        <app-activity2 [activity]="activity"></app-activity2>
+                    </div>
+                }
+
+            </div>
+
+        </section>
+
     </div>
 
+</main>
 
+<div id="filtersDrawer" class="filters-drawer">
     <app-filter-bar
         [blockedFilters]="blockedFilters"
         (filterClosed)="showFilters()"
     ></app-filter-bar>
+</div>
 
-    <div id="filtersOverlay"></div>
-
-    <section>
-        @for(activity of filteredActivities; track $index){
-            <app-activity2 
-                [activity]="activity"
-            ></app-activity2>
-        }
-    </section>
-
-</main>
+<div id="filtersOverlay" (click)="showFilters()"></div>

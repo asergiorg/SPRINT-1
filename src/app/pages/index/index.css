@@ -10,14 +10,12 @@ body {
     color: #333;
 }
 
-/*Search Container*/
 #search-container {
     width: 100%;
     height: 400px;
     background-image: url("/images/activities/duna.jpg");
     background-size: cover;
     background-position: center;
-    position: relative;
 
     display: flex;
     justify-content: center;
@@ -26,15 +24,14 @@ body {
 
 #bar-search-container {
     width: 500px;
-    height: 70px;
-    margin: 0 auto;
+    max-width: 90%;
 }
 
 #bar-search-container form {
     display: flex;
     background: white;
     padding: 8px 12px;
-    border-radius: 25px;
+    border-radius: 50px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
@@ -43,162 +40,154 @@ body {
     outline: none;
     font-size: 16px;
     width: 100%;
-    padding-left: 0.4rem;
-    background: white;
+    padding-left: 0.5rem;
 }
 
 #bar-search-container button {
     background: none;
     border: none;
     cursor: pointer;
-    color: black;
 }
 
-#bar-search-container button:hover {
-    transform: translateY(-1px);
-}
-
-/*Slider Container*/
 #container2 {
-    padding: 30px;
+    padding: 30px 15px;
 }
 
 .slider-wrapper {
     position: relative;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 0px;
 }
 
-.slider{
+.slider {
     display: flex;
-    aspect-ratio: 16/9;
+    overflow-x: auto;
     scroll-snap-type: x mandatory;
-    overflow-x: scroll;
     scroll-behavior: smooth;
-    border-radius: .5rem;
     -webkit-overflow-scrolling: touch;
+
+    border-radius: 10px;
 }
 
 .slider::-webkit-scrollbar {
     display: none;
 }
 
-.slider .activity{
-    flex: 1 0 100%;
+.slider .activity {
+    flex: 0 0 100%;
     scroll-snap-align: start;
+
     display: flex;
-    align-items: center;
     gap: 1.5rem;
     padding: 1.5rem;
-    background: #fff;
-    border-radius: .5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    background: white;
+    border-radius: 10px;
+
     cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .slider .activity:hover {
     transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
 }
 
-.slider-nav{
-    display: flex;
-    column-gap: 1.65rem;
-    position: absolute;
-    bottom: 1.25rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
-    padding-top: 20px;
-}
-
-.slider-nav a {
-    width: .5rem;
-    height: .5rem;
-    border-radius: 50%;
-    background: #000;
-    opacity: .75;
-    transition: opacity ease 250ms;
-}
-
-.slider-nav:hover{
-    opacity: 1;
-}
-
-/* Activity1 Card */
 .activity img {
-    width: 60%;
-    height: 95%;
+    width: 55%;
+    height: 100%;
     object-fit: cover;
-    border-radius: .3rem;
+    border-radius: 6px;
 }
 
 .activity .description {
-    width: 60%;
+    width: 45%;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .activity .description h3 {
-    margin: 0 0 .5rem 0;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
 }
 
 .activity .description p {
-    margin: 0;
     line-height: 1.4;
 }
 
-.home {
-    display: none !important;
+.slider-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.slider-nav a {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #000;
+    opacity: 0.4;
+    transition: 0.3s;
+}
+
+.slider-nav a:hover {
+    opacity: 1;
+}
+
+@media (max-width: 1024px) {
+
+    .slider .activity {
+        padding: 1rem;
+    }
+
+    .activity img {
+        width: 50%;
+    }
+
+    .activity .description {
+        width: 50%;
+    }
+
+    .slider-nav {
+        display: none;
+    }
 }
 
 @media (max-width: 767px) {
 
     #search-container {
-        height: 350px;
+        height: 320px;
     }
 
-    #bar-search-container {
-        width: 90%;
-        padding: 0 15px;
-    }
-
-    .slider-nav{
-        display: none;
-    }
-
-    .slider .activity{
+    .slider .activity {
+        flex-direction: column;
         padding: 1rem;
     }
 
-    .activity img{
-        height: 100%;
+    .activity img {
+        width: 100%;
+        height: 200px;
+    }
+
+    .activity .description {
+        width: 100%;
     }
 
     .activity .description h3 {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 
     .activity .description p {
         display: none;
     }
-}
 
-@media (max-width: 1024px) {
-    
-    .slider-nav{
+    .slider-nav {
         display: none;
     }
-
-    .slider .activity{
-        padding: 1rem;
-    }
-
-    .activity img{
-        height: 100%;
-    }
 }
-   

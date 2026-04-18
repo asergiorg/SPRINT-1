@@ -20,7 +20,6 @@ export class Index implements OnInit{
   ngOnInit(): void {
     this.activitiesService.getActivities().subscribe(data => {
       this.activities = data.slice(0, 5);
-      console.log('data:', data);
     });
   }
 
