@@ -23,7 +23,7 @@ export class ActivictiesCatalog implements OnInit {
   constructor(private activitiesService: ActivitiesService){}
 
   ngOnInit(): void {
-    this.activitiesService.getActivities().subscribe(data => {
+    this.activitiesService.getAll().subscribe(data => {
       this.activities = data;
     });
   }

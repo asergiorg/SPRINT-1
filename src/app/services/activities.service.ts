@@ -8,12 +8,17 @@ import { Activity } from '../models/activity.model';
 })
 export class ActivitiesService {
 
-  readonly jsonUrl = 'assets/data/activities.json';
+  readonly baseUrl = 'http://localhost:3000';
 
   constructor(private http: HttpClient){}
 
-  getActivities(): Observable<Activity[]> {
-    return this.http.get<Activity[]>(this.jsonUrl)
+  getAll(): Observable<Activity[]> {
+    return this.http.get<Activity[]>(`${this.baseUrl}/activities`)
+    .pipe(catchError(this.handleError));
+  }
+
+  getById(id: string): Observable<Activity> {
+    return this.http.get<Activity>(`${this.baseUrl}/activities/${id}`)
     .pipe(catchError(this.handleError));
   }
 
