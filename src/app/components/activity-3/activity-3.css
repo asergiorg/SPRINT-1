@@ -1,27 +1,46 @@
 :host {
-    display: block;
-    width: 100%; /* Ocupa toda su "celda" del Grid */
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-/* Tu clase activity-card se queda sin anchos, solo el diseño visual */
-.activity-card {
-    height: 100%; 
-    box-sizing: border-box;
-    border: 1px solid #e6e9ef;
-    padding: 12px;
-    border-radius: 0.6rem;
-    display: block;
-    background: #fff;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+:host:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
 }
 
-.activity-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+.activity-image {
+  width: 100%;
+  aspect-ratio: 16 / 9; 
+  object-fit: cover;    
+  display: block;
 }
 
-.activity-card h3 {
-    font-size: 14px;
-    margin: 0 0 6px;
+.activity-info {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.activity-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #333;
+  text-decoration: none;
+}
+
+.activity-name:hover {
+  color: #007bff;
+}
+
+.valoracion {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
 }

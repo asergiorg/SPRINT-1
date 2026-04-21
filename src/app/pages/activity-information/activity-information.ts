@@ -70,7 +70,6 @@ export class ActivityInformation implements OnInit {
       });
       this.reviewService.getAll().subscribe({
         next: (todasLasResenas) => {
-          // Forzamos a que ambos sean texto (String) para que coincidan 100% sí o sí
           this.reviews = todasLasResenas.filter(resena => String(resena.activity) === String(id));
           
           this.cdr.detectChanges();
@@ -105,7 +104,7 @@ export class ActivityInformation implements OnInit {
     }
 
     const newReview: ReviewData = {
-      reviewer: 'Usuario Actual', // Aquí pondrías el nombre del usuario logueado
+      reviewer: 'Usuario Actual', // Aquí va el nombre del usuario logueado
       activity: this.activity.id,
       rating: this.currentRating,
       comment: this.newComment
@@ -164,7 +163,6 @@ export class ActivityInformation implements OnInit {
     this.selectedDate = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), day);
   }
 
-  // Función auxiliar para que el HTML sepa si pintar un día de azul (seleccionado)
   isSelected(day: number): boolean {
     if (!this.selectedDate) return false;
     return this.selectedDate.getDate() === day &&
@@ -172,16 +170,12 @@ export class ActivityInformation implements OnInit {
            this.selectedDate.getFullYear() === this.currentDate.getFullYear();
   }
 
-  // Añade esta función debajo de isSelected()
   isPastDate(day: number): boolean {
-    // 1. Obtenemos la fecha exacta de HOY y la ponemos a las 00:00:00
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
-    // 2. Creamos la fecha del día que el calendario está intentando pintar
     const dateToCheck = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), day);
 
-    // 3. Comparamos. Si la fecha a comprobar es menor que hoy, devuelve 'true' (está en el pasado)
     return dateToCheck < today;
   } 
   
@@ -249,5 +243,12 @@ export class ActivityInformation implements OnInit {
   getId(): string {
     const reservation = this.stateService.reservation();
     return (reservation) ? reservation.id : 'new';
+  }
+
+  // Panel desplazable
+  isPanelOpen: boolean = false;
+
+  toggleReservationPanel(): void {
+    this.isPanelOpen = !this.isPanelOpen;
   }
 }

@@ -3,280 +3,517 @@
     {
       "name": "Excursión en bicicleta por el Roque Nublo",
       "description": "Disfruta de una emocionante excursión en bicicleta por el emblemático Roque Nublo, una formación rocosa icónica de Gran Canaria. Explora senderos rodeados de naturaleza y disfruta de vistas panorámicas impresionantes.",
-      "image": ["assets/images/activities/roque-nublo.jpg"],
+      "image": [
+        "assets/images/activities/roque-nublo.jpg"
+      ],
       "dificulty": "Moderate",
       "duration": "1 horas",
       "type": "activity",
       "category": "Hiking",
-      "hours": ["08:00", "09:30", "11:00", "12:00", "14:00"],
+      "hours": [
+        "08:00",
+        "09:30",
+        "11:00",
+        "12:00",
+        "14:00"
+      ],
       "price": 20,
-      "languages": ["Spanish", "English", "French"],
+      "languages": [
+        "Spanish",
+        "English",
+        "French"
+      ],
       "rating": 4.5,
       "id": "1511"
     },
     {
       "name": "Caminata por el Barranco de Guayadeque",
       "description": "Explora el impresionante barranco de Guayadeque, un valle natural rodeado de vegetación y formaciones rocosas únicas. Disfruta de senderos que te llevan a descubrir paisajes naturales y una rica biodiversidad.",
-      "image": ["assets/images/activities/guayadeque.jpg"],
+      "image": [
+        "assets/images/activities/guayadeque.jpg"
+      ],
       "dificulty": "Easy",
       "duration": "2 horas",
       "type": "activity",
       "category": "Hiking",
-      "hours": ["08:00", "09:30", "11:00", "12:00", "14:00"],
+      "hours": [
+        "08:00",
+        "09:30",
+        "11:00",
+        "12:00",
+        "14:00"
+      ],
       "price": 15,
-      "languages": ["Spanish", "English", "French", "German"],
+      "languages": [
+        "Spanish",
+        "English",
+        "French",
+        "German"
+      ],
       "rating": 3.5,
       "id": "2465"
     },
     {
       "name": "Paseo en barco por la costa de Mogán",
       "description": "Disfruta de un relajante paseo en barco por la costa de Mogán, con vistas al mar y paisajes naturales únicos.",
-      "image": ["assets/images/activities/costa-mogan.jpg"],
+      "image": [
+        "assets/images/activities/costa-mogan.jpg"
+      ],
       "dificulty": "Easy",
       "duration": "30 min",
       "type": "activity",
       "category": "Coastal",
-      "hours": ["08:00", "09:30", "11:00", "12:00", "14:00"],
+      "hours": [
+        "08:00",
+        "09:30",
+        "11:00",
+        "12:00",
+        "14:00"
+      ],
       "price": 35,
-      "languages": ["Spanish", "English"],
+      "languages": [
+        "Spanish",
+        "English"
+      ],
       "rating": 4.8,
       "id": "7589"
     },
     {
       "name": "Escalada en las Montañas Sagradas de Gran Canaria",
       "description": "Disfruta de una emocionante escalada en las Montañas Sagradas de Gran Canaria, con vistas panorámicas y paisajes naturales únicos.",
-      "image": ["assets/images/activities/agaete.jpg"],
+      "image": [
+        "assets/images/activities/agaete.jpg"
+      ],
       "dificulty": "Hard",
       "duration": "3 horas",
       "type": "activity",
       "category": "Hiking",
-      "hours": ["08:00", "09:30", "11:00", "12:00", "14:00"],
+      "hours": [
+        "08:00",
+        "09:30",
+        "11:00",
+        "12:00",
+        "14:00"
+      ],
       "price": 70,
-      "languages": ["Spanish", "English"],
+      "languages": [
+        "Spanish",
+        "English"
+      ],
       "rating": 4.7,
       "id": "5632"
     },
     {
       "name": "Yoga en las Dunas de Maspalomas",
       "description": "Disfruta de una sesión de yoga en las dunas de Maspalomas, con vistas al mar y una experiencia relajante en medio de la naturaleza.",
-      "image": ["assets/images/activities/duna.jpg"],
+      "image": [
+        "assets/images/activities/duna.jpg"
+      ],
       "dificulty": "Easy",
       "duration": "1 horas",
       "type": "activity",
       "category": "Relaxation",
-      "hours": ["08:00", "09:30", "11:00", "12:00", "14:00"],
+      "hours": [
+        "08:00",
+        "09:30",
+        "11:00",
+        "12:00",
+        "14:00"
+      ],
       "price": 30,
-      "languages": ["Spanish", "English", "French", "German"],
-      "rating": 4.0,
+      "languages": [
+        "Spanish",
+        "English",
+        "French",
+        "German"
+      ],
+      "rating": 4,
       "id": "4521"
     },
     {
       "name": "Kayaking en la Playa de las Canteras",
       "description": "Disfruta de una emocionante excursión en kayak por la Playa de las Canteras, con vistas al mar y paisajes naturales únicos.",
-      "image": ["assets/images/activities/canteras.jpg"],
+      "image": [
+        "assets/images/activities/canteras.jpg"
+      ],
       "dificulty": "Easy",
       "duration": "1 horas",
       "type": "activity",
       "category": "Coastal",
-      "hours": ["08:00", "09:30", "11:00", "12:00", "14:00"],
+      "hours": [
+        "08:00",
+        "09:30",
+        "11:00",
+        "12:00",
+        "14:00"
+      ],
       "price": 40,
-      "languages": ["Spanish", "English"],
+      "languages": [
+        "Spanish",
+        "English"
+      ],
       "rating": 4.9,
       "id": "6489"
     },
     {
       "name": "Surf en la Playa de El Confital",
       "description": "Disfruta de una emocionante sesión de surf en la Playa de El Confital, con olas ideales para principiantes y expertos.",
-      "image": ["assets/images/activities/canteras.jpg"],
+      "image": [
+        "assets/images/activities/canteras.jpg"
+      ],
       "dificulty": "Easy",
       "duration": "1 horas",
       "type": "activity",
       "category": "Coastal",
-      "hours": ["08:00", "09:30", "11:00", "12:00", "14:00"],
+      "hours": [
+        "08:00",
+        "09:30",
+        "11:00",
+        "12:00",
+        "14:00"
+      ],
       "price": 30,
-      "languages": ["Spanish", "English", "French", "German"],
+      "languages": [
+        "Spanish",
+        "English",
+        "French",
+        "German"
+      ],
       "rating": 4.6,
       "id": "4890"
     },
     {
       "name": "Parapente sobre el Valle de Agaete",
       "description": "Disfruta de una emocionante sesión de parapente sobre el Valle de Agaete, con vistas panorámicas y paisajes naturales únicos.",
-      "image": ["assets/images/activities/agaete.jpg"],
+      "image": [
+        "assets/images/activities/agaete.jpg"
+      ],
       "dificulty": "Medium",
       "duration": "20 min",
       "type": "activity",
       "category": "Aerial",
-      "hours": ["08:00", "09:30", "11:00", "12:00", "14:00"],
+      "hours": [
+        "08:00",
+        "09:30",
+        "11:00",
+        "12:00",
+        "14:00"
+      ],
       "price": 60,
-      "languages": ["Spanish", "English", "German"],
-      "rating": 4.0,
+      "languages": [
+        "Spanish",
+        "English",
+        "German"
+      ],
+      "rating": 4,
       "id": "8904"
     },
     {
       "name": "Visita guiada al Jardín Botánico Viera y Clavijo",
       "description": "Disfruta de una emocionante visita guiada al Jardín Botánico Viera y Clavijo, con vistas a una rica variedad de plantas exóticas y nativas.",
-      "image": ["assets/images/activities/jardin-botanico.jpg"],
+      "image": [
+        "assets/images/activities/jardin-botanico.jpg"
+      ],
       "dificulty": "Easy",
       "duration": "1 horas",
       "type": "activity",
       "category": "Hiking",
-      "hours": ["08:00", "09:30", "11:00", "12:00", "14:00"],
+      "hours": [
+        "08:00",
+        "09:30",
+        "11:00",
+        "12:00",
+        "14:00"
+      ],
       "price": 20,
-      "languages": ["Spanish", "English", "French", "German"],
+      "languages": [
+        "Spanish",
+        "English",
+        "French",
+        "German"
+      ],
       "rating": 4.2,
       "id": "7123"
     },
     {
       "name": "Paseo a caballo por el Parque Natural de Tamadaba",
       "description": "Disfruta de un emocionante paseo a caballo por el Parque Natural de Tamadaba, con vistas a paisajes naturales únicos.",
-      "image": ["assets/images/activities/guayadeque.jpg"],
+      "image": [
+        "assets/images/activities/guayadeque.jpg"
+      ],
       "dificulty": "Easy",
       "duration": "2 horas",
       "type": "activity",
       "category": "Gastronomy",
-      "hours": ["08:00", "09:30", "11:00", "12:00", "14:00"],
+      "hours": [
+        "08:00",
+        "09:30",
+        "11:00",
+        "12:00",
+        "14:00"
+      ],
       "price": 50,
-      "languages": ["Spanish", "English"],
+      "languages": [
+        "Spanish",
+        "English"
+      ],
       "rating": 4.3,
       "id": "8934"
     },
     {
       "name": "Snorkeling en la Reserva Marina de El Cabrón",
       "description": "Disfruta de una emocionante sesión de snorkeling en la Reserva Marina de El Cabrón, con vistas a una rica biodiversidad marina.",
-      "image": ["assets/images/activities/costa-mogan.jpg"],
+      "image": [
+        "assets/images/activities/costa-mogan.jpg"
+      ],
       "dificulty": "Easy",
       "duration": "1 horas",
       "type": "activity",
       "category": "Coastal",
-      "hours": ["08:00", "09:30", "11:00", "12:00", "14:00"],
+      "hours": [
+        "08:00",
+        "09:30",
+        "11:00",
+        "12:00",
+        "14:00"
+      ],
       "price": 25,
-      "languages": ["Spanish", "English", "German", "French"],
+      "languages": [
+        "Spanish",
+        "English",
+        "German",
+        "French"
+      ],
       "rating": 4.8,
       "id": "9785"
     },
     {
       "name": "Caminata nocturna por el Parque Natural de Pilancones",
       "description": "Disfruta de una emocionante caminata nocturna por el Parque Natural de Pilancones, con vistas a paisajes naturales únicos y una rica biodiversidad.",
-      "image": ["assets/images/activities/guayadeque.jpg"],
+      "image": [
+        "assets/images/activities/guayadeque.jpg"
+      ],
       "dificulty": "Easy",
       "duration": "2 horas",
       "type": "activity",
       "category": "Hiking",
-      "hours": ["08:00", "09:30", "11:00", "12:00", "14:00"],
+      "hours": [
+        "08:00",
+        "09:30",
+        "11:00",
+        "12:00",
+        "14:00"
+      ],
       "price": 15,
-      "languages": ["Spanish", "English"],
+      "languages": [
+        "Spanish",
+        "English"
+      ],
       "rating": 4.1,
       "id": "1566"
     },
     {
       "name": "Visita a la Cueva Pintada de Gáldar",
       "description": "Disfruta de una emocionante visita a la Cueva Pintada de Gáldar, con vistas a pinturas rupestres antiguas y una rica historia cultural.",
-      "image": ["assets/images/activities/cueva-pintada.jpg"],
+      "image": [
+        "assets/images/activities/cueva-pintada.jpg"
+      ],
       "dificulty": "Easy",
       "duration": "1 horas",
       "type": "activity",
       "category": "Cultural",
-      "hours": ["08:00", "09:30", "11:00", "12:00", "14:00"],
+      "hours": [
+        "08:00",
+        "09:30",
+        "11:00",
+        "12:00",
+        "14:00"
+      ],
       "price": 10,
-      "languages": ["Spanish", "English"],
+      "languages": [
+        "Spanish",
+        "English"
+      ],
       "rating": 4.4,
       "id": "2678"
     },
     {
       "name": "Ruta de quesos y vinos en el Valle de Agaete",
       "description": "Disfruta de una emocionante ruta de quesos y vinos en el Valle de Agaete, con vistas a paisajes naturales únicos y una rica cultura gastronómica.",
-      "image": ["assets/images/activities/agaete.jpg"],
+      "image": [
+        "assets/images/activities/agaete.jpg"
+      ],
       "dificulty": "Easy",
       "duration": "3 horas",
       "type": "activity",
       "category": "Gastronomy",
-      "hours": ["08:00", "09:30", "11:00", "12:00", "14:00"],
+      "hours": [
+        "08:00",
+        "09:30",
+        "11:00",
+        "12:00",
+        "14:00"
+      ],
       "price": 30,
-      "languages": ["Spanish", "English", "French"],
+      "languages": [
+        "Spanish",
+        "English",
+        "French"
+      ],
       "rating": 4.5,
       "id": "3789"
     },
     {
       "name": "Museo Elder de la Ciencia y la Tecnología",
       "description": "Disfruta de una emocionante visita al Museo Elder de la Ciencia y la Tecnología, con vistas a exposiciones interactivas y una rica historia científica.",
-      "image": ["assets/images/activities/elder.jpg"],
+      "image": [
+        "assets/images/activities/elder.jpg"
+      ],
       "dificulty": "Easy",
       "duration": "2 horas",
       "type": "activity",
       "category": "Cultural",
-      "hours": ["08:00", "09:30", "11:00", "12:00", "14:00"],
+      "hours": [
+        "08:00",
+        "09:30",
+        "11:00",
+        "12:00",
+        "14:00"
+      ],
       "price": 12,
-      "languages": ["Spanish", "English"],
+      "languages": [
+        "Spanish",
+        "English"
+      ],
       "rating": 4.3,
       "id": "4980"
     },
     {
       "name": "Paseo en globo aerostático sobre Gran Canaria",
       "description": "Disfruta de un emocionante paseo en globo aerostático sobre Gran Canaria, con vistas panorámicas y paisajes naturales únicos.",
-      "image": ["assets/images/activities/agaete.jpg"],
+      "image": [
+        "assets/images/activities/agaete.jpg"
+      ],
       "dificulty": "Hard",
       "duration": "1 horas",
       "type": "activity",
       "category": "Aerial",
-      "hours": ["08:00", "09:30", "11:00", "12:00", "14:00"],
+      "hours": [
+        "08:00",
+        "09:30",
+        "11:00",
+        "12:00",
+        "14:00"
+      ],
       "price": 150,
-      "languages": ["Spanish", "English", "French", "German"],
+      "languages": [
+        "Spanish",
+        "English",
+        "French",
+        "German"
+      ],
       "rating": 4.9,
       "id": "8901"
     },
     {
       "name": "Visita al Mercado de Vegueta en Las Palmas",
       "description": "Disfruta de una emocionante visita al Mercado de Vegueta en Las Palmas, con vistas a una rica variedad de productos locales y una vibrante cultura gastronómica.",
-      "image": ["assets/images/activities/vegueta.jpg"],
+      "image": [
+        "assets/images/activities/vegueta.jpg"
+      ],
       "dificulty": "Easy",
       "duration": "1 horas",
       "type": "activity",
       "category": "Gastronomy",
-      "hours": ["08:00", "09:30", "11:00", "12:00", "14:00"],
+      "hours": [
+        "08:00",
+        "09:30",
+        "11:00",
+        "12:00",
+        "14:00"
+      ],
       "price": 5,
-      "languages": ["Spanish", "English"],
+      "languages": [
+        "Spanish",
+        "English"
+      ],
       "rating": 4.2,
       "id": "7133"
     },
     {
       "name": "Caminata por el Parque Natural de Tamadaba",
       "description": "Disfruta de una emocionante caminata por el Parque Natural de Tamadaba, con vistas a paisajes naturales únicos y una rica biodiversidad.",
-      "image": ["assets/images/activities/guayadeque.jpg"],
+      "image": [
+        "assets/images/activities/guayadeque.jpg"
+      ],
       "dificulty": "Medium",
       "duration": "3 horas",
       "type": "activity",
       "category": "Hiking",
-      "hours": ["08:00", "09:30", "11:00", "12:00", "14:00"],
+      "hours": [
+        "08:00",
+        "09:30",
+        "11:00",
+        "12:00",
+        "14:00"
+      ],
       "price": 20,
-      "languages": ["Spanish", "English", "French"],
+      "languages": [
+        "Spanish",
+        "English",
+        "French"
+      ],
       "rating": 4.6,
       "id": "8234"
     },
     {
       "name": "Visita al Museo Canario en Las Palmas",
       "description": "Disfruta de una emocionante visita al Museo Canario en Las Palmas, con vistas a exposiciones sobre la historia y cultura de las Islas Canarias.",
-      "image": ["assets/images/activities/vegueta.jpg"],
+      "image": [
+        "assets/images/activities/vegueta.jpg"
+      ],
       "dificulty": "Easy",
       "duration": "2 horas",
       "type": "activity",
       "category": "Cultural",
-      "hours": ["08:00", "09:30", "11:00", "12:00", "14:00"],
+      "hours": [
+        "08:00",
+        "09:30",
+        "11:00",
+        "12:00",
+        "14:00"
+      ],
       "price": 8,
-      "languages": ["Spanish", "English"],
+      "languages": [
+        "Spanish",
+        "English"
+      ],
       "rating": 4.4,
       "id": "9345"
     },
     {
       "name": "Paseo en catamarán por la costa de Gran Canaria",
       "description": "Disfruta de un relajante paseo en catamarán por la costa de Gran Canaria, con vistas al mar y paisajes naturales únicos.",
-      "image": ["assets/images/activities/costa-mogan.jpg"],
+      "image": [
+        "assets/images/activities/costa-mogan.jpg"
+      ],
       "dificulty": "Easy",
       "duration": "2 horas",
       "type": "activity",
       "category": "Coastal",
-      "hours": ["08:00", "09:30", "11:00", "12:00", "14:00"],
+      "hours": [
+        "08:00",
+        "09:30",
+        "11:00",
+        "12:00",
+        "14:00"
+      ],
       "price": 50,
-      "languages": ["Spanish", "English", "French"],
+      "languages": [
+        "Spanish",
+        "English",
+        "French"
+      ],
       "rating": 4.7,
       "id": "1567"
     }
@@ -379,6 +616,19 @@
       "price": 240,
       "totalToPay": 80,
       "activityId": "YpRoIa8qAkE"
+    },
+    {
+      "id": "S6w__EXAXV8",
+      "type": "reservation",
+      "activity": "Paseo en barco por la costa de Mogán",
+      "date": "2026-04-30",
+      "time": "11:00",
+      "participants": 2,
+      "holder": "Jhon Doe",
+      "status": "Confirmed",
+      "price": 70,
+      "totalToPay": 70,
+      "activityId": "7589"
     }
   ],
   "reviews": [
@@ -437,6 +687,13 @@
       "rating": 3,
       "comment": "hhhhh",
       "id": "Tcv4L2___k4"
+    },
+    {
+      "reviewer": "Usuario Actual",
+      "activity": "7589",
+      "rating": 2,
+      "comment": "Hola",
+      "id": "mT7LA1lGBB8"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
