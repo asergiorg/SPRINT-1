@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Activity1 } from '../../components/activity1/activity1';
 import { Header } from '../../components/header/header';
 import { Activity } from '../../models/activity.model';
-import { ActivitiesService } from '../../services/activities.service';
+import { ActivityService } from '../../services/activities';
 
 
 @Component({
@@ -15,10 +15,10 @@ import { ActivitiesService } from '../../services/activities.service';
 export class Index implements OnInit{
   activities: Activity[] = [];
 
-  constructor(private activitiesService: ActivitiesService){}
-  
+  constructor(private activitiesService: ActivityService){}
+
   ngOnInit(): void {
-    this.activitiesService.getAll().subscribe(data => {
+    this.activitiesService.getActivities().subscribe(data => {
       this.activities = data.slice(0, 5);
     });
   }

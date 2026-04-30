@@ -1,142 +1,34 @@
-    /* Reviews */
-    .review{
-        background:transparent;
-        padding:0;
-        margin-bottom:12px
-    }
+.review-item {
+  border-bottom: 1px solid #eee;
+  padding: 1rem 0;
+}
 
-    .review-item{
-        display:flex;
-        gap:12px;
-        align-items:flex-start;
-        padding:12px;
-        background:#fafafa;
-        border-radius:8px;
-        box-shadow:0 2px 6px rgba(16,24,40,0.04);
-        margin-bottom:12px
-    }
-    
-    .review-header{
-        display:flex;
-        align-items:flex-start;
-        justify-content:space-between;
-        width: 100%;
-        gap:8px;
-        margin-bottom:8px
-    }
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
 
-    .avatar{
-        display:flex;
-        align-items:center;
-        gap:8px
-    }
+.avatar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-    .review-header h3{
-        margin:0
-    }
+.star {
+  color: #ccc;
+}
 
-    .review-content {
-        width: 100%;
-    }
+.star.filled {
+  color: #ffc107;
+}
 
-    .review > h2{
-        margin-bottom:14px
-    }
+.photo-wrapper img {
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
 
- /* Static star styles for reviews */
-    .rating{
-        display:flex;
-        gap:6px;
-        align-items:center
-    }
-
-    .star {
-        width:18px;
-        height:18px;
-        display:inline-block;
-        cursor: pointer;
-        color: #ddd;
-        transition: color 0.2s ease, transform 0.2s ease;
-    }
-
-    .rating:hover .star {
-        color: #ffb400;
-    }
-
-    .rating .star:hover ~ .star {
-        color: #ddd;
-    }
-
-    .star.filled {
-        color: #ffb400 !important;
-    }
-
-    .comment-box {
-        background-color: #fff;
-        padding: 10px 14px;
-        border-radius: 6px;
-        margin-top: 6px;
-        margin-bottom: 0;
-        font-size: 14px;
-        color: #333;
-        border: 1px solid #eaeaea;
-        width: 100%;
-        box-sizing: border-box;
-        font-family: inherit;
-        resize: vertical;
-        outline: none;
-    }
-
-    .comment-box:focus {
-        border-color: #ccc;
-    }
-
-    .submit-action {
-        display: flex;
-        justify-content: flex-end;
-        margin-top: 10px; 
-    }
-
-    .submit-btn {
-        background-color: #333;
-        color: #fff;
-        border: none;
-        padding: 8px 16px;
-        border-radius: 6px;
-        font-size: 14px;
-        font-family: inherit;
-        font-weight: 500;
-        cursor: pointer;
-        transition: background-color 0.2s ease;
-    }
-
-    .submit-btn:hover {
-        background-color: #555;
-    }
-
-    @keyframes beat {
-        0%    { transform: scale(1); }
-        50%   { transform: scale(1.4); }
-        100%  { transform: scale(1); }
-    }
-
-    .star:active {
-        animation: beat 0.3s ease-in-out;
-    }
-
-    .star:hover {
-        transform: scale(1.15);
-    }
-
-    .char-counter {
-        font-size: 12px;
-        color: #888;
-        text-align: right;
-        margin-top: 4px;
-        font-family: 'Poppins', sans-serif;
-    }
-
-    .char-counter.limit-reached {
-        color: #ff6b6b;
-        font-weight: bold;
-    }
+.photo-wrapper img:hover {
+  transform: scale(1.05);
+}

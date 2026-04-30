@@ -1,24 +1,67 @@
-import { Injectable, inject } from "@angular/core";
-import { DatabaseService } from "./database-service";
-import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { Injectable, inject } from '@angular/core';
+import { Firestore, collection, doc, addDoc, updateDoc, deleteDoc, collectionData, docData } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { ReviewData } from '../pages/activity-information/activity-information';
+import { HttpClient } from '@angular/common/http';
 
-@Injectable({
-    providedIn: "root"
-})
-export class ReviewsService implements DatabaseService {
-    private http = inject(HttpClient);
-    private baseUrl = "http://localhost:3000/reviews";
+@Injectable({ providedIn: 'root' })
+export class ReviewService {
+  private firestore = inject(Firestore);
+  private collectionName = 'reviews';
 
-    getAll(): Observable<any[]> {
-        return this.http.get<any[]>(this.baseUrl);
+  constructor(private http: HttpClient) {}
+
+  async addReview(data: ReviewData): Promise<string> {
+    try {
+      const ref = collection(this.firestore, this.collectionName);
+      const docRef = await addDoc(ref, data);
+      return docRef.id;
+    } catch (error) {
+      console.error('Error al añadir Review:', error);
+      throw error;
     }
+  }
 
-    save(data: any): Observable<any> {
-        return this.http.post(this.baseUrl, data);
-    }
+  getReviews(): Observable<any> {
+    const ref = collection(this.firestore, this.collectionName);
+    return collectionData(ref, { idField: 'id' });
+  }
 
-    delete(id: string): Observable<any> {
-        return this.http.delete(`${this.baseUrl}/${id}`);
+  getReviewById(id: string): Observable<any> {
+    const ref = doc(this.firestore, `${this.collectionName}/${id}`);
+    return docData(ref, { idField: 'id' });
+  }
+
+  async updateReview(id: string, data: any): Promise<void> {
+    try {
+      const ref = doc(this.firestore, `${this.collectionName}/${id}`);
+      await updateDoc(ref, data);
+    } catch (error) {
+      console.error('Error al actualizar Review:', error);
+      throw error;
     }
+  }
+
+  async uploadToCloudinary(file: File): Promise<string> {
+    const cloudName = 'dro3xapg0';
+    const uploadPreset = 'reseñas';
+    const url = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`;
+
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('upload_preset', uploadPreset);
+
+    const response: any = await this.http.post(url, formData).toPromise();
+    return response.secure_url;
+  }
+
+  async deleteReview(id: string): Promise<void> {
+    try {
+      const ref = doc(this.firestore, `${this.collectionName}/${id}`);
+      await deleteDoc(ref);
+    } catch (error) {
+      console.error('Error al eliminar Review:', error);
+      throw error;
+    }
+  }
 }

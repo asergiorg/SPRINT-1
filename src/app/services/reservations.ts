@@ -1,33 +1,52 @@
 import { Injectable, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { DatabaseService } from './database-service';
+import { Firestore, collection, doc, addDoc, updateDoc, deleteDoc, collectionData, docData } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Reservation } from '../models/reservation.model';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class ReservationsDatabaseService implements DatabaseService {
-  private http = inject(HttpClient);
-  private baseUrl = 'http://localhost:3000';
+@Injectable({ providedIn: 'root' })
+export class ReservationService {
+  private firestore = inject(Firestore);
+  private collectionName = 'reservations';
 
-  getAll(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/reservations`);
+  async addReservation(data: Reservation): Promise<string> {
+    try {
+      const ref = collection(this.firestore, this.collectionName);
+      const docRef = await addDoc(ref, data);
+      return docRef.id;
+    } catch (error) {
+      console.error("Error al añadir Reservation:", error);
+      throw error;
+    }
   }
 
-  getById(id: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/reservations/${id}`);
+  getReservations(): Observable<any> {
+    const ref = collection(this.firestore, this.collectionName);
+    return collectionData(ref, { idField: 'id' });
   }
 
-  save(data: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}/reservations`, data);
+  getReservationById(id: string): Observable<any> {
+    const ref = doc(this.firestore, `${this.collectionName}/${id}`);
+    return docData(ref, { idField: 'id' });
   }
 
-  update(id: string, data: Reservation): Observable<any> {
-    return this.http.put(`${this.baseUrl}/reservations/${id}`, data);
+  async updateReservation(id: string, data: any): Promise<void> {
+    try {
+      const ref = doc(this.firestore, `${this.collectionName}/${id}`);
+      await updateDoc(ref, data);
+    } catch (error) {
+      console.error("Error al actualizar Reservation:", error);
+      throw error;
+    }
   }
 
-  delete(id: string): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/reservations/${id}`);
+  async deleteReservation(id: string): Promise<void> {
+    try {
+      const ref = doc(this.firestore, `${this.collectionName}/${id}`);
+      await deleteDoc(ref);
+    } catch (error) {
+      console.error("Error al eliminar Reservation:", error);
+      throw error;
+    }
   }
+
 }

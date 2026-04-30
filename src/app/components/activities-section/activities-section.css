@@ -1,72 +1,86 @@
-    .section-card {
-        background:var(--card-bg);
-        padding:18px;
-        border-radius: 0.6rem;
-        box-shadow:0 6px 18px rgba(16,24,40,0.06);
-        margin-bottom:20px
-    }
+:host {
+  display: block;
+  width: 100%;
+}
 
-    .section-card header {
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-        margin-bottom:12px
-    }
+.section-card {
+  background: var(--card-bg);
+  padding: 18px;
+  border-radius: 0.6rem;
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
 
-    .colapse{
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        padding:12px;
-        margin-top:12px;
-        border-radius:0 0 12px 12px;
-        background:linear-gradient(0deg,#fff,transparent);
-    }
+.section-card header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
 
-    .colapse a {
-        text-decoration: none;
-        color:var(--accent);
-        font-weight:600;
-        cursor: pointer;
-    }
+h2 {
+  font-size: 18px;
+  margin: 0;
+  color: #1a1a1a;
+}
 
-    h2{
-        font-size:18px;
-        margin:0 0 12px 0
-    }
-    
-    .activities-list {
-    display: grid;
-    /* Esto crea exactamente 5 columnas del mismo tamaño (1fr = 1 fracción) */
-    grid-template-columns: repeat(5, 1fr); 
-    gap: 20px;
-    }
-    
-    /* View more */
-    .view-more{
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        border-top:1px solid #eef2ff;
-        padding:12px;
-        margin-top:12px;
-        border-radius:0 0 12px 12px;
-        background:linear-gradient(0deg,#fff,transparent);
-    }
+.view-more, .colapse {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  margin-top: 15px;
+  border-top: 1px solid #f0f0f0;
+  background: linear-gradient(0deg, #fff, transparent);
+}
 
-    .view-more a:hover{
-        color:#003063;
-    }
+.view-more a, .colapse a {
+  text-decoration: none;
+  color: var(--accent) !important;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
 
-    .colapse a:hover{
-        color:#003063;
-    }
+.view-more a:hover, .colapse a:hover {
+  color: #003063;
+}
 
-    .view-more a {
-        text-decoration: none;
-        color:var(--accent) !important;
-        font-weight:600;
-        cursor: pointer;
-    }
+.section-card {
+  background: var(--card-bg);
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+}
 
-    
+app-activity-3, app-reservation-card {
+  display: block;
+  width: 100%;
+}
+
+.row {
+  margin: 0;
+}
+
+@media (max-width: 399px) {
+  .activities-list > * { width: 100%; }
+}
+
+@media (min-width: 400px) and (max-width: 599px) {
+  .activities-list > * { width: calc(50% - 10px); }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+  .activities-list > * { width: calc(33.33% - 13.4px); }
+}
+
+@media (min-width: 900px) and (max-width: 1199px) {
+  .activities-list > * { width: calc(25% - 15px); }
+}
+
+@media (min-width: 1200px) {
+  .activities-list > * { width: calc(20% - 16px); }
+}

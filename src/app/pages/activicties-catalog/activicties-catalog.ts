@@ -3,7 +3,7 @@ import { Header } from '../../components/header/header';
 import { Activity2 } from '../../components/activity2/activity2';
 import { Activity } from '../../models/activity.model';
 import { FilterBar } from '../../components/filter-bar/filter-bar';
-import { ActivitiesService } from '../../services/activities.service';
+import { ActivityService } from '../../services/activities';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -20,10 +20,10 @@ export class ActivictiesCatalog implements OnInit {
 
   activities: Activity[] = [];
 
-  constructor(private activitiesService: ActivitiesService){}
+  constructor(private activitiesService: ActivityService){}
 
   ngOnInit(): void {
-    this.activitiesService.getAll().subscribe(data => {
+    this.activitiesService.getActivities().subscribe(data => {
       this.activities = data;
     });
   }

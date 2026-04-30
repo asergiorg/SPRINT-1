@@ -1,28 +1,53 @@
 import { Injectable, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Firestore, collection, doc, addDoc, updateDoc, deleteDoc, collectionData, docData } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { DatabaseService } from './database-service';
+import { Activity } from '../models/activity.model';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class ActivitiesDatabaseService implements DatabaseService {
-  private http = inject(HttpClient); 
-  private baseUrl = 'http://localhost:3000';
+@Injectable({ providedIn: 'root' })
+export class ActivityService {
+  private firestore = inject(Firestore);
+  private collectionName = 'activities';
 
-  getAll(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/activities`);
+  async addActivity(data: Activity): Promise<string> {
+    try {
+      const ref = collection(this.firestore, this.collectionName);
+      const docRef = await addDoc(ref, data);
+      return docRef.id;
+    } catch (error) {
+      console.error("Error al añadir Activity:", error);
+      throw error;
+    }
   }
 
-  getById(id: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/activities/${id}`);
+  getActivities(): Observable<any> {
+    const ref = collection(this.firestore, this.collectionName);
+    // Inyecta el ID del documento dentro del payload bajo la propiedad 'id'
+    return collectionData(ref, { idField: 'id' });
   }
 
-  save(data: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}/activities`, data);
+  getActivityById(id: string): Observable<any> {
+    const ref = doc(this.firestore, `${this.collectionName}/${id}`);
+    return docData(ref, { idField: 'id' });
   }
 
-  delete(id: string): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/activities/${id}`);
+  async updateActivity(id: string, data: any): Promise<void> {
+    try {
+      const ref = doc(this.firestore, `${this.collectionName}/${id}`);
+      await updateDoc(ref, data);
+    } catch (error) {
+      console.error("Error al actualizar Activity:", error);
+      throw error;
+    }
   }
+
+  async deleteActivity(id: string): Promise<void> {
+    try {
+      const ref = doc(this.firestore, `${this.collectionName}/${id}`);
+      await deleteDoc(ref);
+    } catch (error) {
+      console.error("Error al eliminar Activity:", error);
+      throw error;
+    }
+  }
+
 }

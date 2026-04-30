@@ -1,4 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ElementRef, OnInit, OnDestroy, NgZone, Inject, PLATFORM_ID } from '@angular/core';
+
+import { isPlatformBrowser } from '@angular/common';
+
 import { RouterLink } from '@angular/router';
 import { ReservationCard } from '../reservation-card/reservation-card';
 import { Activity3 } from '../activity-3/activity-3';
@@ -14,26 +17,71 @@ export type Cards = Reservation | Activity;
   templateUrl: './activities-section.html',
   styleUrl: './activities-section.css',
 })
-
-export class ActivitiesSection {
+export class ActivitiesSection implements OnInit, OnDestroy {
   @Input() title: string = '';
   @Input() cards: Cards[] = [];
 
-  // -- CONFIGURACIÓN DE LA VISTA --
-  readonly INITIAL_VIEW_COUNT = 5; // Cuántas cards mostrar al principio o al colapsar
-  readonly VIEW_MORE_STEP = 5;     // Cuántas cards añadir cada vez que das a "View More"
+  initialViewCount: number = 5;
+  viewMoreStep = 5;
 
-  // Esta es la variable que usa el slice() en tu HTML
-  viewCount: number = this.INITIAL_VIEW_COUNT;
+  viewCount: number = this.initialViewCount;
 
-  // -- LÓGICA DE LOS BOTONES --
+  private resizeObserver!: ResizeObserver;
+
+  constructor(
+    private el: ElementRef,
+    private ngZone: NgZone,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
+
+  ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.resizeObserver = new ResizeObserver(entries => {
+        this.ngZone.run(() => {
+          const width = entries[0].contentRect.width;
+          this.updateCardCountBasedOnWidth(width);
+        });
+      });
+
+      this.resizeObserver.observe(this.el.nativeElement);
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (isPlatformBrowser(this.platformId) && this.resizeObserver) {
+      this.resizeObserver.disconnect();
+    }
+  }
+
+  updateCardCountBasedOnWidth(width: number): void {
+    let newInitialCount: number;
+
+    if (width < 400) {
+      newInitialCount = 1;
+    } else if (width < 600) {
+      newInitialCount = 2;
+    } else if (width < 900) {
+      newInitialCount = 3;
+    } else if (width < 1200) {
+      newInitialCount = 4;
+    } else {
+      newInitialCount = 5;
+    }
+
+    this.viewMoreStep = newInitialCount;
+
+    if (this.viewCount === this.initialViewCount || this.viewCount < newInitialCount) {
+      this.viewCount = newInitialCount;
+    }
+
+    this.initialViewCount = newInitialCount;
+  }
+
   incrementView(): void {
-    // Aumentamos el contador, pero asegurándonos de no sobrepasar la longitud total del array
-    this.viewCount = Math.min(this.viewCount + this.VIEW_MORE_STEP, this.cards.length);
+    this.viewCount = Math.min(this.viewCount + this.viewMoreStep, this.cards.length);
   }
 
   reduceView(): void {
-    // Reiniciamos el contador al mínimo
-    this.viewCount = this.INITIAL_VIEW_COUNT;
+    this.viewCount = this.initialViewCount;
   }
 }

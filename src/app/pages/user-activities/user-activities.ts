@@ -1,7 +1,7 @@
 import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
-import { ActivitiesDatabaseService } from '../../services/activities';
-import { ReservationsDatabaseService } from '../../services/reservations';
-import { forkJoin } from 'rxjs'; 
+import { ActivityService } from '../../services/activities';
+import { ReservationService } from '../../services/reservations';
+import { combineLatest } from 'rxjs';
 
 import { Activity } from '../../models/activity.model';
 import { Reservation } from '../../models/reservation.model';
@@ -20,12 +20,11 @@ export interface Section {
   styleUrl: './user-activities.css',
 })
 export class UserActivities implements OnInit {
-  
-  private activitiesService = inject(ActivitiesDatabaseService);
-  private reservationsService = inject(ReservationsDatabaseService);
+
+  private activitiesService = inject(ActivityService);
+  private reservationsService = inject(ReservationService);
   private cdr = inject(ChangeDetectorRef);
 
-  // Volvemos a tu estructura original de secciones, empezando vacía
   sections: Section[] = [];
   isLoading: boolean = true;
 
@@ -34,27 +33,27 @@ export class UserActivities implements OnInit {
   }
 
   loadData(): void {
-    // Lanzamos ambas peticiones en paralelo
-    forkJoin({
-      reservas: this.reservationsService.getAll(),
-      actividades: this.activitiesService.getAll()
+    combineLatest({
+      actividades: this.activitiesService.getActivities(),
+      reservas: this.reservationsService.getReservations(),
     }).subscribe({
       next: (datos) => {
-        // Cuando ambas terminan, construimos el array que tu HTML ya sabe pintar
+        const reservasConTipo = datos.reservas.map((r: Reservation) => ({ ...r, type: 'reservation' }));
+        const actividadesConTipo = datos.actividades.map((a: Activity) => ({ ...a, type: 'activity' }));
+
         this.sections = [
           {
             key: 'Reserved Activities',
-            items: datos.reservas
+            items: reservasConTipo,
           },
           {
             key: 'Attended Activities',
-            // Opcional: Podrías filtrar aquí si quisieras separar las actividades
-            items: datos.actividades 
+            items: actividadesConTipo,
           },
           {
             key: 'Recommended Activities',
-            items: datos.actividades 
-          }
+            items: actividadesConTipo,
+          },
         ];
         this.cdr.detectChanges();
         this.isLoading = false;
@@ -62,7 +61,7 @@ export class UserActivities implements OnInit {
       error: (err) => {
         console.error('Error cargando la base de datos:', err);
         this.isLoading = false;
-      }
+      },
     });
   }
 }
