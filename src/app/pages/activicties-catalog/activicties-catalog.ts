@@ -5,10 +5,11 @@ import { Activity } from '../../models/activity.model';
 import { FilterBar } from '../../components/filter-bar/filter-bar';
 import { ActivityService } from '../../services/activities';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-activicties-catalog',
-  imports: [ Header, Activity2, FilterBar, FormsModule ],
+  imports: [ Header, Activity2, FilterBar, FormsModule, RouterLink],
   templateUrl: './activicties-catalog.html',
   styleUrl: './activicties-catalog.css',
 })

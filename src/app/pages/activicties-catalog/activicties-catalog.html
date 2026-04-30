@@ -43,7 +43,7 @@
 
                 @for(activity of filteredActivities; track $index){
                     <div class="col-12 col-md-6 col-xl-4">
-                        <app-activity2 [activity]="activity"></app-activity2>
+                        <app-activity2 [activity]="activity" [routerLink]="['/activity-information', activity.id]"></app-activity2>
                     </div>
                 }
 

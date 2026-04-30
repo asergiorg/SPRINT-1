@@ -24,7 +24,7 @@
                         class="activity activity-card"
                         data-content-id="activities">
 
-                        <app-activity1 [activity]="activity"></app-activity1>
+                        <app-activity1 [activity]="activity" [routerLink]="['/activity-information', activity.id]"></app-activity1>
 
                     </article>
                 }

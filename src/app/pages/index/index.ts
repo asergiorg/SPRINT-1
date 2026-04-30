@@ -3,12 +3,13 @@ import { Activity1 } from '../../components/activity1/activity1';
 import { Header } from '../../components/header/header';
 import { Activity } from '../../models/activity.model';
 import { ActivityService } from '../../services/activities';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-index',
   standalone: true,
-  imports: [Activity1, Header],
+  imports: [Activity1, Header, RouterLink],
   templateUrl: './index.html',
   styleUrl: './index.css',
 })

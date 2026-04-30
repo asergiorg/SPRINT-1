@@ -1,7 +1,5 @@
 import { Component, Input, ElementRef, OnInit, OnDestroy, NgZone, Inject, PLATFORM_ID } from '@angular/core';
-
 import { isPlatformBrowser } from '@angular/common';
-
 import { RouterLink } from '@angular/router';
 import { ReservationCard } from '../reservation-card/reservation-card';
 import { Activity3 } from '../activity-3/activity-3';
