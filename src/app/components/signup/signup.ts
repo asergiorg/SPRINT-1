@@ -1,7 +1,7 @@
 import { Component, PLATFORM_ID, inject, output, signal } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { FormBuilder, Validators, ReactiveFormsModule, AbstractControl, ValidationErrors } from '@angular/forms';
-
+import { AuthService } from '../../services/auth.service'; 
 @Component({
   selector: 'app-signup',
   standalone: true,
@@ -15,6 +15,7 @@ export class Signup {
 
   private fb = inject(FormBuilder);
   private platformId = inject(PLATFORM_ID);
+  private authService = inject(AuthService); 
 
   showPassword1 = signal(false);
   showPassword2 = signal(false);
@@ -59,7 +60,7 @@ export class Signup {
     if (!event.target.value) this.dateInputType.set('text');
   }
 
-  onSubmit() {
+  async onSubmit() {
     if (!isPlatformBrowser(this.platformId)) return;
 
     if (this.signupForm.invalid) {
@@ -67,18 +68,19 @@ export class Signup {
       return;
     }
 
-    const { username, password } = this.signupForm.getRawValue();
-    const users = JSON.parse(localStorage.getItem('users') || '[]');
-    
-    if (users.find((u: any) => u.username === username)) {
-      alert('Este nombre de usuario ya está registrado. Por favor, elige otro.');
-      return;
+    try {
+      const rawData = this.signupForm.getRawValue();
+      await this.authService.register(rawData);
+      
+      alert('¡Registro exitoso! Ya puedes iniciar sesión.');
+      this.openLogin.emit();
+    } catch (error: any) {
+      console.error('Error al registrar:', error);
+      if (error.code === 'auth/email-already-in-use') {
+        alert('Este correo electrónico ya está registrado. Por favor, elige otro.');
+      } else {
+        alert('Hubo un error al crear la cuenta. Inténtalo de nuevo.');
+      }
     }
-
-    users.push({ username, password });
-    localStorage.setItem('users', JSON.stringify(users));
-    
-    alert('¡Registro exitoso! Ya puedes iniciar sesión.');
-    this.openLogin.emit();
   }
 }

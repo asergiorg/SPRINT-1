@@ -3,6 +3,7 @@ import { Router, RouterLink } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common'; 
 import { Login } from '../login/login'; 
 import { Signup } from '../signup/signup'; 
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -14,6 +15,7 @@ import { Signup } from '../signup/signup';
 export class Header implements OnInit {
   private router = inject(Router);
   private platformId = inject(PLATFORM_ID);
+  private authService = inject(AuthService); 
 
   isMenuOpen = signal(false);
   currentUser = signal<string | null>(null);
@@ -24,7 +26,14 @@ export class Header implements OnInit {
     if (isPlatformBrowser(this.platformId)) {
       this.innerWidth.set(window.innerWidth);
     }
-    this.checkAuthStatus();
+    
+    this.authService.user$.subscribe(user => {
+      if (user) {
+        this.currentUser.set(user.displayName || user.email);
+      } else {
+        this.currentUser.set(null);
+      }
+    });
   }
 
   @HostListener('window:resize')
@@ -34,23 +43,17 @@ export class Header implements OnInit {
     }
   }
 
-  checkAuthStatus() {
-    if (isPlatformBrowser(this.platformId)) {
-      this.currentUser.set(localStorage.getItem('currentUser') || sessionStorage.getItem('currentUser'));
-    }
-  }
-
   toggleMenu() { this.isMenuOpen.update(v => !v); }
   closeMenu() { this.isMenuOpen.set(false); }
 
-  handleLogout() {
-    alert('Sesión cerrada');
-    if (isPlatformBrowser(this.platformId)) {
-      localStorage.removeItem('currentUser');
-      sessionStorage.removeItem('currentUser');
+  async handleLogout() {
+    try {
+      await this.authService.logout();
+      alert('Sesión cerrada');
+      this.router.navigate(['/']);
+    } catch (error) {
+      console.error('Error al cerrar sesión', error);
     }
-    this.currentUser.set(null);
-    this.router.navigate(['/']);
   }
 
   openModal(modalType: 'login' | 'signup') {

@@ -1,6 +1,7 @@
 import { Component, PLATFORM_ID, inject, output, signal } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from '../../services/auth.service'; 
 
 @Component({
   selector: 'app-login',
@@ -16,11 +17,12 @@ export class Login {
 
   private platformId = inject(PLATFORM_ID);
   private fb = inject(FormBuilder);
+  private authService = inject(AuthService); 
 
   showPassword = signal(false);
 
   loginForm = this.fb.nonNullable.group({
-    username: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],
     remember: [false]
   });
@@ -29,7 +31,7 @@ export class Login {
     this.showPassword.update(v => !v);
   }
 
-  onSubmit() {
+  async onSubmit() {
     if (!isPlatformBrowser(this.platformId)) return; 
 
     if (this.loginForm.invalid) {
@@ -37,22 +39,15 @@ export class Login {
       return;
     }
 
-    const { username, password, remember } = this.loginForm.getRawValue();
+    const { email, password, remember } = this.loginForm.getRawValue();
 
-    const users = JSON.parse(localStorage.getItem('users') || '[]');
-    const validUser = users.find((u: any) => u.username === username && u.password === password);
-
-    if (validUser) {
-        if (remember) {
-            localStorage.setItem('currentUser', username);
-        } else {
-            sessionStorage.setItem('currentUser', username);
-        }
-        
-        alert('¡Has iniciado sesión con éxito!');
-        this.loginSuccess.emit(); 
-    } else {
-        alert('Usuario o contraseña incorrectos.');
+    try {
+      await this.authService.login(email, password, remember);
+      alert('¡Has iniciado sesión con éxito!');
+      this.loginSuccess.emit(); 
+    } catch (error: any) {
+      console.error('Error en login:', error);
+      alert('Usuario o contraseña incorrectos.');
     }
   }
 }
