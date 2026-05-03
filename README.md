@@ -1,6 +1,6 @@
 # Grand Aventures Web
 
-> El sitio web que hemos diseñado en este Sprint 2 corresponde con un servicio web de una agencia de reserva de actividades turísticas. El objetivo es que el usuario pueda explorar las actividades ofertadas, registrarse, realizar reservas y gestionarlas.
+> El sitio web que hemos diseñado en este Sprint 3 corresponde con un servicio web de una agencia de reserva de actividades turísticas. El objetivo es que el usuario pueda explorar las actividades ofertadas, registrarse, realizar reservas y gestionarlas.
 
 ---
 
