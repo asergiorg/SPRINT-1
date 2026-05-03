@@ -1,4 +1,3 @@
-    /* Header styles */
 
     #header-container {
         width: 100%;
@@ -145,7 +144,6 @@
         background:#c82333;
     }
 
-    /* Botón hamburguesa */
     .hamburger {
     display: flex;
     flex-direction: column;
@@ -161,7 +159,6 @@
     background:#333;
     }
 
-    /* Menú lateral */
     .side-menu {
         position: fixed;
         top: 0;
@@ -203,13 +200,11 @@
     }
 
 
-    /* Cuando se abre */
     .side-menu.show {
         left: 0;
     }
 
 
-    /* Capa oscura detrás */
     .overlay {
     position: fixed;
     top: 0;
@@ -233,27 +228,37 @@
     .hamburger {
         display: none;
     }
+    
+    /* Media queries */
 
     @media (max-width: 1024px) {
+
         #header-container .header-left img {
             display: none;
         }
+
         #header-container .auth-buttons .btn-primary{
             display: none;
         }
+
     }
 
     @media (max-width: 767px) {
+
         #header-container .header-left h1 {
             font-size: large;
         }
+
         .btn-primary,.normal,#main_menu{
             display: none !important;
         }
+
         #login-reduce, #logout-reduce, .overlay {
             display: block;
         }
+
         .hamburger, .side-menu {
             display: flex; 
         }
+
     }

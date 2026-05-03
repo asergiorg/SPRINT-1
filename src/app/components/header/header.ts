@@ -1,60 +1,62 @@
-import { Component, OnInit, ElementRef, Renderer2, HostListener } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, inject, signal, HostListener } from '@angular/core'; 
+import { Router, RouterLink } from '@angular/router'; 
+import { isPlatformBrowser } from '@angular/common'; 
+import { Login } from '../login/login'; 
+import { Signup } from '../signup/signup'; 
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  standalone: true,
+  imports: [RouterLink, Login, Signup],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
 export class Header implements OnInit {
-  constructor(private el: ElementRef, private renderer: Renderer2) {}
+  private router = inject(Router);
+  private platformId = inject(PLATFORM_ID);
 
-  ngOnInit(): void {
-    this.initializeTestUsers();
-    this.updateAuthUI();
-    this.setupEventListeners();
+  isMenuOpen = signal(false);
+  currentUser = signal<string | null>(null);
+  activeModal = signal<'login' | 'signup' | null>(null);
+  innerWidth = signal(1024);
+
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.innerWidth.set(window.innerWidth);
+    }
+    this.checkAuthStatus();
   }
 
-  async loadAndOpenModal(fileUrl: string, modalId: string): Promise<void> {
-    return;
+  @HostListener('window:resize')
+  onResize() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.innerWidth.set(window.innerWidth);
+    }
   }
 
-  closeModal(modalId: string): void {
-    return;
+  checkAuthStatus() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.currentUser.set(localStorage.getItem('currentUser') || sessionStorage.getItem('currentUser'));
+    }
   }
 
-  @HostListener('window:click', ['$event'])
-  onWindowClick(event: Event): void {
+  toggleMenu() { this.isMenuOpen.update(v => !v); }
+  closeMenu() { this.isMenuOpen.set(false); }
+
+  handleLogout() {
+    alert('Sesión cerrada');
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.removeItem('currentUser');
+      sessionStorage.removeItem('currentUser');
+    }
+    this.currentUser.set(null);
+    this.router.navigate(['/']);
   }
 
-  private setupEventListeners(): void {
-    
+  openModal(modalType: 'login' | 'signup') {
+    this.activeModal.set(modalType);
+    this.closeMenu();
   }
 
-  updateAuthUI(): void {
-    
-  }
-
-  private handleSignup(event: Event): void {
-    
-  }
-
-  private handleLogin(event: Event): void {
-    
-  }
-
-  handleLogout(): void {
-    
-  }
-
-  private async initializeTestUsers(): Promise<void> {
-    return;
-  }
-
-  private togglePasswordVisibility(icon: HTMLElement): void {
-    
-  }
-
-  private setupBirthdayValidation(): void {
-  }
+  closeModal() { this.activeModal.set(null); }
 }

@@ -1,40 +1,67 @@
 <header id="header-container">
     <div class="header-wrapper">
         <div class="header-left">
-            <!-- Botón hamburguesa -->
-            <button class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+            <button class="hamburger" id="hamburger" (click)="toggleMenu()">
+                <span></span><span></span><span></span>
             </button>
-            <img src="/images/Logo_GrandAdventures.png" height="60" width="60" alt="Logo">
+            <img src="/assets/images/logo/Logo_GrandAdventures.png" height="60" width="60" alt="Logo">
             <h1>Grand Adventures</h1>
         </div>
         <nav id="main_menu">
             <ul>
-            <li><a class="home" href="index.html">Home</a></li>
-            <li><a class="activities" href="activities">Activities</a></li>
-            <li><a class="user-activities" href="user-activities">My Activities</a></li>
+                <li><a class="home" routerLink="/">Home</a></li>
+                <li><a class="activities" routerLink="/activities">Activities</a></li>
+                
+                @if (currentUser()) {
+                    <li><a class="user-activities" routerLink="/user-activities">My Activities</a></li>
+                }
             </ul>
         </nav>
+        
         <div class="auth-buttons">
-            <button class="btn-primary normal" (click)="loadAndOpenModal('signup-modal.html', 'signupModal')"> Sign Up </button>
-            <button class="btn-secondary normal" (click)="loadAndOpenModal('login-modal.html', 'loginModal')"> Log In </button>
-            <button id="login-reduce" class="btn-secondary bx bxs-user reduce" (click)="loadAndOpenModal('login-modal.html', 'loginModal')"></button>
-            <button class="btn-danger normal" (click)="handleLogout()">Log Out</button>
-            <button id="logout-reduce" class="btn-danger bx bx-log-out" (click)="handleLogout()"></button>
+            @if (!currentUser()) {
+                @if (innerWidth() > 767) {
+                    <button class="btn-primary normal" (click)="openModal('signup')"> Sign Up </button>
+                    <button class="btn-secondary normal" (click)="openModal('login')"> Log In </button>
+                } @else {
+                    <button id="login-reduce" class="btn-secondary bx bxs-user reduce" (click)="openModal('login')"></button>
+                }
+            } @else {
+                <span id="user-greeting" style="margin-right: 15px; font-weight: bold;">Hola, {{ currentUser() }}</span>
+                @if (innerWidth() > 767) {
+                    <button class="btn-danger normal" (click)="handleLogout()">Log Out</button>
+                } @else {
+                    <button id="logout-reduce" class="btn-danger bx bx-log-out" (click)="handleLogout()"></button>
+                }
+            }
         </div>
     </div>
 </header>
 
-<!-- Menú lateral -->
-<aside class="side-menu" id="side-menu">
+<aside class="side-menu" [class.show]="isMenuOpen()">
   <nav>
-    <a class="home" href="index.html">Home</a>
-    <a class="activities" href="activities">Activities</a>
-    <a class="user-activities"href="user-activities.html">My Activities</a>
+    <a class="home" routerLink="/" (click)="closeMenu()">Home</a>
+    <a class="activities" routerLink="/activities" (click)="closeMenu()">Activities</a>
+    
+    @if (currentUser()) {
+        <a class="user-activities" routerLink="/user-activities" (click)="closeMenu()">My Activities</a>
+    }
   </nav>
 </aside>
 
-<!-- Capa oscura detrás del menú -->
-<div class="overlay" id="overlay"></div>
+<div class="overlay" [class.show]="isMenuOpen()" (click)="closeMenu()"></div>
+
+@if (activeModal() === 'login') {
+    <app-login 
+        (close)="closeModal()" 
+        (openSignup)="openModal('signup')"
+        (loginSuccess)="checkAuthStatus(); closeModal()">
+    </app-login>
+}
+
+@if (activeModal() === 'signup') {
+    <app-signup 
+        (close)="closeModal()" 
+        (openLogin)="openModal('login')">
+    </app-signup>
+}
