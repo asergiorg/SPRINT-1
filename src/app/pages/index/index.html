@@ -4,11 +4,11 @@
 
     <div id="search-container" class="d-flex justify-content-center align-items-center">
         <div id="bar-search-container">
-            <form>
+            <form (ngSubmit)="onSearch()">
                 <button type="submit">
                     <i class="bi bi-search"></i>
                 </button>
-                <input type="search" placeholder="Search activity..." name="activity">
+                <input type="search" placeholder="Search activity..." [(ngModel)]="searchText" name="activity">
             </form>
         </div>
     </div>
