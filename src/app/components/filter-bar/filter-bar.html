@@ -7,20 +7,20 @@
             
             <h3>Price:</h3>
             <div class="filter-row">
-                <input type="number" name="price_min" min="0" placeholder="min">
+                <input type="number" name="price_min" min="0" placeholder="min" [(ngModel)]="filters.price_min">
                 <span>-</span>
-                <input type="number" name="price_max" min="0" placeholder="max">
+                <input type="number" name="price_max" min="0" placeholder="max" [(ngModel)]="filters.price_max">
             </div>
 
             <h3>Duration:</h3>
             <div class="filter-row">
-                <input type="number" name="duration_min" min="0" placeholder="min">
+                <input type="number" name="duration_min" min="0" placeholder="min" [(ngModel)]="filters.duration_min">
                 <span>-</span>
-                <input type="number" name="duration_max" min="0" placeholder="max">
+                <input type="number" name="duration_max" min="0" placeholder="max" [(ngModel)]="filters.duration_max">
             </div>
 
             <h3>Language:</h3>
-            <select id="idioma-actividad" name="language">
+            <select id="idioma-actividad" name="language" [(ngModel)]="filters.language">
                 <option value="all">All languages</option>
                 <option value="Spanish">Spanish</option>
                 <option value="English">English</option>
@@ -29,23 +29,23 @@
             </select>
             
             <h3>Stars:</h3>
-            <select id="stars-actividad" name="stars">
-                <option value="all">All</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
+            <select name="stars" [(ngModel)]="filters.stars">
+            <option value="all">All</option>
+            <option value="1">1+</option>
+            <option value="2">2+</option>
+            <option value="3">3+</option>
+            <option value="4">4+</option>
+            <option value="5">5</option>
             </select>
             
             <h3>Difficulty:</h3>
-            <select id="difficulty-actividad" name="difficulty">
+            <select id="difficulty-actividad" name="difficulty" [(ngModel)]="filters.difficulty">
                 <option value="all">All</option>
                 <option value="Easy">Easy</option>
                 <option value="Medium">Medium</option>
                 <option value="Hard">Hard</option>
             </select>
             
-            <button type="button">Apply</button>
+            <button type="button" (click)="applyFilters()">Apply</button>
         </form>
     </aside>

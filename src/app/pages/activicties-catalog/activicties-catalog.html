@@ -34,6 +34,7 @@
         <aside class="col-lg-3 d-none d-lg-block">
             <app-filter-bar
                 [blockedFilters]="blockedFilters"
+                (filtersApplied)="onFiltersApplied($event)"
             ></app-filter-bar>
         </aside>
 
@@ -59,6 +60,7 @@
     <app-filter-bar
         [blockedFilters]="blockedFilters"
         (filterClosed)="showFilters()"
+        (filtersApplied)="onFiltersApplied($event)"
     ></app-filter-bar>
 </div>
 
