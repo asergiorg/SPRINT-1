@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
-import { Firestore, collection, doc, addDoc, updateDoc, deleteDoc, collectionData, docData } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { Firestore, collection, addDoc, collectionData } from '@angular/fire/firestore';
+import { lastValueFrom, Observable } from 'rxjs';
 import { ReviewData } from '../pages/activity-information/activity-information';
 import { HttpClient } from '@angular/common/http';
 
@@ -51,17 +51,7 @@ export class ReviewService {
     formData.append('file', file);
     formData.append('upload_preset', uploadPreset);
 
-    const response: any = await this.http.post(url, formData).toPromise();
+    const response: any = await lastValueFrom(this.http.post(url, formData));
     return response.secure_url;
-  }
-
-  async deleteReview(id: string): Promise<void> {
-    try {
-      const ref = doc(this.firestore, `${this.collectionName}/${id}`);
-      await deleteDoc(ref);
-    } catch (error) {
-      console.error('Error al eliminar Review:', error);
-      throw error;
-    }
   }
 }

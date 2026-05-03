@@ -2,7 +2,7 @@
   <div class="review-content">
     <div class="review-header">
       <div class="avatar">
-        <img [src]="imageUrl" alt="avatar" width="30" height="30" class="rounded-circle border">
+        <img [src]="imageUrl" alt="avatar" width="40" height="40" class="rounded-circle border">
         <h3 class="h6 mb-0">{{ username }}</h3>
       </div>
 
@@ -13,21 +13,20 @@
       </div>
     </div>
 
-    <p class="mb-3">{{ comment }}</p>
-
-    @if (photos.length > 0) {
-      <div class="review-photos d-flex gap-2 flex-wrap mb-2">
-        @for (photo of photos; track photo) {
-          <div class="photo-wrapper position-relative">
-            <img [src]="photo"
-                 alt="Foto de la reseña"
-                 class="img-thumbnail"
-                 style="width: 80px; height: 80px; object-fit: cover; cursor: pointer; border-radius: 8px;"
-                 (click)="openImage(photo)">
-          </div>
-        }
-      </div>
-    }
+    <div class="comment-box">
+      <p class="mb-0">{{ comment }}</p>
+      @if (photos.length > 0) {
+        <div class="review-photos d-flex gap-3 flex-wrap mt-3">
+          @for (photo of photos; track photo) {
+            <div class="photo-wrapper position-relative">
+              <img [src]="photo"
+                   alt="Foto de la reseña"
+                   (click)="openImage(photo)">
+            </div>
+          }
+        </div>
+      }
+    </div>
   </div>
 </article>
 
