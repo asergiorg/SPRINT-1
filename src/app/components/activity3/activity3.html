@@ -1,6 +1,10 @@
-<article class="activity-card activity">
-    <span class="activity-id" hidden></span>
-    <img class="activity-image" alt="Activity Image">
-    <a class="activity-name">{{ activity.name }}</a>
-    <p class="valoracion" aria-label="">{{ activity.rating }}</p>
-</article>
+<img class="activity-image" [src]="activity.image" [alt]="activity.name">
+
+<div class="activity-info">
+  <a class="activity-name" [routerLink]="['/activities', activity.id]">
+    {{ activity.name }}
+  </a>
+  <p class="valoracion" aria-label="Rating">
+    <i class="bi bi-star-fill text-warning"></i> {{ activity.rating }}
+  </p>
+</div>

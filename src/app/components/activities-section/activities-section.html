@@ -12,11 +12,11 @@
     @for (card of cards.slice(0, viewCount); track card.id) {
       <div class="col d-flex"> @switch (card.type) {
         @case ('activity') {
-          <app-activity-3
+          <app-activity3
             class="w-100"
             [activity]="card"
             [routerLink]="['/activity-information', card.id]">
-          </app-activity-3>
+          </app-activity3>
         }
         @case ('reservation') {
           <app-reservation-card
