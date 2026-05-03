@@ -109,7 +109,9 @@ export class ReservationInformation implements OnInit {
 
     try {
       if (this.id === 'new') {
-        await this.reservationService.addReservation(this.reservation);
+        const { id, ...reservationData } = this.reservation;
+
+        await this.reservationService.addReservation(reservationData);
       } else {
         await this.reservationService.updateReservation(this.reservation.id, this.reservation);
       }

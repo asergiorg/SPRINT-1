@@ -155,7 +155,6 @@ export class ActivityInformation implements OnInit {
     const files = Array.from(event.target.files) as File[];
     this.selectedFiles.push(...files);
 
-    // Crear previsualizaciones
     files.forEach((file) => {
       const reader = new FileReader();
       reader.onload = (e: any) => this.previews.push(e.target.result);

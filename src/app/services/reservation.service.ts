@@ -1,14 +1,26 @@
 import { Injectable, inject } from '@angular/core';
-import { Firestore, collection, doc, addDoc, updateDoc, deleteDoc, collectionData, docData } from '@angular/fire/firestore';
+import { Firestore,
+        collection,
+        doc,
+        addDoc,
+        updateDoc,
+        deleteDoc,
+        collectionData,
+        docData,
+        query,
+        where
+} from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Reservation } from '../models/reservation.model';
+
+export type NoIdReservation = Omit<Reservation, 'id'>;
 
 @Injectable({ providedIn: 'root' })
 export class ReservationService {
   private firestore = inject(Firestore);
   private collectionName = 'reservations';
 
-  async addReservation(data: Reservation): Promise<string> {
+  async addReservation(data: NoIdReservation): Promise<string> {
     try {
       const ref = collection(this.firestore, this.collectionName);
       const docRef = await addDoc(ref, data);
@@ -27,6 +39,12 @@ export class ReservationService {
   getReservationById(id: string): Observable<any> {
     const ref = doc(this.firestore, `${this.collectionName}/${id}`);
     return docData(ref, { idField: 'id' });
+  }
+
+  getReservationsByName(name: string): Observable<any> {
+    const ref = collection(this.firestore, this.collectionName);
+    const q = query(ref, where('holder', '==', name));
+    return collectionData(q, { idField: 'id' });
   }
 
   async updateReservation(id: string, data: any): Promise<void> {
