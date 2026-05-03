@@ -1,0 +1,31 @@
+<div class="modal-overlay login-modal">
+    <div class="modal-wrapper">
+        <button class="close-btn" (click)="close.emit()"> &times; </button>
+
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            
+            <div class="input-box">
+                <input type="text" formControlName="username" placeholder=" ">
+                <label> Username </label>
+                <i class='bx bxs-user'></i> 
+            </div>
+
+            <div class="input-box">
+                <input [type]="showPassword() ? 'text' : 'password'" formControlName="password" placeholder=" ">
+                <label> Password </label>
+                <i class='bx toggle-password' [class.bxs-lock-alt]="!showPassword()" [class.bx-show]="showPassword()" (click)="togglePassword()"></i>
+            </div>
+
+            <div class="login-remember-forgot modal-checkbox-row">
+                <label> <input type="checkbox" formControlName="remember"> Remember me </label>
+                <a href="#"> Forgot password? </a>
+            </div>
+
+            <button type="submit" class="btn-submit" [disabled]="loginForm.invalid"> Log In </button>
+            
+            <div class="signup-link">
+                <p> Don't have an account? <a href="javascript:void(0)" (click)="openSignup.emit()"> Sign Up </a> </p>
+            </div>
+        </form>
+    </div>
+</div>

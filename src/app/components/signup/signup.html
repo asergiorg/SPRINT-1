@@ -1,0 +1,82 @@
+<div class="modal-overlay signup-modal">
+    <div class="modal-wrapper">
+        <button class="close-btn" (click)="close.emit()"> &times; </button>
+
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+            <h1>Sign Up</h1>
+
+            <div class="input-box">
+                <input type="text" formControlName="fullname" placeholder=" ">
+                <label> Full name </label>
+                <i class='bx bxs-user'></i>
+            </div>
+
+            <div class="input-box">
+                <input type="text" formControlName="username" placeholder=" ">
+                <label> Username </label>
+                <i class='bx bxs-user'></i> 
+                @if (signupForm.get('username')?.touched && signupForm.get('username')?.hasError('pattern')) {
+                    <small class="error-text">Debe empezar en mayúscula.</small>
+                }
+            </div>
+
+            <div class="input-box">
+                <input [type]="dateInputType()" formControlName="birthday" placeholder=" " 
+                       (focus)="dateInputType.set('date')" (blur)="onDateBlur($event)">
+                <label> Birthday </label>
+                <i class='bx bxs-calendar'></i>
+                @if (signupForm.get('birthday')?.touched && signupForm.get('birthday')?.hasError('underage')) {
+                    <small class="error-text">Debes tener al menos 16 años.</small>
+                }
+            </div>
+
+            <div class="input-box select-wrapper">
+                <select formControlName="gender">
+                    <option value="" disabled selected hidden></option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+                <label> Gender </label>
+                <i class='bx bx-caret-down'></i>
+            </div>
+            
+            <div class="input-box">
+                <input type="tel" formControlName="phone" placeholder=" ">
+                <label> Phone number </label>
+                <i class='bx bxs-phone'></i>
+            </div>
+
+            <div class="input-box">
+                <input type="email" formControlName="email" placeholder=" ">
+                <label> Email address </label>
+                <i class='bx bxs-envelope'></i>
+            </div>
+
+            <div class="input-box">
+                <input [type]="showPassword1() ? 'text' : 'password'" formControlName="password" placeholder=" ">
+                <label> Password </label>
+                <i class='bx toggle-password' [class.bxs-lock-alt]="!showPassword1()" [class.bx-show]="showPassword1()" (click)="togglePassword(1)"></i>
+            </div>
+
+            <div class="input-box">
+                <input [type]="showPassword2() ? 'text' : 'password'" formControlName="confirm_password" placeholder=" ">
+                <label> Confirm Password </label>
+                <i class='bx toggle-password' [class.bxs-lock-alt]="!showPassword2()" [class.bx-show]="showPassword2()" (click)="togglePassword(2)"></i>
+                @if (signupForm.touched && signupForm.hasError('mismatch')) {
+                    <small class="error-text">Las contraseñas no coinciden.</small>
+                }
+            </div>
+
+            <div class="signup-terms modal-checkbox-row">
+                <label> <input type="checkbox" formControlName="terms"> I agree to the terms & conditions </label>
+            </div>
+
+            <button type="submit" class="btn-submit" [disabled]="signupForm.invalid"> Create account </button>
+            
+            <div class="signup-link">
+                <p> Already have an account? <a href="javascript:void(0)" (click)="openLogin.emit()"> Log In </a> </p>
+            </div>
+        </form>
+    </div>
+</div>
