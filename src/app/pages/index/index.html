@@ -16,7 +16,7 @@
 
             <div class="slider">
 
-                @for(activity of activities(); track $index){
+                @for(activity of activities; track $index){
                     <article 
                         id="art{{ $index + 1 }}" 
                         class="activity activity-card"
@@ -30,7 +30,7 @@
             </div>
 
             <div class="slider-nav">
-                @for(activity of activities(); track $index){
+                @for(activity of activities; track $index){
                     <a href="#art{{ $index + 1 }}"></a>
                 }
             </div>

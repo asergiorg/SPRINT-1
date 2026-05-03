@@ -13,20 +13,15 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './index.css',
 })
 export class Index implements OnInit{
-  activities = signal<Activity[]>([]);
-  private activityService = inject(ActivityService);
+  activities: Activity[] = [];
   searchText: string = '';
 
-  constructor(private router: Router){}
+  constructor(private activitiesService: ActivityService, private router: Router){}
 
   ngOnInit(): void {
-    this.activityService.getActivities().subscribe(data => {
-      this.activities.set(data.slice(0, 5));
+    this.activitiesService.getActivities().subscribe(data => {
+      this.activities = data.slice(0, 5);
     });
-  }
-
-  onActivityClicked(activityId: number) {
-    console.log('Activity clicked:', activityId);
   }
 
   onSearch(){

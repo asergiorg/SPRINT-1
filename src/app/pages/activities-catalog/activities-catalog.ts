@@ -1,5 +1,4 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Header } from '../../components/header/header';
 import { Activity2 } from '../../components/activity2/activity2';
 import { Activity } from '../../models/activity.model';
 import { FilterBar } from '../../components/filter-bar/filter-bar';
@@ -9,7 +8,7 @@ import { RouterLink, ActivatedRoute } from '@angular/router';
 import { ActivityFilters } from '../../models/filter.model';
 
 @Component({
-  selector: 'app-activicties-catalog',
+  selector: 'app-activities-catalog',
   imports: [ Activity2, FilterBar, FormsModule, RouterLink],
   templateUrl: './activities-catalog.html',
   styleUrl: './activities-catalog.css',
