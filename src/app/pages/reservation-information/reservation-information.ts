@@ -1,9 +1,9 @@
 import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
-import { ReservationService } from '../../services/reservations';
+import { ReservationService } from '../../services/reservation.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Reservation } from '../../models/reservation.model';
 import { Location } from '@angular/common';
-import { ReservationState } from '../../services/reservation-state';
+import { ReservationState } from '../../services/reservation-state.service';
 
 export interface PaymentMethod {
   text: string;

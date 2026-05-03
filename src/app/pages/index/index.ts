@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Activity1 } from '../../components/activity1/activity1';
 import { Header } from '../../components/header/header';
 import { Activity } from '../../models/activity.model';
-import { ActivityService } from '../../services/activities';
+import { ActivityService } from '../../services/activity.service';
 import { RouterLink } from '@angular/router';
 
 

@@ -1,6 +1,6 @@
 import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
-import { ActivityService } from '../../services/activities';
-import { ReservationService } from '../../services/reservations';
+import { ActivityService } from '../../services/activity.service';
+import { ReservationService } from '../../services/reservation.service';
 import { combineLatest } from 'rxjs';
 
 import { Activity } from '../../models/activity.model';

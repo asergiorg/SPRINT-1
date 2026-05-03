@@ -3,7 +3,7 @@ import { Header } from '../../components/header/header';
 import { Activity2 } from '../../components/activity2/activity2';
 import { Activity } from '../../models/activity.model';
 import { FilterBar } from '../../components/filter-bar/filter-bar';
-import { ActivityService } from '../../services/activities';
+import { ActivityService } from '../../services/activity.service';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 

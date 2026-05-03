@@ -2,11 +2,11 @@ import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Review } from '../../components/review/review';
 import { Activity } from '../../models/activity.model';
-import { ActivityService } from '../../services/activities';
-import { ReviewService } from '../../services/reviews';
+import { ActivityService } from '../../services/activity.service';
+import { ReviewService } from '../../services/review.service';
 import { FormsModule } from '@angular/forms';
 import { Reservation } from '../../models/reservation.model';
-import { ReservationState } from '../../services/reservation-state';
+import { ReservationState } from '../../services/reservation-state.service';
 import { formatDate } from '@angular/common';
 
 export interface ReviewData {
