@@ -13,7 +13,7 @@ body {
 #search-container {
     width: 100%;
     height: 400px;
-    background-image: url("/images/activities/duna.jpg");
+    background-image: url("https://res.cloudinary.com/dro3xapg0/image/upload/v1777766392/duna_fiqjvs.jpg");
     background-size: cover;
     background-position: center;
 

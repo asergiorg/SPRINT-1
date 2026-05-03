@@ -6,9 +6,9 @@ export interface Activity extends Card {
   type:'activity';
   image: string[];
   category: string;
-  duration: number;
+  duration: string;
   languages: string[];
   hours: string[];
-  dificulty: string;
+  difficulty: string;
   rating: number;
 }

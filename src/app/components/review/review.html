@@ -1,14 +1,47 @@
 <article class="review-item">
-    <div class="review-content">
-        <div class="review-header">
-            <div class="avatar">
-                <img [src]="imageUrl" width="30" height="30">
-                <h3>{{ username }}</h3>
-            </div>
-            <div class="rating" role="img" [attr.aria-label]="'Calificación: ' + rating + ' de 5 estrellas'">
-                <span class="star" [class.filled]="i < rating" *ngFor="let star of [1,2,3,4,5]; let i = index">★</span>
-            </div>
-        </div>
-        <p>{{ comment }}</p>
+  <div class="review-content">
+    <div class="review-header">
+      <div class="avatar">
+        <img [src]="imageUrl" alt="avatar" width="30" height="30" class="rounded-circle border">
+        <h3 class="h6 mb-0">{{ username }}</h3>
+      </div>
+
+      <div class="rating text-warning" role="img" [attr.aria-label]="'Calificación: ' + rating + ' de 5 estrellas'">
+        @for (_ of [1, 2, 3, 4, 5]; track $index) {
+          <span class="star" [class.filled]="$index < rating">★</span>
+        }
+      </div>
     </div>
+
+    <p class="mb-3">{{ comment }}</p>
+
+    @if (photos.length > 0) {
+      <div class="review-photos d-flex gap-2 flex-wrap mb-2">
+        @for (photo of photos; track photo) {
+          <div class="photo-wrapper position-relative">
+            <img [src]="photo"
+                 alt="Foto de la reseña"
+                 class="img-thumbnail"
+                 style="width: 80px; height: 80px; object-fit: cover; cursor: pointer; border-radius: 8px;"
+                 (click)="openImage(photo)">
+          </div>
+        }
+      </div>
+    }
+  </div>
 </article>
+
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-header border-0 p-0">
+        <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3 z-3" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-0 d-flex justify-content-center align-items-center">
+        @if (selectedModalPhoto) {
+          <img [src]="selectedModalPhoto" class="img-fluid rounded" alt="Imagen ampliada">
+        }
+      </div>
+    </div>
+  </div>
+</div>

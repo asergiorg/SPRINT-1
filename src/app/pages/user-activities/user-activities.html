@@ -2,7 +2,7 @@
     <section class="page-header">
     <h1>User activities</h1>
     </section>
-    @for(section of sections(); track section.key) {
+    @for(section of sections; track section.key) {
         <app-activities-section [title]="section.key" [cards]="section.items"></app-activities-section>
     }
 </main>

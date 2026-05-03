@@ -1,9 +1,9 @@
 import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
-import { ReservationsDatabaseService } from '../../services/reservations';
+import { ReservationService } from '../../services/reservation.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Reservation } from '../../models/reservation.model';
 import { Location } from '@angular/common';
-import { ReservationState } from '../../services/reservation-state';
+import { ReservationState } from '../../services/reservation-state.service';
 
 export interface PaymentMethod {
   text: string;
@@ -17,121 +17,114 @@ export interface PaymentMethod {
 })
 export class ReservationInformation implements OnInit {
   private route = inject(ActivatedRoute);
-  private reservationService = inject(ReservationsDatabaseService);
+  private reservationService = inject(ReservationService);
   private cdr = inject(ChangeDetectorRef);
   private router = inject(Router);
   private location = inject(Location);
-  private stateService = inject(ReservationState)
-  
+  private stateService = inject(ReservationState);
+
   reservation!: Reservation;
   googlePay: PaymentMethod = { text: 'Google Pay' };
   masterCard: PaymentMethod = { text: 'MasterCard' };
   visa: PaymentMethod = { text: 'Visa' };
   applePay: PaymentMethod = { text: 'Apple Pay' };
-  
-  isProcessing: boolean = false; 
+
+  isProcessing: boolean = false;
   reservationMade = this.stateService.reservation();
   id = this.route.snapshot.paramMap.get('id');
 
   ngOnInit(): void {
-    if (this.reservationMade){
+    if (this.reservationMade) {
       this.reservation = this.reservationMade;
     } else if (this.id) {
-      this.reservationService.getById(this.id).subscribe({
+      this.reservationService.getReservationById(this.id).subscribe({
         next: (datos) => {
           this.reservation = datos;
           this.cdr.detectChanges();
         },
-        error: (err) => console.error('Error cargando detalles', err)
+        error: (err) => console.error('Error cargando detalles', err),
       });
     }
-    
   }
 
   applyPaymentMethod(method: PaymentMethod): void {
-    if(!this.isProcessing) {
+    if (!this.isProcessing) {
       method.text = 'Procesando...';
       this.cdr.detectChanges();
       this.modifyStatus();
     }
   }
 
-  modifyStatus(): void {
+  async modifyStatus(): Promise<void> {
     if (!this.reservation) return;
 
     this.isProcessing = true;
     this.cdr.detectChanges();
 
-    if(this.reservationMade){
-      setTimeout(() => { 
+    if (this.reservationMade) {
+      setTimeout(() => {
         this.reservation.status = 'Paid';
         this.isProcessing = false;
         this.cdr.detectChanges();
       }, 2000);
     } else {
-      setTimeout(() => {
-        this.reservation.status = 'Paid'; 
-  
-        this.reservationService.update(this.reservation.id, this.reservation).subscribe({
-          next: (res) => {
-            this.isProcessing = false;
-            this.cdr.detectChanges();
-            
-            console.log('Pago procesado y reserva guardada con éxito', res);
-          },
-          error: (err) => {
-            console.error('Error al guardar en el servidor', err);
-            this.reservation.status = 'Pending';
-            this.isProcessing = false;
-            this.cdr.detectChanges();
-          }
-        });
+      setTimeout(async () => {
+        this.reservation.status = 'Paid';
+
+        try {
+          await this.reservationService.updateReservation(this.reservation.id, this.reservation);
+
+          this.isProcessing = false;
+          this.cdr.detectChanges();
+          console.log('Pago procesado y reserva guardada con éxito en Firebase');
+        } catch (err) {
+          console.error('Error al guardar en Firebase', err);
+          this.reservation.status = 'Pending';
+          this.isProcessing = false;
+          this.cdr.detectChanges();
+        }
       }, 2000);
     }
   }
 
-  cancelReservation(): void {
-    if(this.reservationMade){
+  async cancelReservation(): Promise<void> {
+    if (this.reservationMade) {
       this.stateService.clearState();
+      this.location.back();
     } else {
-      this.reservationService.delete(this.reservation.id).subscribe({
-        next: () => {
-          this.stateService.clearState();
-          console.log('Reserva cancelada');
-          this.location.back();
-        },
-        error: (err) => console.error('Error cancelando', err)
-      });
+      try {
+        await this.reservationService.deleteReservation(this.reservation.id);
+
+        this.stateService.clearState();
+        console.log('Reserva cancelada');
+        this.location.back();
+      } catch (err) {
+        console.error('Error cancelando en Firebase', err);
+      }
     }
   }
 
-  confirmReservation(): void {
+  async confirmReservation(): Promise<void> {
     this.reservation.status = 'Confirmed';
-    if(this.id == 'new'){
-      this.reservationService.save(this.reservation).subscribe({
-        next: () => {
-          console.log('Reserva confirmada');
-          this.stateService.clearState();
-          this.router.navigate(['/user-activities']);
-        },
-        error: (err) => console.error('Error confirmando', err)
-      });
-    } else {
-      this.reservationService.update(this.reservation.id, this.reservation).subscribe({
-        next: () => {
-          console.log('Reserva confirmada');
-          this.stateService.clearState();
-          this.router.navigate(['/user-activities']);
-        },
-        error: (err) => console.error('Error confirmando', err)
-      });
+
+    try {
+      if (this.id === 'new') {
+        await this.reservationService.addReservation(this.reservation);
+      } else {
+        await this.reservationService.updateReservation(this.reservation.id, this.reservation);
+      }
+
+      console.log('Reserva confirmada');
+      this.stateService.clearState();
+      this.router.navigate(['/user-activities']);
+    } catch (err) {
+      console.error('Error confirmando en Firebase', err);
     }
   }
 
   modifyReservation(): void {
     this.stateService.clearState();
     this.stateService.reservation.set(this.reservation);
-    this.router.navigate(['/activity-information', this.reservation.activityId])
+    this.router.navigate(['/activity-information', this.reservation.activityId]);
   }
-
 }

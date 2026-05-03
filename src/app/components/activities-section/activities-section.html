@@ -1,33 +1,38 @@
 <div class="section-card">
-<header>
+  <header>
     <h2 id="title">{{ title }}</h2>
-    
-    @if (viewCount > INITIAL_VIEW_COUNT) {
+    @if (viewCount > initialViewCount) {
       <div class="colapse">
-        <a class="colapseBtn" (click)="reduceView()" aria-label="Colapsar la vista mínima las actividades desplegadas"> Collapse </a>
+        <a class="colapseBtn" (click)="reduceView()"> Collapse </a>
       </div>
     }
-</header>
+  </header>
 
-<div class="activities-list">
+  <div class="row g-4 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
     @for (card of cards.slice(0, viewCount); track card.id) {
-        @switch (card.type) {
-            @case ('activity') {
-                <app-activity-3 [activity]="card" [routerLink]="['/activity-information', card.id]"></app-activity-3>
-            }
-            @case ('reservation') {
-                <app-reservation-card 
-                [reservation]="card"
-                [routerLink]="['/reservation-information', card.id]"></app-reservation-card>
-            }
+      <div class="col d-flex"> @switch (card.type) {
+        @case ('activity') {
+          <app-activity3
+            class="w-100"
+            [activity]="card"
+            [routerLink]="['/activity-information', card.id]">
+          </app-activity3>
         }
+        @case ('reservation') {
+          <app-reservation-card
+            class="w-100"
+            [reservation]="card"
+            [routerLink]="['/reservation-information', card.id]">
+          </app-reservation-card>
+        }
+      }
+      </div>
     }
-</div>
+  </div>
 
-@if (viewCount < cards.length) {
+  @if (viewCount < cards.length) {
     <div class="view-more">
-        <a class="viewMoreBtn" (click)="incrementView()" aria-label="Ver más actividades reservadas"> View more </a>
+      <a class="viewMoreBtn" (click)="incrementView()"> View more </a>
     </div>
-}
-
+  }
 </div>
