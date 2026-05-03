@@ -1,0 +1,49 @@
+<div id="footer" class="footer-wrapper">
+    <div class="footer-container">
+        
+        <div class="footer-col">
+            <img src="/assets/images/logo/Logo_GrandAdventures.png" alt="Logo" class="footer-logo">
+        </div>
+
+        <div class="footer-col" [class.active]="activeCol() === 'contact'">
+            <h3 (click)="toggleCol('contact')">Contact information</h3>
+            <ul class="contact-list">
+                <li>grandaventures@example.com</li>
+                <li>+34 928 653 496</li>
+                <li>+34 974 456 395</li>
+                <li>+34 922 920 573</li>
+            </ul>
+        </div>
+
+        <div class="footer-col" [class.active]="activeCol() === 'pay'">
+            <h3 (click)="toggleCol('pay')">Pay methods</h3>
+            <div class="icon-row">
+                <i class='bx bxl-paypal'></i>
+                <i class='bx bxl-visa'></i>
+                <i class='bx bxl-mastercard'></i>
+                <i class='bx bxl-bitcoin'></i>
+            </div>
+            <div class="icon-row">
+                <i class='bx bxl-venmo'></i>
+                <i class='bx bxs-credit-card'></i>
+                <i class='bx bx-money'></i>
+                <i class='bx bxl-stripe'></i>
+            </div>
+        </div>
+
+        <div class="footer-col" [class.active]="activeCol() === 'social'">
+            <h3 (click)="toggleCol('social')">Follow us</h3>
+            <div class="icon-row">
+                <i class='bx bxl-instagram'></i>
+                <i class='bx bxl-facebook'></i>
+                <i class='bx bxl-twitter'></i>
+                <i class='bx bxl-youtube'></i>
+            </div>
+            <div class="icon-row">
+                <i class='bx bxl-tiktok'></i>
+                <i class='bx bxl-pinterest'></i>
+            </div>
+        </div>
+    </div>
+    <p class="footer-copyright"> Copyright &copy; 2026 Project name. All rights reserved. </p>
+</div>

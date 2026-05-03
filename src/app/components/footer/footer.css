@@ -1,0 +1,189 @@
+
+    .footer-wrapper {
+        width: 100%;
+        background: #fff;
+        color: #000;
+        padding: 50px 40px 20px;
+        font-family: "Poppins", sans-serif;
+        box-sizing: border-box;
+    }
+
+    .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+
+    .footer-col {
+        flex: 1;
+        min-width: 220px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-logo {
+        width: 150px;
+        max-width: 100%;
+    }
+
+    .footer-col h3 {
+        font-size: 18px;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .contact-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .contact-list li {
+        font-size: 14.5px;
+        margin-bottom: 8px;
+        color: #333;
+    }
+
+    .contact-list li::before {
+        content: "· ";
+        font-weight: bold;
+    }
+
+    .icon-row {
+        display: flex;
+        justify-content: flex-start;
+        gap: 10px;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+        width: 190px;
+    }
+
+    .icon-row i {
+        font-size: 36px;
+        border-radius: 4px;
+        display: block;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+    }
+
+    .icon-row i:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .footer-copyright {
+        text-align: center;
+        font-size: 14px;
+        font-weight: 600;
+        margin-top: 50px;
+        color: #000;
+    }
+    
+    #login-reduce {
+            display: none;
+        }
+
+    #logout-reduce {
+        display: none;
+    }
+
+
+    /* Media queries */
+
+    @media (max-width: 1024px) {
+
+        .footer-container {
+            justify-content: center;
+        }
+
+        .footer-col:nth-child(1) {
+            order: 4;
+            flex-basis: 100%;
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .footer-col:not(:nth-child(1)) {
+            order: 1;
+            flex: 1;
+            min-width: 200px;
+        }
+    }
+
+    @media (max-width: 767px) {
+
+        .footer-wrapper {
+            padding: 30px 20px 20px;
+        }
+
+        .footer-container {
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .footer-col {
+            width: 100%;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 15px 0;
+            align-items: flex-start;
+            flex-basis: auto;
+        }
+
+        .footer-col:nth-child(1) {
+            order: 4;
+            border-bottom: none;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .footer-col h3 {
+            width: 100%;
+            margin: 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .footer-col h3::after {
+            content: '\2304';
+            font-size: 22px;
+            transition: transform 0.8s ease;
+        }
+
+        .footer-col .contact-list,
+        .footer-col .icon-row {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            margin: 0;
+            width: 100%;
+            transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, margin-top 0.4s ease-in-out;
+        }
+
+        .footer-col.active .contact-list,
+        .footer-col.active .icon-row {
+            max-height: 300px;
+            opacity: 1;
+            margin-top: 16px;
+        }
+
+        .footer-col.active h3::after {
+            transform: rotate(180deg);
+        }
+
+        .footer-copyright {
+            margin-top: 30px;
+            font-size: 13px;
+        }
+    }
