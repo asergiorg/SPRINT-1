@@ -12,3 +12,227 @@
         margin:0;
         padding:0
     }
+     
+    /* Estilos comúnes de los modales */
+
+    .modal-overlay {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, .6);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .modal-wrapper {
+        width: 420px;
+        background: purple;
+        color: #fff;
+        border-radius: 10px;
+        padding: 30px 40px;
+        position: relative;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .modal-wrapper h1 {
+        font-size: 36px;
+        text-align: center;
+    }
+
+    .modal-wrapper .input-box {
+        position: relative;
+        width: 100%;
+        height: 50px;
+        margin: 30px 0;
+    }
+
+    .modal-wrapper .input-box input,
+    .modal-wrapper .input-box select {
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        outline: none;
+        border: 2px solid rgba(255, 255, 255, .2);
+        border-radius: 40px;
+        font-size: 16px;
+        color: #fff;
+        padding: 0 20px;
+        font-family: "Poppins", sans-serif;
+        appearance: none;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .modal-wrapper .input-box input::placeholder {
+        color: #fff;
+    }
+
+    .modal-wrapper .input-box select option {
+        color: #333;
+    }
+
+    .input-box i {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 20px;
+        pointer-events: none;
+    }
+
+    input[type="password"]::-ms-reveal,
+    input[type="password"]::-ms-clear {
+        display: none !important;
+    }
+
+    input[type="password"]::-webkit-credentials-auto-fill-button {
+        visibility: hidden;
+        display: none !important;
+        pointer-events: none;
+    }
+
+    .input-box i.toggle-password {
+        pointer-events: auto !important; 
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    .modal-wrapper .input-box label {
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        transform: translateY(-50%);
+        color: rgba(255, 255, 255, .7);
+        font-size: 16px;
+        pointer-events: none;
+        transition: all 0.3s ease;
+    }
+
+    .modal-wrapper .input-box input:focus ~ label,
+    .modal-wrapper .input-box input:not(:placeholder-shown) ~ label,
+    .modal-wrapper .input-box select:focus ~ label,
+    .modal-wrapper .input-box select:valid ~ label,
+    .modal-wrapper .input-box input[type="date"] ~ label {
+        top: 0;
+        font-size: 13px;
+        color: #fff;
+        background: purple;
+        padding: 0 5px;
+    }
+
+    .modal-wrapper .input-box input:focus,
+    .modal-wrapper .input-box select:focus {
+        border-color: #fff;
+        box-shadow: 0 0 10px rgba(255, 255, 255, .3);
+    }
+
+    .modal-wrapper .input-box input:not(:placeholder-shown):invalid {
+        border-color: #ff6b6b;
+        box-shadow: 0 0 5px rgba(255, 107, 107, 0.5);
+    }
+
+    .modal-checkbox-row label input {
+        accent-color: #fff;
+        margin-right: 3px;
+    }
+
+    .modal-checkbox-row a {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .modal-checkbox-row a:hover {
+        text-decoration: underline;
+        color: #e0e0e0;
+    }
+
+    .modal-wrapper .btn-submit {
+        width: 100%;
+        height: 45px;
+        background: #fff;
+        border: none;
+        outline: none;
+        border-radius: 40px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+        cursor: pointer;
+        font-size: 16px;
+        color: #333;
+        font-weight: 600;
+        font-family: "Poppins", sans-serif;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .modal-wrapper .btn-submit:hover {
+        background-color: #d8b4fe;  
+        transform: scale(1.02);
+    }
+
+    .modal-wrapper .signup-link {
+        font-size: 14.5px;
+        text-align: center;
+        margin: 20px 0 15px;
+    }
+
+    .signup-link p a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s;
+    }
+
+    .signup-link p a:hover {
+        text-decoration: underline;
+        color: #e0e0e0;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 28px;
+        color: #fff;
+        cursor: pointer;
+        background: none;
+        border: none;
+        outline: none;
+        transition: color 0.3s;
+    }
+
+    .close-btn:hover {
+        color: #ccc;
+    }
+
+    /* Estilos específicos del login-modal */
+
+    .login-modal .login-remember-forgot {
+        display: flex;
+        justify-content: space-between;
+        font-size: 14.5px;
+        margin: -15px 0 15px;
+    }
+
+    /* Estilos específicos del signup-modal */
+
+    .signup-modal .modal-wrapper {
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .signup-modal .signup-terms {
+        font-size: 14.5px;
+        margin: -15px 0 15px;
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+    }
